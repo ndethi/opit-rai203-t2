@@ -26,13 +26,18 @@ This is especially intsturmental in processing sensor data for IoT and Smart Lif
 
 # Exercise 1: Smart Life Technologies 
 
-## Task 1: Investing in smart tech
+## Task 1: Investing in Smart Life Technologies
 
-### Market landscape and opportunities
+### Raising Kids Smart, An Opporuntity for LifeX
 
-### Alignment with LifeX capabilities 
+Central to LifeX' mission is augmenting life through smart technologies. The X in LifeX points to the multiplicative potential of technology to enhance quality of life. and nowhere is this more needed than in the increasingly busy lives of middle class parents raising toddlers.
 
-### Financial justification and ROI
+Now more than ever, owing to dire economic times both parents are working full time jobs and with more corporations rethinking their work from home policies - increasingly pushing for a return to full time office work, young middle class parents are turning to full time nannies to take care of their toddlers. 
+
+While the human touch of a good nanny is irreplaceable, nannies may not effectively juggle playtime and keeping track of a baby's vitals by the minute. Thus parents could do with a technological intervention to actively monitor their kid's wellbeing while they are away. Enter the LifeX Smart AI Baby Monitor
+
+### Lifex Smart AI Baby Monitor
+
 
 ## Task 2: Virtualization and cloud
 
