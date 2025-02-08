@@ -1,1 +1,9 @@
-
+---
+title: "Assessment 1: Smart Life and Edge Cloud Technologies"
+author: "Watson Ndethi"
+date: 'Feb 9, 2025'
+format: 
+    pdf:
+        toc: true
+        number-sections: true
+---
