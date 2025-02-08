@@ -6,4 +6,90 @@ format:
     pdf:
         toc: true
         number-sections: true
+        column: 
+          body-columns: [50,50]
 ---
+
+# Introduction
+
+## Background on smart life technologies and edge cloud computing
+
+## Objectives and scope of the report
+
+# Exercise 1: Smart Life Technologies 
+
+## Task 1: Investing in smart tech
+
+### Market landscape and opportunities
+
+### Alignment with LifeX capabilities 
+
+### Financial justification and ROI
+
+## Task 2: Virtualization and cloud
+
+### Role of virtualization in smart homes
+
+### Cloud service models for smart tech
+
+### Cloud native approaches and benefits  
+
+## Task 3: AI deployment options
+
+### Centralized cloud AI architecture 
+
+### Edge AI architecture
+
+### Hybrid approach considerations
+
+## Recommendation for LifeX  
+
+### Proposed approach and rationale
+
+### Implementation roadmap and next steps
+
+# Exercise 2: Edge Cloud Computing
+
+## Task 1: Cloud vs edge 
+
+### Defining characteristics and trade-offs
+
+### Cloud computing use cases and benefits
+
+### Edge computing use cases and benefits
+
+### Hybrid cloud-edge architecture
+
+## Task 2: Public vs private cloud
+
+### Public cloud characteristics and considerations
+
+### Private cloud characteristics and considerations
+
+### EdgeX requirements and strategic fit
+
+## Task 3: IoT edge analytics 
+
+### IoT data lifecycle and edge analytics
+
+### Edge analytics use cases and benefits 
+
+### Challenges and considerations for adoption
+
+## Recommendation for EdgeX
+
+### Priority industries and use cases
+
+### Phased adoption plan and success metrics  
+
+# Conclusion 
+
+## Recap of key findings and recommendations
+
+## Future outlook for smart life and edge technologies
+
+## Implications and opportunities for LifeX and EdgeX
+
+# References 
+
+# Appendices (if applicable)
