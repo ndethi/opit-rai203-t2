@@ -20,9 +20,9 @@ Smart life is enabled by the intersection of the web of smart sensor embedded de
 Take for instance a smart security light that will automatically dim itself at dawn, or send a notification to a home owner when its motion sensor is triggered by movement at night. 
 
 ### Edge Cloud Computing
-As the term edge suggests, this paradigm involves placing cloud resources in close proximity to where data to be stored in the cloud instance is generated, where end users are located. The main motivation for this arrangement being reducted data latency and increased availability of resources.
+As the term edge suggests, this paradigm involves placing cloud resources in close proximity to where data is generated and where end users are located. The main motivation for this architecture being reducted data latency (as data is transmitted via a shorter route) and maintaining high availability of compute resources. 
 
-## LifeX and EdgeX Use Cases
+This is especially intsturmental in processing sensor data for IoT and Smart Life applications.
 
 # Exercise 1: Smart Life Technologies 
 
