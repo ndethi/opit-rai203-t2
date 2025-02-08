@@ -37,7 +37,13 @@ Now more than ever, owing to dire economic times both parents are working full t
 While the human touch of a good nanny is irreplaceable, nannies may not effectively juggle playtime and keeping track of a baby's vitals by the minute. Thus parents could do with a technological intervention to actively monitor their kid's wellbeing while they are away. Enter the LifeX Smart AI Baby Monitor
 
 ### Lifex Smart AI Baby Monitor
+Lifex Smart AI Baby Monitor is a dual device system comprising of a smart camera and a smart wristband. The smart camera mountable on a standard baby crib records footage and audio of the baby while the wearable, 
+monitors , in the similar fashion to smart watches, the baby's vitals - heart rate, temperature, oxygen levels,etc. The two devices stay interconnected via a low power bluetooth connection. They send a stream of multimodal data(audio, visual, text) to a hosted ai model that runs analytics on the data and presents metrics to on a dashboard accessible via an app on the parents smartphone. 
+It can also integrate with existing smart assistants present in the home to send local notifications to the nanny in case of vitals metrics threshold breaches. For instance it can trigger dimming of the smart bulb in the childs room, play lullabies on the Amazon Alexa when the baby is snoozing or crying. The parent can also talk to
+While the 
 
+### Finacial Model
+The Lifex Smart AI Baby Monitor starter hardware(camera and wristband) will be sold as a bundle for a one time fee of $200. Henceforth users will pay a $30 a month subscription to use the app and AI service. Partnerships with health facilities will allow LifeX to subsidize the cost for new parents with the caveat that they will allow 
 
 ## Task 2: Virtualization and cloud
 
