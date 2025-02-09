@@ -34,7 +34,7 @@ Central to LifeX' mission is augmenting life through smart technologies. The X i
 
 Now more than ever, owing to dire economic times both parents are working full time jobs and with more corporations rethinking their work from home policies - increasingly pushing for a return to full time office work, young middle class parents are turning to full time nannies to take care of their toddlers. 
 
-While the human touch of a good nanny is irreplaceable, nannies may not effectively juggle playtime and keeping track of a baby's vitals by the minute. Thus parents could do with a technological intervention to actively monitor their kid's wellbeing while they are away. Enter the LifeX Smart AI Baby Monitor
+While the human touch of a good nanny is irreplaceable, nannies may not effectively juggle playtime and keeping track of a baby's vitals by the minute. Thus parents could do with a technological intervention to actively monitor their kid's wellbeing while they are away. Enter the LifeX Smart AI Baby Monitor.
 
 ### Lifex Smart AI Baby Monitor
 Lifex Smart AI Baby Monitor is a dual device system comprising of a smart camera and a smart wristband. The smart camera mountable on a standard baby crib records footage and audio of the baby while the wearable, 
@@ -60,11 +60,16 @@ In addition, As Big Tech corps retain the ascendancy of the most powerful comput
 ## Task 3: Centralized AI vs. Edge AI 
 
 ### Centralized AI
-The idea of centralized AI 
+The centralized AI idea involves sending data from smart devices to a central location for analysis and processing. While network intensive and bearing higher latencies, processing in the cloud has the undeniable benefit where thin smart devices with little processing power can leverage the power of more capable cloud servers. 
+In the case of Lifex' AI Baby Monitor, sending its data to a centralized ai would allow the AI model to also collect data and learn from multiple monitors, resulting in a richer dataset. In terms of design it would allow a simpler design for the two part monitor hardware as it would not need to be as powerful as it would be if it were to process the data locally.
 
 ### Edge AI
+Edge AI in contrast involves processing data on device or closer to where the data is generated as much as possible. In the case of our baby monitor, the wristband could be designed to send data to the monitor hardware via a low powered bluetooth connection or some form of wifi connection. The chip in the monitor would then process the data locally - with new advancements in small language models and distillation techniques (where a smaller model can learn utilizing the outputs of a larger model) it is possible to run a 1-2B parameter model on device ) and send only the more critical data to the cloud for further processing. This would reduce the amount of data sent to the cloud saving on bandwidth and reduce the latency of the system. Additionally containing the data on device enhances the overall security of a system so vitally in need of privacy as a baby monitor.
 
-## Recommendation for LifeX  
+### No one size fits all  
+
+## Recommendation for LifeX
+
 
 ### Proposed approach and rationale
 
