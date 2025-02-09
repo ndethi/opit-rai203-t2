@@ -24,9 +24,9 @@ As the term edge suggests, this paradigm involves placing cloud resources in clo
 
 This is especially intsturmental in processing sensor data for IoT and Smart Life applications.
 
-# Exercise 1: Smart Life Technologies 
+# Exercise 1: Smart Life Technologies at LifeX 
 
-## Task 1: Investing in Smart Life Technologies
+## Investing in Smart Life Technologies
 
 ### Raising Kids Smart, An Opporuntity for LifeX
 
@@ -45,7 +45,7 @@ While the
 ### Finacial Model
 The Lifex Smart AI Baby Monitor starter hardware(camera and wristband) will be sold as a bundle for a one time fee of $200. Henceforth users will pay a $30 a month subscription to use the app and AI service. Partnerships with health facilities will allow LifeX to subsidize the cost for new parents with the caveat that they will allow 
 
-## Task 2: Virtualization and Cloud Computing - Foundational Pillars of Smart Life Technologies
+## Virtualization and Cloud Computing - Foundational Pillars of Smart Life Technologies
 
 ### Virtualization
 By using software to create simulated hardware or software components, we can ensure more efficient utilization of resources used my smart life tech. Using LifeX' on prem servers as an example, using virtualization locally through VMWare would allow LifeX to run multiple instances of the Smart Baby AI monitor across different Operating Systems without having to purchase extra hardware.
@@ -57,7 +57,7 @@ Broad network access means connected IOT devices powering smart life tech anywhe
 That cloud resources are a measured service, means services consumed are billed based on utilization of resources which supports pragmatic decision making around budgeting and pricing of products and services LifeX offfers.
 In addition, As Big Tech corps retain the ascendancy of the most powerful compute hardware (e.g NVidia has dominated the GPU market for a while) , cloud computing offers smaller players in the market more affordable access to the power of High Performance Computing which they would otherwise forfeit because of the high acquisition costs.
 
-## Task 3: Centralized AI vs. Edge AI 
+## Centralized AI vs. Edge AI 
 
 ### Centralized AI
 The centralized AI idea involves sending data from smart devices to a central location for analysis and processing. While network intensive and bearing higher latencies, processing in the cloud has the undeniable benefit where thin smart devices with little processing power can leverage the power of more capable cloud servers. 
@@ -79,7 +79,7 @@ Cloud is not cheap - the more api calls you make the more you pay. To sustainabl
 
 # Exercise 2: Edge Cloud Computing
 
-## Task 1: Cloud vs Edge 
+## Cloud vs Edge 
 
 ### Defining Characteristics and Key Differences
 
@@ -92,39 +92,43 @@ One common use case of cloud computing is in the provision of Software as a Serv
 On the contrary, edge computing brings cloud resourcees in close proximity to where the data is being generated and where end users are located rather than trasmitting it to a distant cloud server. This is particularly useful in situations where data latency is a concern.  For example, in the case of a self driving vehicle, the data from the vehicle's myriad sensors and cameras needs to be processed in real time to facilitate split second turn by turn navigation of the vehicle. 
 To enable this, for instance on a Tesla sensor data is processed on the onboard computer system on chip (SoC) rather than being sent to a remote cloud server for processing. This reduces the latency of the system and ensures the vehicle can make decisions in real time.
 
-## Task 2: Public vs Private Cloud - Which is the Better Fit for EdgeX?
+## Private Cloud vs Public Cloud
 To be able to determine which of the two architectures better fits the needs of EdgeX, we need to first understand the defining characteristics of each architecture and then evaluate how these characteristics align with the needs of EdgeX.
 
-### Public cloud characteristics and considerations
-A public cloud architecture involves the use of cloud resources that are delivered over the internet and shared across multiple organizations. 
-Providers of public cloud resources
+### Public Cloud Characteristics and Considerations
+A public cloud architecture involves the use of cloud resources that are delivered over the internet and shared across multiple organizations and users. 
+Providers of public cloud resources include Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). Some of the key defining characteristics of public cloud include:
+- Shared resources: Resources are shared amongst many users, leading to reduced costs
+- Low upfront costs: Users pay only for what they use, making it cost-effective
+- Low maintenance: The cloud provider takes care of maintenance and updates
 
-### Private cloud characteristics and considerations
+### Private Cloud Characteristics and Considerations
+On the contrary a private cloud architecture entails the use of cloud resources dedicated to a single organisation. The cloud resources are not shared with other organisations.
+Some of the key defining characteristics of private cloud include:
+- Dedicated resources: Cloud resources are dedicated to a single organisation
+- High upfront costs: Setting up a private cloud can be expensive
+- More secure: Data is not shared with other organisations, leading to increased security
 
-### EdgeX requirements and strategic fit
+### EdgeX Fit Evaluation
+Seeing that the EdgeX brief expressly states that the Cloud Infrastructure Engineer should design towards reduced data latency and high availability, it is abundantly clear a public cloud architecture on the edge would be the better option. 
+To achieve high availability requires a robust network of servers that can be accessed globally from anywhere. Public cloud providers e.g AWS have data centres in multiple regions globally, ensuring one - unprecedented redundancy and two - low latency because of proximity to regional users considering the spread of the data centers.
+This recommendation is made with the assumption that EdgeX is a small to medium sized enterprise with a limited budget for compute and seeing that their utmost priorities can be met by a public cloud architecure,spending on a private cloud might be difficult to justify at this juncture.  
 
-## Task 3: IoT edge analytics 
+## Real-time IoT Analytics 
 
-### IoT data lifecycle and edge analytics
-
-### Edge analytics use cases and benefits 
-
-### Challenges and considerations for adoption
+### IoT and Edge Computing - A Match Made in Heaven
+First, a definition of the terms is in order. The Internet of Things(IoT) can be referred to as a web of interconnected smart devices that communicate with each other and the internet. Edge computing as earlier explained involves placing cloud resources(compute, storage networking etc) in closer proximity to where the data is being generated with an aim to reduce data latency.
+To effectively process the data generated by IoT devices in real time, we need to leverage the power of the compute resources available on the cloud, but closer to the IoT devices ( so as to stay realtime) - hence the need for edge computing. This is especially important for EdgeX as they are in the business of providing real time analytics to their customers. Services like AWS IoT Greengrass \[@aws-greengrass] and AWS Local Zones \[@aws-local-zones] could be instrumental in achieving this real-time analytics for EdgeX.
 
 ## Recommendation for EdgeX
-
-### Priority industries and use cases
-
-### Phased adoption plan and success metrics  
-
-# Conclusion 
-
-## Recap of key findings and recommendations
-
-## Future outlook for smart life and edge technologies
-
-## Implications and opportunities for LifeX and EdgeX
+Jensen Huang, the CEO of Nvidia, recently said that the next wave of AI is physical AI - AI that interacts with the physical world \[@huang-physical-ai]. T
+That Jensen is a visionary figure in the AI domain is undeniable, the success Nvidia has had in the AI hardware space and the up and up trajectory of the Nvidia stock is testament to his foresight to a fair degree. As this robotics future unfolds, we can bet that big tech and highly funded startups will continue to dominate the hardware aspects of the space. A bigger playing ground for smaller players like EdgeX will be in the robotics software space. 
+First mover advantage will be key in cementing EdgeX position as a leader in the robotics software space. To this end, I would recommend that EdgeX set aside an R&D budget to develop a proprietary realtime analytics platform that will allow smart home tech devices to communicate with humanoids and other robots. Imagine if EdgeX could provide a platform that would allow a humanoid to act as a local hub for all smart home devices in a home, effectively acting as an edge server for all the smart devices in the home but now with agency to act on realtime data from the smart home tech.
+This would be a game changer in the smart home tech space and would position EdgeX as a leader in the robotics software space , attracting more investment and partnerships with big tech and other robotics startups.
 
 # References 
 
-# Appendices (if applicable)
+1. Google Docs. (n.d.). Retrieved from https://www.google.com/docs/about/
+2. AWS IoT Greengrass. (n.d.). Retrieved from https://aws.amazon.com/greengrass/
+3. AWS Local Zones. (n.d.). Retrieved from https://aws.amazon.com/local-zones/
+4. Huang, J. (2022). Physical AI. Nvidia. Retrieved from https://www.nvidia.com/en-us/ai-physical-ai/
