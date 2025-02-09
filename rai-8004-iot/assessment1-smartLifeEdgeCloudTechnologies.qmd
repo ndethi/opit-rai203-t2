@@ -79,26 +79,25 @@ Cloud is not cheap - the more api calls you make the more you pay. To sustainabl
 
 # Exercise 2: Edge Cloud Computing
 
-## Task 1: Cloud vs edge 
+## Task 1: Cloud vs Edge 
 
 ### Defining Characteristics and Key Differences
 
 #### Cloud Computing
-Cloud computing involves utilizing a web of servers remotely hosted on the internet to store manage and process data. These servers typically will be installed in data centers in remote locations often far from end-users they serve. These servers provide storage,compute and networking capabilities to end users on demand.
+Cloud computing involves utilizing a web of servers remotely hosted on the internet to store, manage and process data. These servers typically will be installed in data centers in remote locations far from end-users they serve.(as opposed to in edge computing) These servers provide storage,compute and networking capabilities to end users on demand.
+
+One common use case of cloud computing is in the provision of Software as a Service (SaaS) products. For instance, Google Docs, a cloud based word processor, allows users to create, edit and share documents online \[@google-docs]. The processing of the document is done on Google's servers and the user only needs a web browser to access the service.
 
 #### Edge Computing
-On the contrary, edge computing 
+On the contrary, edge computing brings cloud resourcees in close proximity to where the data is being generated and where end users are located rather than trasmitting it to a distant cloud server. This is particularly useful in situations where data latency is a concern.  For example, in the case of a self driving vehicle, the data from the vehicle's myriad sensors and cameras needs to be processed in real time to facilitate split second turn by turn navigation of the vehicle. 
+To enable this, for instance on a Tesla sensor data is processed on the onboard computer system on chip (SoC) rather than being sent to a remote cloud server for processing. This reduces the latency of the system and ensures the vehicle can make decisions in real time.
 
-
-### Cloud computing use cases and benefits
-
-### Edge computing use cases and benefits
-
-### Hybrid cloud-edge architecture
-
-## Task 2: Public vs private cloud
+## Task 2: Public vs Private Cloud - Which is the Better Fit for EdgeX?
+To be able to determine which of the two architectures better fits the needs of EdgeX, we need to first understand the defining characteristics of each architecture and then evaluate how these characteristics align with the needs of EdgeX.
 
 ### Public cloud characteristics and considerations
+A public cloud architecture involves the use of cloud resources that are delivered over the internet and shared across multiple organizations. 
+Providers of public cloud resources
 
 ### Private cloud characteristics and considerations
 
