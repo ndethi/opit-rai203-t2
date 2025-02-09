@@ -45,7 +45,7 @@ It can also integrate with existing smart assistants present in the home to send
 While the 
 
 ### Finacial Model
-The Lifex Smart AI Baby Monitor starter hardware(camera and wristband) will be sold as a bundle for a one time fee of $200. Henceforth users will pay a $30 a month subscription to use the app and AI service. Partnerships with health facilities will allow LifeX to subsidize the cost for new parents with the caveat that they will allow 
+The Lifex Smart AI Baby Monitor starter hardware(camera and wristband) will be sold as a bundle for a one time fee of $200. Henceforth users will pay a $30 a month subscription to use the app and AI service. Partnerships with health facilities will allow LifeX to subsidize the cost for new parents with the caveat that they will allow potential partners to access anonymized data for research purposes.
 
 ## Virtualization and Cloud Computing - Foundational Pillars of Smart Life Technologies
 
