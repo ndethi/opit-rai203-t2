@@ -1,5 +1,7 @@
 ---
 title: "Assessment 1: Smart Life and Edge Cloud Technologies"
+footer: "RAI-8004, Assemesment 1, Smart Life and Edge Cloud Technologies"
+pagenumbering: "true"
 author: "Watson Ndethi"
 date: 'Feb 9, 2025'
 format: 
