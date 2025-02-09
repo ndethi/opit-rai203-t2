@@ -81,7 +81,14 @@ Cloud is not cheap - the more api calls you make the more you pay. To sustainabl
 
 ## Task 1: Cloud vs edge 
 
-### Defining characteristics and trade-offs
+### Defining Characteristics and Key Differences
+
+#### Cloud Computing
+Cloud computing involves utilizing a web of servers remotely hosted on the internet to store manage and process data. These servers typically will be installed in data centers in remote locations often far from end-users they serve. These servers provide storage,compute and networking capabilities to end users on demand.
+
+#### Edge Computing
+On the contrary, edge computing 
+
 
 ### Cloud computing use cases and benefits
 
