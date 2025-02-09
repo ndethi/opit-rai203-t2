@@ -45,21 +45,24 @@ While the
 ### Finacial Model
 The Lifex Smart AI Baby Monitor starter hardware(camera and wristband) will be sold as a bundle for a one time fee of $200. Henceforth users will pay a $30 a month subscription to use the app and AI service. Partnerships with health facilities will allow LifeX to subsidize the cost for new parents with the caveat that they will allow 
 
-## Task 2: Virtualization and cloud
+## Task 2: Virtualization and Cloud Computing - Foundational Pillars of Smart Life Technologies
 
-### Role of virtualization in smart homes
+### Virtualization
+By using software to create simulated hardware or software components, we can ensure more efficient utilization of resources used my smart life tech. Using LifeX' on prem servers as an example, using virtualization locally through VMWare would allow LifeX to run multiple instances of the Smart Baby AI monitor across different Operating Systems without having to purchase extra hardware.
 
-### Cloud service models for smart tech
+### Cloud Computing
+Cloud Computing provides access to a shared pool of compute resources. By leveraging the five key characteristics of cloud computing as defined by NIST:
+On-demand self-service cuts out proxies between LifeX and the compute resources provider - bolstering unfettered and immediate access 
+Broad network access means connected IOT devices powering smart life tech anywhere in the world can acccess compute resources as long as they are so configured. Through resource pooling, economies of scale enter the equation allowing smaller players like LifeX to essentially afford compute. Rapid elasticity is key to flexible and instant scaling of compute needs depending on demand of resources - offloading the on prem scaling timing headache.
+That cloud resources are a measured service, means services consumed are billed based on utilization of resources which supports pragmatic decision making around budgeting and pricing of products and services LifeX offfers.
+In addition, As Big Tech corps retain the ascendancy of the most powerful compute hardware (e.g NVidia has dominated the GPU market for a while) , cloud computing offers smaller players in the market more affordable access to the power of High Performance Computing which they would otherwise forfeit because of the high acquisition costs.
 
-### Cloud native approaches and benefits  
+## Task 3: Centralized AI vs. Edge AI 
 
-## Task 3: AI deployment options
+### Centralized AI
+The idea of centralized AI 
 
-### Centralized cloud AI architecture 
-
-### Edge AI architecture
-
-### Hybrid approach considerations
+### Edge AI
 
 ## Recommendation for LifeX  
 
