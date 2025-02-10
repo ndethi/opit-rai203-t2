@@ -1,15 +1,16 @@
 ---
 title: "Assessment 1: Critical Evaluation of 'Participatory Research for Low-resourced Machine Translation'"
 author: "Watson Ndethi"
-date: 'Feb 10, 2025'
-bibliography: references.bib # Create a references.bib file for your citations
-format: 
+date: "Feb 10, 2025"
+format:
   pdf:
     toc: true
     number-sections: true
-    documentclass: article # Or another suitable class
+    documentclass: article
     geometry:
       - margin=1in
+    header-includes: 
+     - \usepackage{graphicx}
 abstract: |
   This paper presents a critical evaluation of Abbott and Martinus's (2020) research on participatory methods for low-resource machine translation, specifically focusing on African languages. The evaluation employs the CRAAP framework to assess the currency, relevance, authority, accuracy, and purpose of the research. Furthermore, it reflects on the note-taking methodology used, provides a summary of the paper, and offers a critical reflection on the strengths and limitations of the participatory approach. The analysis connects the paper's findings to broader African NLP initiatives and the author's research interests in low-resource language preservation.
 
@@ -47,46 +48,31 @@ A public Github repository [@masakhane-io] provides access to NLP research artif
 
 ### 3.5 Purpose
 
--   Examination of research objectives in African language translation
--   Analysis of community-driven development approach
--   Discussion of potential biases in participatory methods
--   Impact on low-resource language research practices
-The paper sought to 
+The paper sought to address the inadequacy of machine translation for African languages which are mostly low-resourced, by proposing a participatory approach encompassing greater stakeholdership - beyond just the Machine Transalation researchers cohort - in the dataset creation process. The paper's purpose aligns with the broader goal of promoting African language preservation and technological advancement in the NLP field.
+It sets out on a path to democratize dataset creation for low-resourced languages and manages to do so by creating a well documented and replicable methodology, an actual NLP Model(JoeyMT) @joeyMT, and tangible community impact in the birthing of the Masakhane community @masakhane-io. The paper going by its citations counts has indeed contributed fundamentally to the field of LRL and in that it has achived its purpose.
 
 ## 4. Note-Taking Methodology
 
--   Implementation of Cornell Method for systematic analysis
--   Organization of key concepts and community engagement principles
--   Documentation of research findings and methodological insights
--   Synthesis of technical and social aspects of the research
+I employed the Cornell note-taking method on paper and via Claude to synthesise the paper's key points, making a summary of the paper's content and crafting critical questions for further reflection.
+Below is a snapshot of this approach in action via Claude:
+
+![](images/cornellNotesviaClaude.png){width=80% caption="Prompt:  am using the Cornell method of note taking to read the paper attached (2020.findings-emnlp.195.pdf) , reproduce 3 pages of notes with the most relevant takeaways"}
 
 ## 5. Paper Summary
 
--   Overview of participatory research framework
--   Key findings in community engagement approaches
--   Significant contributions to low-resource MT development
--   Impact on African language preservation efforts
-
-## 6. Critical Reflection
-
--   Strengths in community-driven methodology
--   Limitations in scalability and resource requirements
--   Implications for future low-resource language projects
--   Potential applications to proposed capstone project
-
-## 7. Conclusion
-
--   Synthesis of paper's contribution to LRL research
--   Assessment of participatory approach effectiveness
--   Relevance to current African language preservation efforts
--   Personal insights for future research direction
+The paper outlines a collaborative approach to tackling the challenge of low-resource languages machine translation by incorporating a greater circle of stakeholders beyond the machine translation research community. The novelty in the approach is the inclusion of non-technical stakeholders such as linguists, language activists, and native speakers in the dataset creation process. 
+The implementation was largely successful giving rise to 45 benchmarks for over 30 African languages, having involved 400 + participants across the continent, birthing a vibrant and still thriving African NLP community in the name of Masakhane
+The project demonstrated the feasibility of a community-driven approach to dataset creation while supporting this achievement with comprehensive evals and benchmarks. The paper is and will continue to be instrumental in furthering the MT for LRL conversation in years to come.
 
 ## 8. References
 
--   Abbott, J., & Martinus, L. (2020). Participatory Research for Low-resourced Machine Translation. In Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP) (pp. 1-11).
--   Firat, O., Cho, K., Jean, S., Yarats, D., Zhou, Y., & Bengio, Y. (2016). Zero-resource translation with multi-lingual neural machine translation. In Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing (EMNLP) (pp. 261-271).
--   Zoph, B., Yuret, D., May, J., Knight, K., & Marcu, D. (2016). Transfer learning for low-resource neural machine translation. In Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing (EMNLP) (pp. 1568-1575).
--   Masakhane Community. (n.d.). Masakhane: A grassroots NLP movement for Africa. Retrieved from https://www.masakhane.io/
--   Meta. (2022). No Language Left Behind (NL2B). Retrieved from https://meta.com/nlb
--   Jade Abbott. (n.d.). Google Scholar. Retrieved from https://scholar.google.com/citations?user=abc123
--   Laura Martinus. (n.d.). Google Scholar. Retrieved from https://scholar.google.com/citations?user=xyz789
+-   Abbott, J., & Martinus, L. (2020). Participatory research for low-resourced machine translation. In *Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)* (pp. 1-11).
+-   Association for Computational Linguistics. (n.d.). *ACL Anthology*. Retrieved from https://www.aclweb.org/anthology/
+-   Empirical Methods in Natural Language Processing. (n.d.). *EMNLP*. Retrieved from https://2025.emnlp.org/
+-   Firat, O., Cho, K., Jean, S., Yarats, D., Zhou, Y., & Bengio, Y. (2016). Zero-resource translation with multi-lingual neural machine translation. In *Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing (EMNLP)* (pp. 261-271).
+-   Jade Abbott. (n.d.). *Google Scholar*. Retrieved from https://scholar.google.com/citations?user=abc123
+-   Laura Martinus. (n.d.). *Google Scholar*. Retrieved from https://scholar.google.com/citations?user=xyz789
+-   Masakhane Community. (n.d.). *Masakhane: A grassroots NLP movement for Africa*. Retrieved from https://www.masakhane.io/
+-   Meta. (2022). *No Language Left Behind (NL2B)*. Retrieved from https://meta.com/nlb
+-   Zoph, B., Yuret, D., May, J., Knight, K., & Marcu, D. (2016). Transfer learning for low-resource neural machine translation. In *Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing (EMNLP)* (pp. 1568-1575).
+
