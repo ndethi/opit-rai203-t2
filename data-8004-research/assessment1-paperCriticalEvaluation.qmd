@@ -1,0 +1,102 @@
+---
+title: "Assessment 1: Critical Evaluation of 'Participatory Research for Low-resourced Machine Translation'"
+author: "Watson Ndethi"
+date: 'Feb 10, 2025'
+bibliography: references.bib # Create a references.bib file for your citations
+format: 
+  pdf:
+    toc: true
+    number-sections: true
+    documentclass: article # Or another suitable class
+    geometry:
+      - margin=1in
+abstract: |
+  This paper presents a critical evaluation of Abbott and Martinus's (2020) research on participatory methods for low-resource machine translation, specifically focusing on African languages. The evaluation employs the CRAAP framework to assess the currency, relevance, authority, accuracy, and purpose of the research. Furthermore, it reflects on the note-taking methodology used, provides a summary of the paper, and offers a critical reflection on the strengths and limitations of the participatory approach. The analysis connects the paper's findings to broader African NLP initiatives and the author's research interests in low-resource language preservation.
+
+---
+
+## 1. Introduction
+
+-   Overview of the growing importance of machine translation for African languages
+-   Introduction to Abbott and Martinus's participatory research approach
+-   Brief preview of the evaluation framework and report structure
+-   Statement connecting paper selection to personal research interests in LRL preservation
+
+## 2. Paper Selection Justification
+
+-   Alignment with research interest in low-resource languages and dataset creation
+-   Accessibility of technical content for graduate-level analysis
+-   Paper's connection to Masakhane community and broader African NLP initiatives
+-   Relevance to proposed capstone project's focus on community involvement
+
+## 3. Critical Analysis Using CRAAP Framework
+
+### 3.1 Currency (2020 Publication)
+
+-   Analysis of publication timing relative to NLP developments
+-   Discussion of continued relevance in current African language preservation efforts
+-   Examination of paper's influence on subsequent research
+-   Assessment of methodology's current applicability
+
+### 3.2 Relevance
+
+-   Direct connection to low-resource language translation challenges
+-   Analysis of participatory research approach for language preservation
+-   Evaluation of case study methodology's effectiveness
+-   Application to broader language technology initiatives
+
+### 3.3 Authority
+
+-   Authors' backgrounds in African NLP research
+-   EMNLP conference's standing in computational linguistics
+-   Masakhane initiative's reputation in the field
+-   Impact within the African languages research community
+
+### 3.4 Accuracy
+
+-   Evaluation of participatory research methodology
+-   Assessment of case study evidence presentation
+-   Analysis of community engagement metrics
+-   Validation through cited works and subsequent research
+
+### 3.5 Purpose
+
+-   Examination of research objectives in African language translation
+-   Analysis of community-driven development approach
+-   Discussion of potential biases in participatory methods
+-   Impact on low-resource language research practices
+
+## 4. Note-Taking Methodology
+
+-   Implementation of Cornell Method for systematic analysis
+-   Organization of key concepts and community engagement principles
+-   Documentation of research findings and methodological insights
+-   Synthesis of technical and social aspects of the research
+
+## 5. Paper Summary
+
+-   Overview of participatory research framework
+-   Key findings in community engagement approaches
+-   Significant contributions to low-resource MT development
+-   Impact on African language preservation efforts
+
+## 6. Critical Reflection
+
+-   Strengths in community-driven methodology
+-   Limitations in scalability and resource requirements
+-   Implications for future low-resource language projects
+-   Potential applications to proposed capstone project
+
+## 7. Conclusion
+
+-   Synthesis of paper's contribution to LRL research
+-   Assessment of participatory approach effectiveness
+-   Relevance to current African language preservation efforts
+-   Personal insights for future research direction
+
+## 8. References
+
+-   Abbott and Martinus (2020) primary citation
+-   Supporting literature on participatory research methods
+-   Related works in African language preservation
+-   Methodological framework references
