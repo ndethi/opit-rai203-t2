@@ -2,6 +2,7 @@
 title: "Assessment 1: Critical Evaluation of 'Participatory Research for Low-resourced Machine Translation'"
 author: "Watson Ndethi"
 date: "Feb 10, 2025"
+bibliography: "a1-references.bib"
 format:
   pdf:
     toc: true
