@@ -7,6 +7,7 @@ csl: apa.csl
 format:
   pdf:
     number-sections: true
+    number-figures: true
     documentclass: article
     geometry:
       - margin=1in
