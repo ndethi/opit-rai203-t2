@@ -45,12 +45,12 @@ The annual Empirical Methods in Natural Language Processing (EMNLP) conference, 
 ### 3.4 Accuracy
 
 The paper clearly outlines the data collection and dataset creation process, associated quality control processes, model development (JoeyMT) and benchmarking and evaluation metrics. Renowned benchmark tests like BLEU, ChrF and TER form part of the eval methodology.
-A public Github repository [@masakhane-io] provides access to NLP research artifacts such as datasets, benchmarks and models code and datasets enabling reproducibility and further research. An extensive bibliography , including citations to foundational work in Machine Translation e.g @firat-2016-zero @zoph-2016-transfer
+A public Github repository [@masakhane] provides access to NLP research artifacts such as datasets, benchmarks and models code and datasets enabling reproducibility and further research. An extensive bibliography, including citations to foundational work in Machine Translation e.g. [@firat2016zero] [@zoph2016transfer]
 
 ### 3.5 Purpose
 
 The paper sought to address the inadequacy of machine translation for African languages which are mostly low-resourced, by proposing a participatory approach encompassing greater stakeholdership - beyond just the Machine Transalation researchers cohort - in the dataset creation process. The paper's purpose aligns with the broader goal of promoting African language preservation and technological advancement in the NLP field.
-It sets out on a path to democratize dataset creation for low-resourced languages and manages to do so by creating a well documented and replicable methodology, an actual NLP Model(JoeyMT) @joeyMT, and tangible community impact in the birthing of the Masakhane community @masakhane-io. The paper going by its citations counts has indeed contributed fundamentally to the field of LRL and in that it has achived its purpose.
+It sets out on a path to democratize dataset creation for low-resourced languages and manages to do so by creating a well documented and replicable methodology, an actual NLP Model (the citation for JoeyMT has been removed) and tangible community impact in the birthing of the Masakhane community [@masakhane]. The paper, going by its citation counts, has indeed contributed fundamentally to the field of LRL and in that it has achieved its purpose.
 
 ## 4. Note-Taking Methodology
 
@@ -66,14 +66,4 @@ The implementation was largely successful giving rise to 45 benchmarks for over 
 The project demonstrated the feasibility of a community-driven approach to dataset creation while supporting this achievement with comprehensive evals and benchmarks. The paper is and will continue to be instrumental in furthering the MT for LRL conversation in years to come.
 
 ## 8. References
-
--   Abbott, J., & Martinus, L. (2020). Participatory research for low-resourced machine translation. In *Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)* (pp. 1-11).
--   Association for Computational Linguistics. (n.d.). *ACL Anthology*. Retrieved from https://www.aclweb.org/anthology/
--   Empirical Methods in Natural Language Processing. (n.d.). *EMNLP*. Retrieved from https://2025.emnlp.org/
--   Firat, O., Cho, K., Jean, S., Yarats, D., Zhou, Y., & Bengio, Y. (2016). Zero-resource translation with multi-lingual neural machine translation. In *Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing (EMNLP)* (pp. 261-271).
--   Jade Abbott. (n.d.). *Google Scholar*. Retrieved from https://scholar.google.com/citations?user=abc123
--   Laura Martinus. (n.d.). *Google Scholar*. Retrieved from https://scholar.google.com/citations?user=xyz789
--   Masakhane Community. (n.d.). *Masakhane: A grassroots NLP movement for Africa*. Retrieved from https://www.masakhane.io/
--   Meta. (2022). *No Language Left Behind (NL2B)*. Retrieved from https://meta.com/nlb
--   Zoph, B., Yuret, D., May, J., Knight, K., & Marcu, D. (2016). Transfer learning for low-resource neural machine translation. In *Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing (EMNLP)* (pp. 1568-1575).
-
+```{bibliography}
