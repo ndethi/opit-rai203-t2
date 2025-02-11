@@ -17,53 +17,49 @@ abstract: |
 
 ---
 
-## 1. Introduction
-My interest in the paper "Participatory Research for Low-resourced Machine Translation" by Abbott and Martinus (2020) stems from a curiosity about how technology specifically Machine Translation could be used to promote uptake of learning and speaking of Kikuyu, my mothertongue and by all measure a low-resourced language, amongst the younger generation of that community while leveraging collaborative creation of annotatable datasets from the older generation who speak it better. 
-The paper's focus on participatory research methods for low-resource machine translation aligns with my research interest in collaboratively developing datasets for low-resourced languages through crowd-sourcing and community engagement. 
-A discussion of broader NLP initiatives particularly in Africa through the Masakhane Community adds to the relevance of the paper in the context of my research goals.
+## Introduction
+My interest in the paper "Participatory Research for Low-resourced Machine Translation" by Abbott and Martinus (2020) stems from a curiosity about how Machine Translation could be used to promote uptake of Kikuyu, my mothertongue, while leveraging collaborative creation of annotatable datasets from the older generation.
 
+## Critical Analysis Using CRAAP Framework
 
-## 3. Critical Analysis Using CRAAP Framework
-
-### 3.1 Currency (2020 Publication)
+### Currency (2020 Publication)
 
 Five years on (2025), post the EMNLP event where the paper was unveiled and even in the wake of major advancements in AI (reasoning Models, Transformer 2 architecture), more recent research @emnlp shows African Languages still remain massively low-resourced.
-Even when there have been more recent notable attempts at creation of datasets for LRL, for example the No Language Left Behind (NL2B) initiative by Meta @meta-nlb (2022), the participatory approach to dataset creation as proposed by Abbott and Martinus (2020) is yet to be fully explored.
+Even when there have been more recent notable attempts at creation of datasets for LRL, for example the No Language Left Behind (NL2B) initiative by Meta @meta2022nl2b (2022), the participatory approach to dataset creation as proposed by Abbott and Martinus (2020) is yet to be fully explored.
 Additionally, the paper's growing citation counts on ArXiv and Google Scholar indicate the continued popularity of the participatory approach to date.
 
-### 3.2 Relevance
+### Relevance
 
-The continued prevalence of the lack of Machine Translation useable datasets for low-resourced languages, particularly in Africa, underscores the relevance of this work in the current LRL research landscape. 
-In relation to my personal research interests, the participatory approach discussed in the paper aligns with my crowd-sourced dataset creation goal for my own mothertongue.
+The continued prevalence of the lack of Machine Translation useable datasets for low-resourced languages, particularly in Africa, underscores the relevance of this work in the current LRL research landscape. In relation to my personal research interests, the participatory approach discussed in the paper aligns with my crowd-sourced dataset creation goal for my own mothertongue.
 
-### 3.3 Authority
+### Authority
 
 With more than 50 NLP related papers listed under their names on Google Scholar, a credible directory of research articles, Jade Abbott's credibility [@jadeabbott-scholar] and Laura Martinus' credibility [@lauramartinus-scholar] in the field of NLP is undeniable. Beyond their scholarly endeavours, Abbott leads tech as CTO at Lelapa AI, an AI research and product lab, based off Johannesburg and Martinus works as a data scientist for a finance outfit. That they are both of South African descent adds to the acceptability of their intention to digitalize African languages.
 While most of the articles listed are pre-prints on ArXiv, this particular paper was published in the Association for Computational Linguistics (ACL) Anthology @acl-anthology, a reputable platform for NLP research affiliated with the Computational Linguistics journal, arguably the leading publication in the field.
 The annual Empirical Methods in Natural Language Processing (EMNLP) conference, where the paper was presented, is one of the premier venues for NLP research @emnlp, further enhancing the paper's authority.
 
-### 3.4 Accuracy
+### Accuracy
 
 The paper clearly outlines the data collection and dataset creation process, associated quality control processes, model development (JoeyMT) and benchmarking and evaluation metrics. Renowned benchmark tests like BLEU, ChrF and TER form part of the eval methodology.
 A public Github repository [@masakhane] provides access to NLP research artifacts such as datasets, benchmarks and models code and datasets enabling reproducibility and further research. An extensive bibliography, including citations to foundational work in Machine Translation e.g. [@firat2016zero] [@zoph2016transfer]
 
-### 3.5 Purpose
+### Purpose
 
 The paper sought to address the inadequacy of machine translation for African languages which are mostly low-resourced, by proposing a participatory approach encompassing greater stakeholdership - beyond just the Machine Transalation researchers cohort - in the dataset creation process. The paper's purpose aligns with the broader goal of promoting African language preservation and technological advancement in the NLP field.
 It sets out on a path to democratize dataset creation for low-resourced languages and manages to do so by creating a well documented and replicable methodology, an actual NLP Model (the citation for JoeyMT has been removed) and tangible community impact in the birthing of the Masakhane community [@masakhane]. The paper, going by its citation counts, has indeed contributed fundamentally to the field of LRL and in that it has achieved its purpose.
 
-## 4. Note-Taking Methodology
+## Note-Taking Methodology
 
 I employed the Cornell note-taking method on paper and via Claude to synthesise the paper's key points, making a summary of the paper's content and crafting critical questions for further reflection.
 Below is a snapshot of this approach in action via Claude:
 
-![](images/cornellNotesviaClaude.png){width=80% caption="Prompt:  am using the Cornell method of note taking to read the paper attached (2020.findings-emnlp.195.pdf) , reproduce 3 pages of notes with the most relevant takeaways"}
+![](images/cornellNotesviaClaude.png){width=80%, fig.cap="Prompt: am using the Cornell method of note taking to read the paper attached (2020.findings-emnlp.195.pdf), reproduce 3 pages of notes with the most relevant takeaways"}
 
-## 5. Paper Summary
+## Paper Summary
 
 The paper outlines a collaborative approach to tackling the challenge of low-resource languages machine translation by incorporating a greater circle of stakeholders beyond the machine translation research community. The novelty in the approach is the inclusion of non-technical stakeholders such as linguists, language activists, and native speakers in the dataset creation process. 
 The implementation was largely successful giving rise to 45 benchmarks for over 30 African languages, having involved 400 + participants across the continent, birthing a vibrant and still thriving African NLP community in the name of Masakhane
 The project demonstrated the feasibility of a community-driven approach to dataset creation while supporting this achievement with comprehensive evals and benchmarks. The paper is and will continue to be instrumental in furthering the MT for LRL conversation in years to come.
 
-## 8. References
+## References
 ```{bibliography}
