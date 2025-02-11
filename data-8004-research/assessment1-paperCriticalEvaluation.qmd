@@ -6,7 +6,6 @@ bibliography: "a1-references.bib"
 csl: apa.csl
 format:
   pdf:
-    toc: true
     number-sections: true
     documentclass: article
     geometry:
