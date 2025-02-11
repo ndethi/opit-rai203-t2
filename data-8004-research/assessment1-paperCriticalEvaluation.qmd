@@ -19,7 +19,9 @@ abstract: |
 ---
 
 ## Introduction
-My interest in the paper "Participatory Research for Low-resourced Machine Translation" by Abbott and Martinus (2020) stems from a curiosity about how Machine Translation could be used to promote uptake of Kikuyu, my mothertongue, while leveraging collaborative creation of annotatable datasets from the older generation.
+My interest in the paper "Participatory Research for Low-resourced Machine Translation" by Abbott and Martinus (2020) stems from a curiosity about how technology specifically Machine Translation could be used to promote uptake of learning and speaking of Kikuyu, my mothertongue and by all measure a low-resourced language, amongst the younger generation of that community while leveraging collaborative creation of annotatable datasets from the older generation who speak it better. 
+The paper's focus on participatory research methods for low-resource machine translation aligns with my research interest in collaboratively developing datasets for low-resourced languages through crowd-sourcing and community engagement. 
+A discussion of broader NLP initiatives particularly in Africa through the Masakhane Community adds to the relevance of the paper in the context of my research goals.
 
 ## Critical Analysis Using CRAAP Framework
 
