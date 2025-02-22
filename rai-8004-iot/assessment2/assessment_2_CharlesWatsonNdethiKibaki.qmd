@@ -1,9 +1,7 @@
 # Exercise 1: Internet of Things (IoT)
 
 ## Introduction
-* Context of ThingX as an IoT solutions company
-* Importance of IoT in modern business transformation
-* Preview of key challenges and opportunities
+With possibly billions of devices interconnected already(cite Gartner article) and many more expected in the future, the role of the IOT Architect will continue to become ever more indispensable. In this assignment for ThingX, a formidable player in the home IoT space, the architect seeks to point out the challenges inherent in IoT rollout,make a case for onboarding IoT Data Analysts and attempt a high-level AI explainer targeted at management - specifically highlighting the different kinds of AI and their respective use cases.
 
 ## Task 1: IoT Implementation Challenges
 
