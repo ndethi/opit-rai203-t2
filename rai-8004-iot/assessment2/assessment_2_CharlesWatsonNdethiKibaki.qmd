@@ -1,3 +1,23 @@
+---
+title: "Assessment 2: Internet of Things (IoT) & Artificial Intelligence (AI)"
+author: "Watson Ndethi"
+date: "Feb 23, 2025"
+bibliography: "a2-references.bib"
+csl: apa.csl
+format:
+  pdf:
+    number-sections: true
+    number-figures: true
+    documentclass: article
+    geometry:
+      - margin=1in
+    header-includes: 
+     - \usepackage{graphicx}
+abstract: |
+  As an IoT Architect Engineer for ThingX, an IoT Solutions company, and as a Lead AI Developer for IntelligentX, an AI-driven startup I make recommendations for both business to thrive in the age of AI and IoT.
+
+---
+
 # Exercise 1: Internet of Things (IoT)
 
 ## Introduction
@@ -78,7 +98,41 @@ DL is the pivotal technology powering self-driving cars and conversational AI.
 
 ### AI v. ML v. DL - An Aillustration
 
-![](images/ai_vs_ml_v_dl.png){fig-cap="Figure 1: AI vs ML v DL"}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/img-2.png}
+    \caption{Figure 1: AI vs ML v DL}
+\end{figure}
+
+graph TD
+    subgraph AI[Artificial Intelligence]
+        A[Any technique that enables<br/>computers to mimic<br/>human behavior]
+        subgraph ML[Machine Learning]
+            B[Systems that learn from data<br/>without explicit programming]
+            subgraph DL[Deep Learning]
+                C[Neural networks with<br/>multiple layers for<br/>complex pattern recognition]
+            end
+        end
+    end
+
+    style AI fill:#e6f3ff,stroke:#3498db,stroke-width:2px
+    style ML fill:#fff2e6,stroke:#e67e22,stroke-width:2px
+    style DL fill:#ffe6e6,stroke:#e74c3c,stroke-width:2px
+
+    %% Examples for each level
+    E1[Smart Thermostat<br/>Rule-based Systems<br/>Expert Systems]
+    E2[Spam Detection<br/>Recommendation Systems<br/>Fraud Detection]
+    E3[Image Recognition<br/>Natural Language Processing<br/>Speech Recognition]
+
+    %% Connect examples to their categories
+    A --> E1
+    B --> E2
+    C --> E3
+
+    %% Style for example boxes
+    style E1 fill:#f9f9f9,stroke:#95a5a6,stroke-width:1px
+    style E2 fill:#f9f9f9,stroke:#95a5a6,stroke-width:1px
+    style E3 fill:#f9f9f9,stroke:#95a5a6,stroke-width:1px
 
 ## Task 2: Machine Learning in IoT Security
 
@@ -91,43 +145,44 @@ By using historical data from IoT devices over time, we can predict when certain
 
 ### Disadvantages
 * ## False Positives
-While largely accurate, it is inevitable that some events may be flagged as suspicious while in fact being normal due to biases inherent in training data [@tandfonline2024]  
-* Resource requirements
-* Training data challenges
-* False positive management
+While largely accurate, it is inevitable that ML may flag some events as suspicious while in fact being normal due to biases inherent in training data [@tandfonline2024]  
+* ## Resource Requirements
+Training and running ML workloads on the magnitude of data that IoT devices produce requires significant compute and storage resources and the inherent costs are non-trivial.
+* ## Adversarial Attacks 
+ML systems themselves are not immune to sophisticated cyberattacks; for example, introducing data inaccuracies during training contaminates the inference results [@berkeley2023](https://cltc.berkeley.edu/aml/#:~:text=An%20adversarial%20attack%20might%20entail,trained%20model%20into%20making%20errors).
 
 ## Task 3: Explainable AI (XAI)
 
-### Concept Overview
-* Definition and importance
-* Technical implementation
-* Industry requirements
+### XAI Overview
 
-### Strategic Implementation
-* Use cases in different sectors
-* Integration challenges
-* Benefits for stakeholder trust
+Explainable Artificial Intelligence (XAI) is a set of processes and methods that allows human users to understand and trust results and outputs created by AI [@ibm_think]. It is especially crucial in regulated industries like medicine and finance, where the transparency of decision-making is paramount. For IntelligentX, implementing XAI would:
+* Build trust with key stakeholders particularly their customers
+* Seeing that some of IntelligentX' AI-powered applications interface directly with banking apps, by implementing XAI best practices, IntelligentX ensures regulatory compliance with banking policy landscape that demands XAI especially for credit scoring applications
 
-## Recommendation
+
+### IntelligentX building Trust with XAI
+Considering IntelligentX develops some AI solutions in the Healthcare and Finance domains, deploying XAI is core to its compliance pillar. Explainable AI will:
+* Improve transparency in decision making of AI-powered health apps, improving its trust by users and health providers alike
+* Boost Customer Experience in its AI powered microlending app by laying bare the credit approval process while ensuring compliance with credit regulations on traceability in decision making on user creditworthiness
+* For the internal dev teams, model drift mitigation and model drift management achievable through XAI [@ibm_think], will allow developers to get ahead of model deviations and mitigate the resultant risks accordingly
+
+## Recommendations for IntelligentX
 
 ### Monitoring Priorities
-* Model accuracy tracking
-* Bias detection systems
-* Security risk assessment
-* Performance metrics
+* ## Model Performance
+Resource utilization - imperative to evaluate if use of compute is optimizal
+* ## Fairness and Bias
+Need to manage fairness and scan algorithms and data for biases and manage them accordingly
+* ## User Experience
+Consider user satisfaction and usage metrics 
+* ## Security Monitoring
+Audit access control and secure authentication practices
 
-### Ethical Considerations
-* Responsible AI deployment
-* Bias mitigation strategies
-* Transparency requirements
+### Implementation Framework
 
-### Implementation Strategy
-* Phased approach
-* Resource allocation
-* Success metrics
-* Timeline considerations
+To effectively evaluate the above areas , IntelligentX should:
+* Establish a lean Responsible AI team ( with one technical and one strategic resource) that sits between the devs and management, whose job will be to maintain general health of their models
+* Use automated observability tools to monitor resource utilization
+* Develop an AI Policy and Manifesto and in it clearly illustrate escalation protocols (for when biases/deviations occur)
 
 # References
-* Course materials and documentation
-* Industry standards and best practices
-* Real-world case studies
