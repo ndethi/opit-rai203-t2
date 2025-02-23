@@ -27,57 +27,71 @@ IOT devices produce stagggering amounts of data ,with estimates of total data vo
 
 ## Task 3: The Categories of AI - Broadly Speaking
 
+To comprehensively understand the various capabilities of Artificial Intelligence (AI) it is imperative to classify it into the below broad categories 
+
 ### AI Types and Applications
-* Simple/Rule-based AI implementation
-* Machine Learning integration
-* Neural Networks and Inference systems
-* Generative AI applications
+* ## Narrow AI (Weak AI)
+This would refer to AI that has been trained to perform a single task or narrow task. It excels in a single set of abilities. An example of an implementation of Narrow AI is virtual assistants like Amazon's Alexa and Apple's Siri. These perform not much else than letting the user control them and connected devices via voice. OpenAI's ChatGPT would be considered another surprising example of Narrow AI, as IBM puts it in this article \[@ibm2023].
+Generative AI, that concernts itself with conjuring up new artifacts given some input, would also be considered a subset of narrow AI.
 
-### IoT-Specific AI Applications
-* Edge computing integration
-* Real-time processing requirements
-* Automated decision-making systems
+* ## Artificial General Intelligence (AGI) (Strong AI)
+AGI refers to machine intelligence that can mimic the cognitive abilities of a human brain \[@googlecloud], uses existing knowledge to accomplish novel task in varying contexts independent of training of underlying models \[@ibm2023]. While in recent times, there has been talk of the feasibility of AGI \[@altman2023], Artificial General Intelligence (AGI) remains largely hypothetical and theoretical.
 
-## Recommendation
+* ## Super AI
+Also known as Artificial Super Intelligence (ASI) , this refers to AI that supercedes the cognitive abilities of human beings. This type of AI at present remains largely theoretical. A first step towards realizing ASI would be AGI.
+
+### IoT-AI
+A Narrow AI implementation, leveraging a rule-based algorithm that acts on pre-defined business rules would be handy for IOT-AI integration. For example , ring the alarm if the motion sensor is triggered after midnight. On the other hand Generative AI can be used to write a comprehensive report to upper management given an IoT devices' sensor data, leveraging on this new found AI ability to make sense of otherwise intelligible stream of ones and zeros.
+As we near AGI, AI will be able to  act on patterns of data via Agentic AI, a new paradigm promising impressive levels of machine autonomy \[@iotworldtoday].
+
+## Recommendations for ThingX
 * Proposed IoT-AI integration model
 * Implementation strategy
 * Risk mitigation approach
 * Expected benefits and ROI analysis
 
+In light of the challenges and opportunities discussed so far regarding the IoT and AI space, ThingX would be well served to adopt three-pronged approach to bolster its position as a formidable player in the IoT domain:
+* ### Security-First Focus
+Adopt a culture of security by putting in place and enforcing an IoT Security Policy which amongst other regulations, mandates regular audits , pen testing of edge IoT devices, prohibits manufacturer default credentials and employs AI for advanced real-time threat detection possibly via a sophisticated SIEM tool
+* ### Starndadize for Max Interoperability
+Rather than trying to support every protocol, standardizing on a single protocol like Matter for new products while only investing in other protocols to support backward compatibility with older devices, this will reduce production complexity moving forward while still supporting older devices. Building on Matter would allow greater functionality and if marketed as such could encourage upgrades to newer devices
+* ### Dedicated Data Analytics Team
+While in this age of AI, it might be tempting to deploy an AI-powered analytics platform instead of hiring a team of human analysts, ThingX would be ill-advised to sever the human element as human analysts would still outshine AI in articulating business cases to upper management \[@van2021]. That said however analysts who use AI would be better off than those that don't.
+
 # Exercise 2: Artificial Intelligence (AI)
 
 ## Introduction
-* IntelligentX's position in AI market
-* Current AI landscape
-* Objectives of AI integration
+AI has brought the acronym soup to a nice simmer with the meanings of the abbreviations AI, ML and DL stumping even the most tech savvy of us. In the next session we try to demystify these often confusing terms.
 
 ## Task 1: AI, ML, and DL Distinctions
 
 ### Artificial Intelligence
-* Broad concept definition
-* Key characteristics
-* Real-world applications
+Artificial Intelligence (AI) is a broadest term amongst the three referring to any technology that allows computers to imitate human intelligence and behaviour. A thermostat that adjusts temperature depending on time of day using rule-based algorithms  would be a good example. Notice while this is by definition AI, it does not necessarily involve much complexity. 
 
 ### Machine Learning
-* Subset of AI explanation
-* Learning algorithms
-* Implementation examples
+Machine Learning (ML) represents a subset of Artificial Intelligence (AI) that can learn from data without explicit programming \[@nvidia]. A commmon usecase of ML is intelligent recommendations used by online retailers for personalized marketing. Shopper's purchase history is used as data that feeds the ML models resulting in personalized recommendations - supporting the upselling ecosystem.
 
 ### Deep Learning
-* Neural network foundations
-* Advanced capabilities
-* Industry applications
+Deep Learning (DL) is a subset of Machine Learning(ML) but where DL algorithms can automatically learn from data such as images, video and text without the introduction of human domain knowledge.
+The term 'Deep' in DL represents the layers of algorithms used to identify patterns in data. Common usecases of DL include speech recognition, object detection and language translation \[@nvidia].
+DL is the pivotal technology powering self-driving cars and conversational AI.
+
+### AI v. ML v. DL - An Aillustration
+
+![](images/ai_vs_ml_v_dl.png){fig-cap="Figure 1: AI vs ML v DL"}
 
 ## Task 2: Machine Learning in IoT Security
 
 ### Advantages
-* Enhanced threat detection capabilities
-* Automated anomaly identification
-* Predictive maintenance benefits
-* Real-time security response
+* ## Enhanced anomaly detection capabilities
+Having learnt what comprises a normal baseline of IoT activity, ML algorithms can easily ,with speed and at scale detect irregularities and if a proper alerts pipeline has been set up send notices to the admin about said inconsistencies for quick action
+* ## Predictive maintenance benefits
+By using historical data from IoT devices over time, we can predict when certain operational failures are most likely to occur and plan for maintenance accordingly, saving the equipment and money [@ptc2023].
+
 
 ### Disadvantages
-* Adversarial attack vulnerabilities
+* ## False Positives
+While largely accurate, it is inevitable that some events may be flagged as suspicious while in fact being normal due to biases inherent in training data [@tandfonline2024]  
 * Resource requirements
 * Training data challenges
 * False positive management
