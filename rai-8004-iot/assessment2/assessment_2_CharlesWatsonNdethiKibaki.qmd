@@ -5,38 +5,27 @@ With possibly billions of devices interconnected already(cite Gartner article) a
 
 ## Task 1: IoT Implementation Challenges
 
-### Security Concerns
+### Security Risks
 Inherent in their minimalist design(meant to lower energy consumption), IoT devices will often suffer from hardware with limited capabilities, unable to withstand the rigors of modern day cyberattacks. Coupled with a laxity (mostly from deployers) in securing IoT environments using high complexity passwords and leaving defaults in place, these devices become easy entry points for malicious cybercriminals looking to move exploit deeper into corporate networks \[@fortinet2023].
 
 
-### Interoperability Issues
-* Multiple communication protocols (WiFi, Bluetooth, Zigbee, Z-Wave)
-* Integration challenges across different manufacturers
-* Standards fragmentation in the IoT ecosystem
+### Interoperability Challenges
 
 The ability of IoT devices to work together and exchange information(interoperability) could be considered one of the defining characteristics of the technology. However, with different manufacturers individually employing a mix of varying and distinctly incompatible communication protocols e.g (WiFi, Bluetooth, Zigbee, Z-wave, LoraWAN, LwM2M)
-some proprietary and some open-source, integration across brands remains a major huddle. There have been recent attempts at standardizing these communication protocols for example through the Open Mobile Alliance (OMA) \[@openmobilealliance] and Matter, with reputable bodies like IETF and IEEE leading parallel standard development efforts (hopefully this will not result in further fragmentation but coalesce into an agreeable regulatory framework)
+some proprietary and some open-source, integration across brands remains a major huddle. There have been recent attempts at standardizing these communication protocols for example through the Open Mobile Alliance (OMA) \[@openmobilealliance] and Matter \[@matter] , with reputable bodies like IETF and IEEE leading parallel standard development efforts (hopefully this will not result in further fragmentation but coalesce into an agreeable regulatory framework)
 
-### Scalability Challenges
-* Infrastructure requirements for growing IoT networks
-* Bandwidth and connectivity limitations
-* Resource management across distributed systems
+### Scalability Limitations
 
-## Task 2: Role of IoT Data Analysts
+Often IoT devices will be distributed across vast geographical areas - some of these quite remote and outside coverage of connectivity, this makes artichecture considerations orders of magnitude more complex than in traditional network architectures. For example a smart camera part of a system that tallies no. of visitors to a remote dam in Somaliland, needs to connect to a GSM network to transmit daily tallies to a cloud hosted endpoint, but often signal at the dam is inconsistent leading to discrepancies in reporting.
 
-### Core Responsibilities
-* Organizational goal alignment
-* Data mining and cleaning processes
-* Pattern recognition and trend identification
-* System maintenance and monitoring
 
-### Revenue Enhancement Through Analytics
-* Predictive maintenance opportunities
-* Real-time data analysis benefits
-* Customer behavior insights
-* Operational efficiency improvements
+## Task 2: Making a case for IoT Data Analyst Role
 
-## Task 3: AI Categories in IoT
+### IoT Data Analyst Role - Bridging Data and Decisions
+
+IOT devices produce stagggering amounts of data ,with estimates of total data volume of connected devices in 2025 \[@statista] expected to reach close to 80 ZBs. This sheer raw volume can be overwhelming for upper management, therein lies the opportunity for ThingX to hire IoT Data Analysts who having internalized ThingX' organisational goals can then perform data cleaning, pre-processing on the raw stream of data in readiness to identify patterns and trends that upper management can then act on. They ideally would sit between the data and the decision makers ,  feeding the latter actionable insights that ThingX can implement to reduce costs or improve revenue. An example of this would be by getting insights on the life of a battery in a solar powered security light, ThingX IoT Analysts can use predictive maintenance to inform engineers to regulate discharge cycles accordingly effectively extending the life of the said battery and thus lowering long-term maintenance costs. On the revenue front, the IoT Data Analysts having recognized a concerning rise in CO2 concentration levels in a certain neighhbourhood through one of the smart door bells that also reads weather info , ThingX can act pragmatically spinning up a new air purifier product targeted at residents of the area - a likely boon for revenue. In conclusion as is evident through the two examples, the centrality of the role of the IoT Data Analyst is unquestionable. 
+
+## Task 3: The Categories of AI - Broadly Speaking
 
 ### AI Types and Applications
 * Simple/Rule-based AI implementation
