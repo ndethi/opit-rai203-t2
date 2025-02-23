@@ -15,7 +15,7 @@ format:
      - \usepackage{graphicx}
 abstract: |
   As an IoT Architect Engineer for ThingX, an IoT Solutions company, and as a Lead AI Developer for IntelligentX, an AI-driven startup I make recommendations for both business to thrive in the age of AI and IoT.
-
+  
 ---
 
 # Exercise 1: Internet of Things (IoT)
@@ -65,17 +65,12 @@ A Narrow AI implementation, leveraging a rule-based algorithm that acts on pre-d
 As we near AGI, AI will be able to  act on patterns of data via Agentic AI, a new paradigm promising impressive levels of machine autonomy \[@iotworldtoday].
 
 ## Recommendations for ThingX
-* Proposed IoT-AI integration model
-* Implementation strategy
-* Risk mitigation approach
-* Expected benefits and ROI analysis
-
 In light of the challenges and opportunities discussed so far regarding the IoT and AI space, ThingX would be well served to adopt three-pronged approach to bolster its position as a formidable player in the IoT domain:
-* ### Security-First Focus
+### Security-First Focus
 Adopt a culture of security by putting in place and enforcing an IoT Security Policy which amongst other regulations, mandates regular audits , pen testing of edge IoT devices, prohibits manufacturer default credentials and employs AI for advanced real-time threat detection possibly via a sophisticated SIEM tool
-* ### Starndadize for Max Interoperability
+### Starndadize for Max Interoperability
 Rather than trying to support every protocol, standardizing on a single protocol like Matter for new products while only investing in other protocols to support backward compatibility with older devices, this will reduce production complexity moving forward while still supporting older devices. Building on Matter would allow greater functionality and if marketed as such could encourage upgrades to newer devices
-* ### Dedicated Data Analytics Team
+### Dedicated Data Analytics Team
 While in this age of AI, it might be tempting to deploy an AI-powered analytics platform instead of hiring a team of human analysts, ThingX would be ill-advised to sever the human element as human analysts would still outshine AI in articulating business cases to upper management \[@van2021]. That said however analysts who use AI would be better off than those that don't.
 
 # Exercise 2: Artificial Intelligence (AI)
@@ -101,9 +96,11 @@ DL is the pivotal technology powering self-driving cars and conversational AI.
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{images/img-2.png}
-    \caption{Figure 1: AI vs ML v DL}
+    \caption{Figure 1: AI vs ML v DL \[@nvidia]}
 \end{figure}
 
+```{mermaid}
+fig-cap: "Figure 2: AI, ML, and DL Diagram \[@claude]"
 graph TD
     subgraph AI[Artificial Intelligence]
         A[Any technique that enables<br/>computers to mimic<br/>human behavior]
@@ -133,22 +130,23 @@ graph TD
     style E1 fill:#f9f9f9,stroke:#95a5a6,stroke-width:1px
     style E2 fill:#f9f9f9,stroke:#95a5a6,stroke-width:1px
     style E3 fill:#f9f9f9,stroke:#95a5a6,stroke-width:1px
+```
 
 ## Task 2: Machine Learning in IoT Security
 
 ### Advantages
-* ## Enhanced anomaly detection capabilities
+## Enhanced anomaly detection capabilities
 Having learnt what comprises a normal baseline of IoT activity, ML algorithms can easily ,with speed and at scale detect irregularities and if a proper alerts pipeline has been set up send notices to the admin about said inconsistencies for quick action
-* ## Predictive maintenance benefits
+## Predictive maintenance benefits
 By using historical data from IoT devices over time, we can predict when certain operational failures are most likely to occur and plan for maintenance accordingly, saving the equipment and money [@ptc2023].
 
 
 ### Disadvantages
-* ## False Positives
+## False Positives
 While largely accurate, it is inevitable that ML may flag some events as suspicious while in fact being normal due to biases inherent in training data [@tandfonline2024]  
-* ## Resource Requirements
+## Resource Requirements
 Training and running ML workloads on the magnitude of data that IoT devices produce requires significant compute and storage resources and the inherent costs are non-trivial.
-* ## Adversarial Attacks 
+## Adversarial Attacks 
 ML systems themselves are not immune to sophisticated cyberattacks; for example, introducing data inaccuracies during training contaminates the inference results [@berkeley2023](https://cltc.berkeley.edu/aml/#:~:text=An%20adversarial%20attack%20might%20entail,trained%20model%20into%20making%20errors).
 
 ## Task 3: Explainable AI (XAI)
@@ -169,13 +167,13 @@ Considering IntelligentX develops some AI solutions in the Healthcare and Financ
 ## Recommendations for IntelligentX
 
 ### Monitoring Priorities
-* ## Model Performance
+## Model Performance
 Resource utilization - imperative to evaluate if use of compute is optimizal
-* ## Fairness and Bias
+## Fairness and Bias
 Need to manage fairness and scan algorithms and data for biases and manage them accordingly
-* ## User Experience
+## User Experience
 Consider user satisfaction and usage metrics 
-* ## Security Monitoring
+## Security Monitoring
 Audit access control and secure authentication practices
 
 ### Implementation Framework
