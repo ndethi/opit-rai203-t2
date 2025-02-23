@@ -6,14 +6,16 @@ With possibly billions of devices interconnected already(cite Gartner article) a
 ## Task 1: IoT Implementation Challenges
 
 ### Security Concerns
-* Device vulnerability and default credentials risks
-* Data privacy and protection requirements
-* Network security considerations in IoT deployments
+Inherent in their minimalist design(meant to lower energy consumption), IoT devices will often suffer from hardware with limited capabilities, unable to withstand the rigors of modern day cyberattacks. Coupled with a laxity (mostly from deployers) in securing IoT environments using high complexity passwords and leaving defaults in place, these devices become easy entry points for malicious cybercriminals looking to move exploit deeper into corporate networks \[@fortinet2023].
+
 
 ### Interoperability Issues
 * Multiple communication protocols (WiFi, Bluetooth, Zigbee, Z-Wave)
 * Integration challenges across different manufacturers
 * Standards fragmentation in the IoT ecosystem
+
+The ability of IoT devices to work together and exchange information(interoperability) could be considered one of the defining characteristics of the technology. However, with different manufacturers individually employing a mix of varying and distinctly incompatible communication protocols e.g (WiFi, Bluetooth, Zigbee, Z-wave, LoraWAN, LwM2M)
+some proprietary and some open-source, integration across brands remains a major huddle. There have been recent attempts at standardizing these communication protocols for example through the Open Mobile Alliance (OMA) \[@openmobilealliance] and Matter, with reputable bodies like IETF and IEEE leading parallel standard development efforts (hopefully this will not result in further fragmentation but coalesce into an agreeable regulatory framework)
 
 ### Scalability Challenges
 * Infrastructure requirements for growing IoT networks
