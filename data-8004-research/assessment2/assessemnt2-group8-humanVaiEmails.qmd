@@ -15,6 +15,13 @@ format:
         keep-tex: true
         documentclass: article
         geometry: "margin=1in"
+        header-includes:
+          - \usepackage{microtype}
+          - \sloppy
+          - \setlength{\emergencystretch}{3em}
+          - |
+              \usepackage{etoolbox}
+              \AtBeginEnvironment{quote}{\small\ttfamily}
 bibliography: a2-references.bib
 abstract: |
     This study investigates whether users perceive AI-generated emails as more professional than human-written ones. Using a within-subjects experimental design, participants evaluated pairs of emails on the same topic, one AI-generated and one human-written. The results indicate a slight preference for AI-generated emails in terms of professionalism, particularly among senior professionals. However, the ability to distinguish between AI and human-written emails remains imperfect, suggesting that AI has achieved a significant level of sophistication in professional communication. The study also explores the impact of professional experience and language background on these perceptions.
@@ -166,154 +173,138 @@ Our findings suggest a slight preference for AI-generated emails in terms of per
 ### Service Update Announcement (Epic Telecom)
 
 #### AI-Generated Version
-```
-Dear Valued Customer,
-
-We are excited to announce a series of service updates from Epic designed to provide you with faster and more reliable connectivity. Please review the key highlights below:
-
-* Next-Generation 5G Network: Experience lightning-fast speeds and reduced latency as Epic rolls out its enhanced 5G coverage across urban and suburban areas.
-* Upgraded Broadband Packages: Enjoy our newly designed broadband packages offering higher speeds and flexible data options tailored to your household needs.
-* Exclusive Consumer Offers: Take advantage of limited-time promotions, including discounted rates on bundled mobile and home internet services.
-* Enhanced Customer Support: Benefit from our upgraded support system that ensures faster response times and personalized service.
-
-For further details on these exciting updates and special offers, please visit our website or contact our support team.
-
-Thank you for choosing Epic as your trusted telecom provider.
-
-Sincerely,
-The Epic Team
-```
+> Dear Valued Customer,
+> 
+> We are excited to announce a series of service updates from Epic designed to provide you with faster and more reliable connectivity. Please review the key highlights below:
+> 
+> * Next-Generation 5G Network: Experience lightning-fast speeds and reduced latency as Epic rolls out its enhanced 5G coverage across urban and suburban areas.
+> * Upgraded Broadband Packages: Enjoy our newly designed broadband packages offering higher speeds and flexible data options tailored to your household needs.
+> * Exclusive Consumer Offers: Take advantage of limited-time promotions, including discounted rates on bundled mobile and home internet services.
+> * Enhanced Customer Support: Benefit from our upgraded support system that ensures faster response times and personalized service.
+> 
+> For further details on these exciting updates and special offers, please visit our website or contact our support team.
+> 
+> Thank you for choosing Epic as your trusted telecom provider.
+> 
+> Sincerely,
+> The Epic Team
 
 #### Human-Written Version
-```
-Hi there,
-
-We've got some exciting news from Epic just for you! Our plans are getting a major upgrade, and we want you to be the first to know:
-
-* Our new 5G network is rolling out soon—get ready for super-fast speeds and a smoother connection.
-* We've revamped our broadband plans to give you more speed and better deals. Enjoy more streaming, gaming, and browsing without interruptions.
-* And because we appreciate you, Epic is offering some sweet discounts on bundled plans for a limited time.
-
-If you're curious to learn more or just want to chat about which plan suits your needs best, drop us a reply or check out our website.
-
-Thanks for being a part of the Epic community, and we can't wait for you to experience these new benefits!
-
-Cheers,
-The Epic Team
-```
+> Hi there,
+> 
+> We've got some exciting news from Epic just for you! Our plans are getting a major upgrade, and we want you to be the first to know:
+> 
+> * Our new 5G network is rolling out soon—get ready for super-fast speeds and a smoother connection.
+> * We've revamped our broadband plans to give you more speed and better deals. Enjoy more streaming, gaming, and browsing without interruptions.
+> * And because we appreciate you, Epic is offering some sweet discounts on bundled plans for a limited time.
+> 
+> If you're curious to learn more or just want to chat about which plan suits your needs best, drop us a reply or check out our website.
+> 
+> Thanks for being a part of the Epic community, and we can't wait for you to experience these new benefits!
+> 
+> Cheers,
+> The Epic Team
 
 ### Order Status Notification
 
 #### AI-Generated Version
-```
-Subject: Follow-Up on Order No. 64235993
-
-Dear Ms. Durand,
-
-I hope this message finds you well. Regarding your order No. 64235993, I wanted to inform you that product 56463 was discontinued last year and is no longer available.
-
-However, our company does offer an alternative product. While it is not an exact match, it serves a similar purpose. Please let us know if you would like us to include the alternative in your order or if you prefer to remove this item entirely.
-
-We look forward to your decision so we can proceed accordingly.
-
-Best regards,
-John Doe
-```
+> Subject: Follow-Up on Order No. 64235993
+> 
+> Dear Ms. Durand,
+> 
+> I hope this message finds you well. Regarding your order No. 64235993, I wanted to inform you that product 56463 was discontinued last year and is no longer available.
+> 
+> However, our company does offer an alternative product. While it is not an exact match, it serves a similar purpose. Please let us know if you would like us to include the alternative in your order or if you prefer to remove this item entirely.
+> 
+> We look forward to your decision so we can proceed accordingly.
+> 
+> Best regards,
+> John Doe
 
 #### Human-Written Version
-```
-Subject: Issue in the order n°64235993: Discontinued Product 56463
-
-Dear Ms Durand,
-
-I reviewed your order request but it seems there was a mistake with the product 56463. Indeed, this product was discontinued a year ago, so unfortunately, we won't be able to include it in your order. We have alternative products, but they are different in some aspects.
-Before we proceed with your order, could you please inform us if you would like an alternative or if you prefer to remove the product from the order?
-
-Best regards,
-John Doe
-```
+> Subject: Issue in the order n°64235993: Discontinued Product 56463
+> 
+> Dear Ms Durand,
+> 
+> I reviewed your order request but it seems there was a mistake with the product 56463. Indeed, this product was discontinued a year ago, so unfortunately, we won't be able to include it in your order. We have alternative products, but they are different in some aspects.
+> Before we proceed with your order, could you please inform us if you would like an alternative or if you prefer to remove the product from the order?
+> 
+> Best regards,
+> John Doe
 
 ### Job Application Response
 
 #### AI-Generated Version
-```
-Dear Mr. Constantin,
-
-Thank you for taking the time to apply for the Backend Developer position at Major and for sharing your skills and experience with us. We truly appreciate your interest in joining our team.
-
-After careful consideration, we have decided to move forward with another candidate for this role. This decision was not easy, as we received applications from many qualified professionals, including yourself.
-
-We want to recognize the effort you put into the application process and encourage you to stay connected with us for future opportunities that match your expertise. Please feel free to apply again if a suitable role arises.
-
-Wishing you all the best in your job search and future career endeavors.
-
-Best regards,
-Anna HR Generalist
-```
+> Dear Mr. Constantin,
+> 
+> Thank you for taking the time to apply for the Backend Developer position at Major and for sharing your skills and experience with us. We truly appreciate your interest in joining our team.
+> 
+> After careful consideration, we have decided to move forward with another candidate for this role. This decision was not easy, as we received applications from many qualified professionals, including yourself.
+> 
+> We want to recognize the effort you put into the application process and encourage you to stay connected with us for future opportunities that match your expertise. Please feel free to apply again if a suitable role arises.
+> 
+> Wishing you all the best in your job search and future career endeavors.
+> 
+> Best regards,
+> Anna HR Generalist
 
 #### Human-Written Version
-```
-Dear Mr. Constantin,
-
-Thank you for your interest in the Backend Developer position at Major. We appreciate the time and effort you invested in submitting your application and CV.
-
-After careful consideration, we regret to inform you that we have decided to move forward with other candidates whose qualifications more closely align with our current needs and requirements.
-
-We encourage you to apply for future openings that match your skills and experiences, as we were impressed by your qualifications and believe you could be a valuable asset to our team.
-
-Once again, thank you for your interest in Major. We wish you all the best in your job search and future professional endeavors.
-
-Best regards,
-Anna HR Generalist
-```
+> Dear Mr. Constantin,
+> 
+> Thank you for your interest in the Backend Developer position at Major. We appreciate the time and effort you invested in submitting your application and CV.
+> 
+> After careful consideration, we regret to inform you that we have decided to move forward with other candidates whose qualifications more closely align with our current needs and requirements.
+> 
+> We encourage you to apply for future openings that match your skills and experiences, as we were impressed by your qualifications and believe you could be a valuable asset to our team.
+> 
+> Once again, thank you for your interest in Major. We wish you all the best in your job search and future professional endeavors.
+> 
+> Best regards,
+> Anna HR Generalist
 
 ### Network Infrastructure Update
 
 #### AI-Generated Version
-```
-Dear Colleagues,
-
-I'm writing to share an important update about changes to our WIFI network infrastructure. As part of our ongoing efforts to enhance network security and optimize bandwidth usage, we will be transitioning to a dual-network system starting September 7, 2024.
-
-We've created two dedicated networks to better serve different device types:
-
-AquilaNet will continue to be our primary network for all company-issued devices, ensuring secure access to our corporate resources.
-
-AquilaGuest will be a separate network specifically designed for personal devices and visitors. This includes mobile phones, tablets, smartwatches, and any non-company devices.
-
-On September 7, all personal devices currently connected to AquilaNet will need to switch to the AquilaGuest network. To make this transition smooth, simply connect to:
-
-Network: AquilaGuest
-Password: Guest1234!
-
-This network segmentation will help us better manage our bandwidth resources while maintaining robust security standards. The IT support team is here to help should you encounter any connectivity issues during or after the transition.
-
-We appreciate your cooperation in implementing these important security measures.
-
-Best regards,
-Lucius Verus
-Network Infrastructure Team
-```
+> Dear Colleagues,
+> 
+> I'm writing to share an important update about changes to our WIFI network infrastructure. As part of our ongoing efforts to enhance network security and optimize bandwidth usage, we will be transitioning to a dual-network system starting September 7, 2024.
+> 
+> We've created two dedicated networks to better serve different device types:
+> 
+> AquilaNet will continue to be our primary network for all company-issued devices, ensuring secure access to our corporate resources.
+> 
+> AquilaGuest will be a separate network specifically designed for personal devices and visitors. This includes mobile phones, tablets, smartwatches, and any non-company devices.
+> 
+> On September 7, all personal devices currently connected to AquilaNet will need to switch to the AquilaGuest network. To make this transition smooth, simply connect to:
+> 
+> Network: AquilaGuest  
+> Password: Guest1234!
+> 
+> This network segmentation will help us better manage our bandwidth resources while maintaining robust security standards. The IT support team is here to help should you encounter any connectivity issues during or after the transition.
+> 
+> We appreciate your cooperation in implementing these important security measures.
+> 
+> Best regards,
+> Lucius Verus  
+> Network Infrastructure Team
 
 #### Human-Written Version
-```
-Hello all,
-
-In an effort to further strengthen our network security posture and to more efficiently utilize our internet bandwidth, we have segmented our WIFI network into two networks: AquilaNet and AquilaGuest.
-
-Our company issued work devices will continue to reside on AquilaNet.
-
-However effective 09/07/2024, our personal devices (mobile devices, smart watches, tablets, etc) and office guests' devices will be disconnected from AquilaNet and will only be able to connect to AquilaGuest.
-
-To remain connected on your personal device, connect to the AquilaGuest using this password: Guest1234!
-
-Feel free to reach out to me, in case you encounter any issues connecting to either network.
-
-Happy connecting.
-
-Sincerely,
-Lucius Verus
-```
+> Hello all,
+> 
+> In an effort to further strengthen our network security posture and to more efficiently utilize our internet bandwidth, we have segmented our WIFI network into two networks: AquilaNet and AquilaGuest.
+> 
+> Our company issued work devices will continue to reside on AquilaNet.
+> 
+> However effective 09/07/2024, our personal devices (mobile devices, smart watches, tablets, etc) and office guests' devices will be disconnected from AquilaNet and will only be able to connect to AquilaGuest.
+> 
+> To remain connected on your personal device, connect to the AquilaGuest using this password: Guest1234!
+> 
+> Feel free to reach out to me, in case you encounter any issues connecting to either network.
+> 
+> Happy connecting.
+> 
+> Sincerely,
+> Lucius Verus
 
 ## Appendix B: Survey Instrument
 

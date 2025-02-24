@@ -4,9 +4,7 @@
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
-  letterpaper,
-  DIV=11,
-  numbers=noendperiod]{scrartcl}
+]{article}
 
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
@@ -40,6 +38,7 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \setcounter{secnumdepth}{5}
 % Make \paragraph and \subparagraph free-standing
@@ -127,7 +126,9 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
-\KOMAoption{captions}{tableheading}
+\usepackage{microtype}
+\sloppy
+\setlength{\emergencystretch}{3em}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -176,7 +177,7 @@
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
   pdftitle={Do users find AI-generated emails more professional than human-written ones?},
-  pdfauthor={Bogdan Bancescu, Célia Pallier, Charles Watson Ndethi Kibaki, Chingiz Saidov, Christabel Camilleri},
+  pdfauthor={Bogdan Bancescu; Célia Pallier; Charles Watson Ndethi Kibaki; Chingiz Saidov; Christabel Camilleri},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -187,12 +188,24 @@
 
 \title{Do users find AI-generated emails more professional than
 human-written ones?}
-\author{Bogdan Bancescu, Célia Pallier, Charles Watson Ndethi Kibaki,
-Chingiz Saidov, Christabel Camilleri}
+\author{Bogdan Bancescu \and Célia Pallier \and Charles Watson Ndethi
+Kibaki \and Chingiz Saidov \and Christabel Camilleri}
 \date{2025-02-24}
 
 \begin{document}
 \maketitle
+\begin{abstract}
+This study investigates whether users perceive AI-generated emails as
+more professional than human-written ones. Using a within-subjects
+experimental design, participants evaluated pairs of emails on the same
+topic, one AI-generated and one human-written. The results indicate a
+slight preference for AI-generated emails in terms of professionalism,
+particularly among senior professionals. However, the ability to
+distinguish between AI and human-written emails remains imperfect,
+suggesting that AI has achieved a significant level of sophistication in
+professional communication. The study also explores the impact of
+professional experience and language background on these perceptions.
+\end{abstract}
 
 
 \section{Introduction}\label{introduction}
