@@ -71,6 +71,22 @@ ggplot(ratings_data, aes(x = Source, y = Rating)) +
   labs(y = "Average Professionalism Rating", x = "Email Source") +
   ylim(0, 5)
 ```
+## Ethical Guidelines
+
+**Informed Consent:**  
+Before participating, all individuals will be provided with clear information regarding the study's purpose and objectives. A consent form will appear at the beginning of the questionnaire, featuring an explicit consent box. This form will explain that participation is entirely voluntary, that participants can withdraw at any time without consequence, and that they are free to skip any questions they feel uncomfortable answering.
+
+**Anonymity and Confidentiality:**  
+No personal information—such as names, email addresses, ID card numbers, home addresses, gender, or religious affiliation—will be collected. All responses will remain anonymous and will be used exclusively for the purposes of this research. Data will be securely stored on a password-protected laptop, with access strictly limited to the researcher, ensuring complete confidentiality.
+
+**Data Protection and GDPR Compliance:**  
+This study adheres to the General Data Protection Regulation (GDPR) [@hoofnagle2019european], which has been in effect since 25 May 2018, with the primary goal of preserving personal data privacy. Data will be retained only as long as necessary to achieve the study's objectives and will be securely discarded once the experiment is completed. Compliance with GDPR guidelines minimizes the risk of data breaches [@voigt2017eu]. In cases of severe non-compliance, fines may reach up to 20 million euros or 2% of the previous year's global turnover, depending on which is higher. Lesser violations will be addressed on a case-by-case basis.
+
+**Potential Risks:**  
+The study poses minimal risk as it primarily involves reading emails and providing opinions. By not collecting sensitive personal information, the risk of moral or psychological harm is substantially reduced.
+
+**Voluntary Participation and Data Sharing:**  
+Participation is completely optional. Participants are free to refuse to answer any questions or withdraw from the study at any point without providing an explanation. Furthermore, no data will be exchanged with third parties, ensuring that all information remains confidential and secure throughout the research process.
 
 ## Statistical Analysis
 
@@ -307,6 +323,8 @@ Our findings suggest a slight preference for AI-generated emails in terms of per
 > Lucius Verus
 
 ## Appendix B: Survey Instrument
+The survey was conducted using Google Forms and is available at the following link:
+[Email Professionalism Study Questionnaire](https://docs.google.com/forms/d/e/1FAIpQLSeb-7fgi9-pYoLTwQS9BhUcwpGYxNoAVz20g9WyYCUdVvJXDQ/viewform?usp=header)
 
 The survey included:
 
