@@ -353,6 +353,10 @@ Detailed statistical procedures included:
    - Paired t-tests for rating comparisons
    - Correlation analyses
 
+## Appendix D: Data Availability
+
+All materials for this study (code, data, email samples, and analysis scripts) are available in our GitHub repository: [Email Professionalism Study](https://github.com/ndethi/opit-rai203-data8004-a2). The repository's CHANGELOG documents all technical modifications. For questions, contact the corresponding author.
+
 # References {.unnumbered}
 
 ::: {#refs}
