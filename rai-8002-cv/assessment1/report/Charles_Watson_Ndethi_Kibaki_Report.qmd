@@ -11,33 +11,21 @@ abstract: |
     
 keywords: [convolutional neural networks, transfer learning, fine-grained classification, pet breed recognition, computer vision]
 format:
-  pdf:
-    documentclass: article
-    papersize: letter
-    template-partials:
-      - title.tex
-    keep-tex: true
-    fig-pos: 'tbp'
-    tbl-pos: 'tbp'
-    fig-cap-location: bottom
-    tbl-cap-location: top
-    geometry:
-      - margin=1in
-      - top=1in
-      - headsep=0.25in
-    fontfamily: times
-    fontsize: 12pt
-    linestretch: 2
-    include-in-header: 
-      text: |
-        \usepackage{setspace}
-        \doublespacing
-    include-before-body:
-      text: |
-        \thispagestyle{empty}
-        \newpage
-    pagestyle: plain
-bibliography: references.bib
+     pdf:
+        number-sections: true
+        fig-width: 8
+        fig-height: 6
+        keep-tex: true
+        documentclass: article
+        geometry: "margin=1in"
+        header-includes:
+          - \usepackage{microtype}
+          - \sloppy
+          - \setlength{\emergencystretch}{3em}
+          - |
+              \usepackage{etoolbox}
+              \AtBeginEnvironment{quote}{\small\ttfamily}
+bibliography: a1-references.bib
 csl: apa.csl
 editor: visual
 ---
@@ -370,3 +358,8 @@ Future research directions might include:
 - **Mobile deployment**: Optimizing models for deployment on resource-constrained devices
 
 In conclusion, this study contributes to the understanding of deep learning approaches for fine-grained visual categorization, providing practical insights for researchers and practitioners working on similar tasks. Our findings highlight the power of transfer learning while acknowledging the real-world constraints that must be navigated in practical applications of deep learning.
+
+# References {.unnumbered}
+
+::: {#refs}
+:::

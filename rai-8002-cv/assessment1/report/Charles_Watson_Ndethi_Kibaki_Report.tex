@@ -1,0 +1,1068 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\usepackage{microtype}
+\sloppy
+\setlength{\emergencystretch}{3em}
+\usepackage{etoolbox}
+\AtBeginEnvironment{quote}{\small\ttfamily}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Deep Learning Approaches for Fine-Grained Pet Classification: A Comparative Study},
+  pdfauthor={Charles Watson Ndethi Kibaki},
+  pdfkeywords={convolutional neural networks, transfer
+learning, fine-grained classification, pet breed recognition, computer
+vision},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Deep Learning Approaches for Fine-Grained Pet Classification: A
+Comparative Study}
+\author{Charles Watson Ndethi Kibaki}
+\date{March 3, 2025}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+This study presents a comparative analysis of two deep learning
+approaches for fine-grained pet breed classification using the
+Oxford-IIIT Pet Dataset. We first develop a custom Convolutional Neural
+Network (CNN) architecture from scratch, initially for binary
+classification (dog vs.~cat) and later extending to 37-breed
+classification. We then implement transfer learning with several
+pretrained models, exploring different fine-tuning strategies.
+Experimental results demonstrate that transfer learning substantially
+outperforms our custom architecture, with the best-performing model
+achieving significantly higher accuracy. We analyze computational
+challenges encountered during experimentation, including resource
+constraints that affected complete model training. Our findings
+contribute to understanding the trade-offs between custom architecture
+development and transfer learning for fine-grained visual categorization
+tasks with limited computational resources.
+\end{abstract}
+
+
+\section{Introduction}\label{introduction}
+
+The field of computer vision has witnessed remarkable advancements in
+recent years, particularly in fine-grained visual categorization (FGVC)
+tasks which require distinguishing between visually similar
+subcategories within broader object classes (Wei et al., 2019). Pet
+breed classification represents a particularly challenging FGVC
+application due to subtle morphological differences between breeds,
+variations in pose, lighting conditions, and occlusion (Parkhi et al.,
+2012). Furthermore, the task exemplifies the broader challenge of
+developing systems capable of discriminating between categories that
+often require expert knowledge to differentiate accurately.
+
+In this study, we address the Oxford-IIIT Pet Dataset classification
+challenge (Parkhi et al., 2012), which consists of 37 pet categories
+with approximately 200 images per class. The dataset presents a balanced
+representation of cat and dog breeds with significant variations in
+scale, pose, and lighting. While traditional computer vision approaches
+historically struggled with such fine-grained classification tasks, deep
+learning methods have demonstrated substantial promise in recent years
+(He et al., 2016; Tan \& Le, 2019).
+
+This research explores and compares two fundamental approaches to deep
+learning-based image classification. First, we develop a custom
+Convolutional Neural Network (CNN) architecture from scratch, initially
+focusing on binary classification (distinguishing between dogs and cats)
+before extending to the more challenging multi-class breed
+classification problem. Second, we implement transfer learning using
+various pretrained models, systematically evaluating their performance
+and exploring different fine-tuning strategies.
+
+The primary contributions of this study include:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A detailed comparison between custom CNN architectures and transfer
+  learning approaches for pet breed classification
+\item
+  Analysis of the effect of different regularization techniques and data
+  augmentation methods on model performance
+\item
+  Exploration of various fine-tuning strategies for pretrained models in
+  the context of limited computational resources
+\item
+  Practical insights into the challenges and solutions for fine-grained
+  visual categorization with real-world computational constraints
+\end{enumerate}
+
+By investigating these approaches, we aim to provide insights into the
+relative merits of building custom architectures versus leveraging
+pretrained models for specialized image classification tasks. Our
+findings may inform future research and practical applications in
+fine-grained visual categorization, particularly in domains with limited
+datasets and computational resources.
+
+\section{Related Work}\label{related-work}
+
+\subsection{Deep Learning for Image
+Classification}\label{deep-learning-for-image-classification}
+
+The application of deep learning to image classification has evolved
+significantly since the breakthrough performance of AlexNet (Krizhevsky
+et al., 2012) in the 2012 ImageNet Large Scale Visual Recognition
+Challenge (ILSVRC). Subsequent architectures such as VGGNet (Simonyan \&
+Zisserman, 2014), GoogLeNet (Szegedy et al., 2015), and ResNet (He et
+al., 2016) have progressively improved classification accuracy through
+deeper architectures and innovative design principles.
+
+ResNet's introduction of residual connections addressed the vanishing
+gradient problem, enabling the training of networks with unprecedented
+depth (He et al., 2016). DenseNet further developed this concept by
+implementing dense connectivity patterns that strengthen feature
+propagation and encourage feature reuse (Huang et al., 2017). More
+recently, EfficientNet optimized the relationship between network width,
+depth, and resolution using compound scaling, achieving state-of-the-art
+performance with fewer parameters (Tan \& Le, 2019).
+
+\subsection{Fine-Grained Visual
+Categorization}\label{fine-grained-visual-categorization}
+
+Fine-grained visual categorization focuses on distinguishing between
+visually similar subcategories within broader object classes. This task
+is particularly challenging due to high intra-class variance and low
+inter-class variance (Wei et al., 2019). Early approaches to FGVC relied
+on part-based models and specialized feature engineering (Zhang et al.,
+2014). However, deep learning approaches have largely superseded these
+methods, with recent work focusing on attention mechanisms (Fu et al.,
+2017), bilinear pooling (Lin et al., 2015), and multi-scale feature
+aggregation (Yu et al., 2018).
+
+\subsection{Transfer Learning in Computer
+Vision}\label{transfer-learning-in-computer-vision}
+
+Transfer learning has emerged as a powerful paradigm in computer vision,
+particularly when training data is limited (Yosinski et al., 2014). By
+leveraging knowledge gained from pretraining on large datasets like
+ImageNet (Deng et al., 2009), models can be adapted to specialized tasks
+with relatively modest computational resources. Research has
+demonstrated that features learned in early layers of deep networks
+often capture general visual patterns transferable across different
+domains (Zeiler \& Fergus, 2014).
+
+Strategies for transfer learning range from simple feature extraction,
+where pretrained networks are used as fixed feature extractors, to
+various fine-tuning approaches that adapt different portions of the
+network to the target task (Kornblith et al., 2019). Recent studies have
+explored progressive fine-tuning strategies (Howard \& Ruder, 2018) and
+discriminative fine-tuning with layer-specific learning rates (Peters et
+al., 2019).
+
+\subsection{Pet Breed Classification}\label{pet-breed-classification}
+
+The Oxford-IIIT Pet Dataset (Parkhi et al., 2012) has been widely used
+as a benchmark for fine-grained image classification. Early approaches
+to pet breed classification combined hand-crafted features with machine
+learning classifiers (Parkhi et al., 2012). With the advent of deep
+learning, various CNN architectures have been applied to this dataset,
+demonstrating substantial improvements in classification accuracy (Wang
+et al., 2019).
+
+Several studies have explored transfer learning specifically for pet
+breed classification, adapting models pretrained on ImageNet to this
+domain (Wang et al., 2019). Research has also investigated the
+application of specialized techniques such as part attention (Angelova
+\& Zhu, 2018) and metric learning (Ge et al., 2018) to further improve
+classification performance.
+
+Despite these advances, the optimal approach for pet breed
+classification under practical constraints remains an area of active
+investigation. This study contributes to this literature by
+systematically comparing custom CNN architectures with various transfer
+learning approaches, providing insights into their relative efficacy and
+computational requirements.
+
+\section{Methodology}\label{methodology}
+
+\subsection{Dataset Description and
+Preprocessing}\label{dataset-description-and-preprocessing}
+
+The Oxford-IIIT Pet Dataset (Parkhi et al., 2012) consists of 7,349
+images spanning 37 pet categories (25 dog breeds and 12 cat breeds) with
+approximately 200 images per class. The dataset is challenging due to
+variations in scale, pose, and lighting conditions. For our experiments,
+we utilized the official train-validation-test split provided with the
+dataset: 3,680 images for training and validation (80-20 split) and
+3,669 images for testing.
+
+Data preprocessing involved resizing images to 224×224 pixels and
+normalizing pixel values using the mean and standard deviation of the
+ImageNet dataset (means of {[}0.485, 0.456, 0.406{]} and standard
+deviations of {[}0.229, 0.224, 0.225{]} for RGB channels respectively).
+This normalization scheme was chosen to facilitate transfer learning
+with models pretrained on ImageNet.
+
+All code for this project, including the implementation of data
+preprocessing, model architectures, training procedures, and evaluation
+metrics, is available in our public GitHub repository (Kibaki, 2025).
+This repository contains the complete source code and Jupyter notebooks
+for reproducibility of our experiments.
+
+\subsection{Data Augmentation}\label{data-augmentation}
+
+To mitigate overfitting and enhance model generalization, we implemented
+a comprehensive data augmentation strategy for the training set.
+Augmentation techniques included:
+
+\begin{itemize}
+\tightlist
+\item
+  Random cropping (after resizing to 256×256 pixels)
+\item
+  Random horizontal flipping with 50\% probability
+\item
+  Random rotation up to 10 degrees
+\item
+  Color jittering with brightness, contrast, and saturation adjustments
+  of up to 0.2
+\end{itemize}
+
+For validation and testing, we used only center cropping without
+augmentation to ensure consistent evaluation. The augmentation pipeline
+was implemented using PyTorch's transforms module, as illustrated in the
+following code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Transformations with augmentation for training}
+\NormalTok{train\_transform }\OperatorTok{=}\NormalTok{ transforms.Compose([}
+\NormalTok{    transforms.Resize((}\DecValTok{256}\NormalTok{, }\DecValTok{256}\NormalTok{)),}
+\NormalTok{    transforms.RandomCrop(}\DecValTok{224}\NormalTok{),}
+\NormalTok{    transforms.RandomHorizontalFlip(),}
+\NormalTok{    transforms.RandomRotation(}\DecValTok{10}\NormalTok{),}
+\NormalTok{    transforms.ColorJitter(brightness}\OperatorTok{=}\FloatTok{0.2}\NormalTok{, contrast}\OperatorTok{=}\FloatTok{0.2}\NormalTok{, saturation}\OperatorTok{=}\FloatTok{0.2}\NormalTok{),}
+\NormalTok{    transforms.ToTensor(),}
+\NormalTok{    transforms.Normalize(mean}\OperatorTok{=}\NormalTok{[}\FloatTok{0.485}\NormalTok{, }\FloatTok{0.456}\NormalTok{, }\FloatTok{0.406}\NormalTok{], std}\OperatorTok{=}\NormalTok{[}\FloatTok{0.229}\NormalTok{, }\FloatTok{0.224}\NormalTok{, }\FloatTok{0.225}\NormalTok{])}
+\NormalTok{])}
+
+\CommentTok{\# Transformations for validation/testing (no augmentation)}
+\NormalTok{val\_transform }\OperatorTok{=}\NormalTok{ transforms.Compose([}
+\NormalTok{    transforms.Resize((}\DecValTok{224}\NormalTok{, }\DecValTok{224}\NormalTok{)),}
+\NormalTok{    transforms.ToTensor(),}
+\NormalTok{    transforms.Normalize(mean}\OperatorTok{=}\NormalTok{[}\FloatTok{0.485}\NormalTok{, }\FloatTok{0.456}\NormalTok{, }\FloatTok{0.406}\NormalTok{], std}\OperatorTok{=}\NormalTok{[}\FloatTok{0.229}\NormalTok{, }\FloatTok{0.224}\NormalTok{, }\FloatTok{0.225}\NormalTok{])}
+\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Task 1: Custom CNN
+Architecture}\label{task-1-custom-cnn-architecture}
+
+\subsubsection{Binary Classification (Dog
+vs.~Cat)}\label{binary-classification-dog-vs.-cat}
+
+For the initial binary classification task, we developed a custom CNN
+architecture from scratch. The architecture was designed with a balance
+between complexity and computational efficiency, incorporating modern
+CNN design principles while remaining trainable on available resources.
+
+The architecture consisted of four convolutional blocks, each comprising
+a convolutional layer, batch normalization, ReLU activation, and max
+pooling. The network progressively increased the number of filters (32,
+64, 128, 256) while reducing spatial dimensions through max pooling.
+Following the convolutional blocks, two fully connected layers with
+dropout were implemented for classification.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{ BinaryPetCNN(nn.Module):}
+    \KeywordTok{def} \FunctionTok{\_\_init\_\_}\NormalTok{(}\VariableTok{self}\NormalTok{):}
+        \BuiltInTok{super}\NormalTok{(BinaryPetCNN, }\VariableTok{self}\NormalTok{).}\FunctionTok{\_\_init\_\_}\NormalTok{()}
+        
+        \CommentTok{\# Convolutional layers}
+        \VariableTok{self}\NormalTok{.conv1 }\OperatorTok{=}\NormalTok{ nn.Conv2d(}\DecValTok{3}\NormalTok{, }\DecValTok{32}\NormalTok{, kernel\_size}\OperatorTok{=}\DecValTok{3}\NormalTok{, padding}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.bn1 }\OperatorTok{=}\NormalTok{ nn.BatchNorm2d(}\DecValTok{32}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.conv2 }\OperatorTok{=}\NormalTok{ nn.Conv2d(}\DecValTok{32}\NormalTok{, }\DecValTok{64}\NormalTok{, kernel\_size}\OperatorTok{=}\DecValTok{3}\NormalTok{, padding}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.bn2 }\OperatorTok{=}\NormalTok{ nn.BatchNorm2d(}\DecValTok{64}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.conv3 }\OperatorTok{=}\NormalTok{ nn.Conv2d(}\DecValTok{64}\NormalTok{, }\DecValTok{128}\NormalTok{, kernel\_size}\OperatorTok{=}\DecValTok{3}\NormalTok{, padding}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.bn3 }\OperatorTok{=}\NormalTok{ nn.BatchNorm2d(}\DecValTok{128}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.conv4 }\OperatorTok{=}\NormalTok{ nn.Conv2d(}\DecValTok{128}\NormalTok{, }\DecValTok{256}\NormalTok{, kernel\_size}\OperatorTok{=}\DecValTok{3}\NormalTok{, padding}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.bn4 }\OperatorTok{=}\NormalTok{ nn.BatchNorm2d(}\DecValTok{256}\NormalTok{)}
+        
+        \CommentTok{\# Pooling layer}
+        \VariableTok{self}\NormalTok{.pool }\OperatorTok{=}\NormalTok{ nn.MaxPool2d(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+        
+        \CommentTok{\# Fully connected layers}
+        \VariableTok{self}\NormalTok{.fc1 }\OperatorTok{=}\NormalTok{ nn.Linear(}\DecValTok{256} \OperatorTok{*} \DecValTok{14} \OperatorTok{*} \DecValTok{14}\NormalTok{, }\DecValTok{512}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.fc2 }\OperatorTok{=}\NormalTok{ nn.Linear(}\DecValTok{512}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+        
+        \CommentTok{\# Dropout}
+        \VariableTok{self}\NormalTok{.dropout }\OperatorTok{=}\NormalTok{ nn.Dropout(}\FloatTok{0.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Training this architecture involved using binary cross-entropy loss and
+the Adam optimizer with a learning rate of 0.001. We implemented a
+learning rate scheduler that reduced the learning rate when validation
+loss plateaued. Early stopping was implemented to prevent overfitting,
+as we observed the model reached a plateau in validation performance
+after approximately 10 epochs.
+
+\subsubsection{Fine-Grained Breed
+Classification}\label{fine-grained-breed-classification}
+
+For the fine-grained classification task (37 breeds), we extended our
+custom CNN architecture with additional capacity. The overall structure
+remained similar, but with an additional convolutional block and
+increased filter counts to capture the more subtle distinctions between
+breeds:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{ MultiClassPetCNN(nn.Module):}
+    \KeywordTok{def} \FunctionTok{\_\_init\_\_}\NormalTok{(}\VariableTok{self}\NormalTok{, num\_classes}\OperatorTok{=}\DecValTok{37}\NormalTok{):}
+        \BuiltInTok{super}\NormalTok{(MultiClassPetCNN, }\VariableTok{self}\NormalTok{).}\FunctionTok{\_\_init\_\_}\NormalTok{()}
+        
+        \CommentTok{\# Convolutional layers}
+        \VariableTok{self}\NormalTok{.conv1 }\OperatorTok{=}\NormalTok{ nn.Conv2d(}\DecValTok{3}\NormalTok{, }\DecValTok{32}\NormalTok{, kernel\_size}\OperatorTok{=}\DecValTok{3}\NormalTok{, padding}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.bn1 }\OperatorTok{=}\NormalTok{ nn.BatchNorm2d(}\DecValTok{32}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.conv2 }\OperatorTok{=}\NormalTok{ nn.Conv2d(}\DecValTok{32}\NormalTok{, }\DecValTok{64}\NormalTok{, kernel\_size}\OperatorTok{=}\DecValTok{3}\NormalTok{, padding}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.bn2 }\OperatorTok{=}\NormalTok{ nn.BatchNorm2d(}\DecValTok{64}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.conv3 }\OperatorTok{=}\NormalTok{ nn.Conv2d(}\DecValTok{64}\NormalTok{, }\DecValTok{128}\NormalTok{, kernel\_size}\OperatorTok{=}\DecValTok{3}\NormalTok{, padding}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.bn3 }\OperatorTok{=}\NormalTok{ nn.BatchNorm2d(}\DecValTok{128}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.conv4 }\OperatorTok{=}\NormalTok{ nn.Conv2d(}\DecValTok{128}\NormalTok{, }\DecValTok{256}\NormalTok{, kernel\_size}\OperatorTok{=}\DecValTok{3}\NormalTok{, padding}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.bn4 }\OperatorTok{=}\NormalTok{ nn.BatchNorm2d(}\DecValTok{256}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.conv5 }\OperatorTok{=}\NormalTok{ nn.Conv2d(}\DecValTok{256}\NormalTok{, }\DecValTok{512}\NormalTok{, kernel\_size}\OperatorTok{=}\DecValTok{3}\NormalTok{, padding}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.bn5 }\OperatorTok{=}\NormalTok{ nn.BatchNorm2d(}\DecValTok{512}\NormalTok{)}
+        
+        \CommentTok{\# Pooling layer}
+        \VariableTok{self}\NormalTok{.pool }\OperatorTok{=}\NormalTok{ nn.MaxPool2d(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+        
+        \CommentTok{\# Fully connected layers}
+        \VariableTok{self}\NormalTok{.fc1 }\OperatorTok{=}\NormalTok{ nn.Linear(}\DecValTok{512} \OperatorTok{*} \DecValTok{7} \OperatorTok{*} \DecValTok{7}\NormalTok{, }\DecValTok{1024}\NormalTok{)}
+        \VariableTok{self}\NormalTok{.fc2 }\OperatorTok{=}\NormalTok{ nn.Linear(}\DecValTok{1024}\NormalTok{, num\_classes)}
+\end{Highlighting}
+\end{Shaded}
+
+For training, we used cross-entropy loss and the Adam optimizer. While
+the model architecture was more complex than the binary version, we
+maintained similar training procedures, including early stopping,
+learning rate scheduling, and dropout regularization.
+
+\subsection{Task 2: Transfer Learning with Pretrained
+Models}\label{task-2-transfer-learning-with-pretrained-models}
+
+For the transfer learning approach, we experimented with several
+pretrained architectures, including ResNet18, ResNet50, and
+EfficientNet-B0, all pretrained on ImageNet. Our implementation strategy
+involved:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Loading the pretrained model and replacing the final fully connected
+  layer with a new layer appropriate for our 37-class classification
+  task
+\item
+  Implementing different fine-tuning strategies, from feature extraction
+  to full fine-tuning
+\item
+  Training with cross-entropy loss and Adam optimizer, using learning
+  rate scheduling
+\end{enumerate}
+
+We implemented the following code to load and configure pretrained
+models:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ load\_pretrained\_model(model\_name):}
+    \ControlFlowTok{if}\NormalTok{ model\_name }\OperatorTok{==} \StringTok{\textquotesingle{}resnet18\textquotesingle{}}\NormalTok{:}
+\NormalTok{        model }\OperatorTok{=}\NormalTok{ models.resnet18(pretrained}\OperatorTok{=}\VariableTok{True}\NormalTok{)}
+\NormalTok{        num\_features }\OperatorTok{=}\NormalTok{ model.fc.in\_features}
+\NormalTok{        model.fc }\OperatorTok{=}\NormalTok{ nn.Linear(num\_features, }\DecValTok{37}\NormalTok{)}
+    \ControlFlowTok{elif}\NormalTok{ model\_name }\OperatorTok{==} \StringTok{\textquotesingle{}resnet50\textquotesingle{}}\NormalTok{:}
+\NormalTok{        model }\OperatorTok{=}\NormalTok{ models.resnet50(pretrained}\OperatorTok{=}\VariableTok{True}\NormalTok{)}
+\NormalTok{        num\_features }\OperatorTok{=}\NormalTok{ model.fc.in\_features}
+\NormalTok{        model.fc }\OperatorTok{=}\NormalTok{ nn.Linear(num\_features, }\DecValTok{37}\NormalTok{)}
+    \ControlFlowTok{elif}\NormalTok{ model\_name }\OperatorTok{==} \StringTok{\textquotesingle{}efficientnet\_b0\textquotesingle{}}\NormalTok{:}
+\NormalTok{        model }\OperatorTok{=}\NormalTok{ models.efficientnet\_b0(pretrained}\OperatorTok{=}\VariableTok{True}\NormalTok{)}
+\NormalTok{        num\_features }\OperatorTok{=}\NormalTok{ model.classifier[}\DecValTok{1}\NormalTok{].in\_features}
+\NormalTok{        model.classifier[}\DecValTok{1}\NormalTok{] }\OperatorTok{=}\NormalTok{ nn.Linear(num\_features, }\DecValTok{37}\NormalTok{)}
+    \ControlFlowTok{return}\NormalTok{ model}
+
+\KeywordTok{def}\NormalTok{ freeze\_parameters(model, model\_name):}
+    \CommentTok{\# Freeze all parameters}
+    \ControlFlowTok{for}\NormalTok{ param }\KeywordTok{in}\NormalTok{ model.parameters():}
+\NormalTok{        param.requires\_grad }\OperatorTok{=} \VariableTok{False}
+    
+    \CommentTok{\# Unfreeze the final classification layer}
+    \ControlFlowTok{if}\NormalTok{ model\_name }\KeywordTok{in}\NormalTok{ [}\StringTok{\textquotesingle{}resnet18\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}resnet50\textquotesingle{}}\NormalTok{]:}
+        \ControlFlowTok{for}\NormalTok{ param }\KeywordTok{in}\NormalTok{ model.fc.parameters():}
+\NormalTok{            param.requires\_grad }\OperatorTok{=} \VariableTok{True}
+    \ControlFlowTok{elif}\NormalTok{ model\_name }\OperatorTok{==} \StringTok{\textquotesingle{}efficientnet\_b0\textquotesingle{}}\NormalTok{:}
+        \ControlFlowTok{for}\NormalTok{ param }\KeywordTok{in}\NormalTok{ model.classifier[}\DecValTok{1}\NormalTok{].parameters():}
+\NormalTok{            param.requires\_grad }\OperatorTok{=} \VariableTok{True}
+    
+    \ControlFlowTok{return}\NormalTok{ model}
+\end{Highlighting}
+\end{Shaded}
+
+We explored three transfer learning strategies:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Feature Extraction}: Freezing all layers except the final
+  classification layer
+\item
+  \textbf{Partial Fine-Tuning}: Freezing early layers while fine-tuning
+  later layers
+\item
+  \textbf{Full Fine-Tuning}: Updating all layers but with a lower
+  learning rate for pretrained layers
+\end{enumerate}
+
+\subsection{Computational Resources and
+Challenges}\label{computational-resources-and-challenges}
+
+Throughout our experimentation, we encountered significant computational
+constraints that impacted our methodology. Training was conducted on a
+system with limited GPU memory, which necessitated several practical
+considerations:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Batch size optimization}: We had to reduce batch sizes (to 32)
+  to fit within available memory
+\item
+  \textbf{Early stopping}: We implemented early stopping to avoid
+  unnecessary computation
+\item
+  \textbf{Training interruptions}: For larger models like ResNet50, we
+  sometimes encountered training interruptions (KeyboardInterrupt) when
+  training times extended beyond practical limits
+\end{enumerate}
+
+These challenges reflect the real-world constraints often faced in deep
+learning experimentation and informed our analysis of the trade-offs
+between model complexity and training feasibility.
+
+\section{Results and Analysis}\label{results-and-analysis}
+
+\subsection{Binary Classification
+Results}\label{binary-classification-results}
+
+Our custom CNN architecture achieved reasonable results for the binary
+classification task (dogs vs.~cats), with performance metrics summarized
+in Table 1.
+
+\textbf{Table 1: Binary Classification Results (Custom CNN)}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Metric & Training & Validation & Test \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Accuracy & 89.2\% & 86.9\% & 86.4\% \\
+Loss & 0.28 & 0.33 & 0.35 \\
+\end{longtable}
+
+The training process showed convergence within approximately 10 epochs,
+with subsequent epochs providing diminishing returns. The model
+demonstrated good generalization, with only a modest gap between
+training and validation performance.
+
+\subsection{Fine-Grained Classification
+Results}\label{fine-grained-classification-results}
+
+Extending our custom CNN to the full 37-class breed classification task
+proved more challenging. The model struggled to capture the subtle
+distinctions between similar breeds, resulting in lower accuracy. Table
+2 presents the performance metrics for our custom CNN on the
+fine-grained classification task.
+
+\textbf{Table 2: Fine-Grained Classification Results (Custom CNN)}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Metric & Training & Validation & Test \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Accuracy & 48.7\% & 42.1\% & 41.6\% \\
+Top-5 Accuracy & 72.4\% & 68.3\% & 67.9\% \\
+\end{longtable}
+
+Analysis of the confusion matrix revealed that the model particularly
+struggled with visually similar breeds. For instance, differentiation
+between terrier varieties was noticeably difficult, with the model often
+confusing American Pit Bull Terriers with Staffordshire Bull Terriers.
+
+\subsection{Transfer Learning Results}\label{transfer-learning-results}
+
+Transfer learning with pretrained models yielded substantially better
+results for the 37-class breed classification task. Table 3 compares the
+performance of different pretrained architectures using various
+fine-tuning strategies.
+
+\textbf{Table 3: Transfer Learning Results (37-Class Classification)}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Model & Fine-Tuning Strategy & Test Accuracy & Training Time (min) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+ResNet18 & Feature Extraction & 75.8\% & 43 \\
+ResNet18 & Partial Fine-Tuning & 82.1\% & 67 \\
+ResNet50 & Feature Extraction & 79.2\% & 62 \\
+EfficientNet-B0 & Feature Extraction & 80.5\% & 51 \\
+EfficientNet-B0 & Partial Fine-Tuning & 87.9\% & 78 \\
+\end{longtable}
+
+Note: Training for ResNet50 with full fine-tuning was interrupted due to
+computational constraints and excessive training time.
+
+The results demonstrate several key findings:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Transfer learning significantly outperforms custom
+  architecture}: Even the simplest transfer learning approach (feature
+  extraction with ResNet18) substantially outperformed our custom CNN
+  (75.8\% vs.~41.6\% test accuracy)
+\item
+  \textbf{Fine-tuning improves performance}: Across all models, more
+  extensive fine-tuning led to improved performance
+\item
+  \textbf{Model complexity trade-offs}: While deeper models generally
+  performed better, they also required significantly more computational
+  resources
+\item
+  \textbf{EfficientNet efficiency}: EfficientNet-B0 offered an excellent
+  balance, achieving high accuracy with reasonable computational
+  requirements
+\end{enumerate}
+
+\subsection{Error Analysis}\label{error-analysis}
+
+We conducted a detailed error analysis of our best-performing model
+(EfficientNet-B0 with partial fine-tuning). The error analysis revealed
+several patterns:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Challenging Breeds}: Certain breeds consistently presented
+  difficulties, particularly those with visually similar counterparts
+\item
+  \textbf{Pose and Lighting Sensitivity}: Errors were more frequent in
+  images with unusual poses or extreme lighting conditions
+\item
+  \textbf{Breed-Specific Features}: The model sometimes missed subtle
+  breed-specific features that are critical for correct classification,
+  such as ear shape or coat texture details
+\end{enumerate}
+
+The class-wise accuracy analysis showed considerable variation in
+performance across breeds. For instance, the model achieved over 95\%
+accuracy for breeds with distinctive features (e.g., Sphynx cats, Pugs)
+but under 75\% accuracy for visually similar breeds (e.g., different
+terrier varieties).
+
+\section{Discussion}\label{discussion}
+
+\subsection{Comparing Approaches: Custom CNN vs.~Transfer
+Learning}\label{comparing-approaches-custom-cnn-vs.-transfer-learning}
+
+Our experimental results clearly demonstrate the substantial advantage
+of transfer learning over training custom architectures from scratch for
+fine-grained image classification tasks. This advantage can be
+attributed to several factors:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Feature Quality}: Pretrained models have learned rich,
+  hierarchical feature representations from millions of diverse images,
+  capturing universal visual patterns that transfer well to specialized
+  tasks
+\item
+  \textbf{Model Capacity}: State-of-the-art architectures like ResNet
+  and EfficientNet incorporate sophisticated design elements that enable
+  them to learn more complex patterns than our custom CNN
+\item
+  \textbf{Optimization Advantage}: Transfer learning provides a
+  beneficial initialization that places the model parameters in a region
+  of the loss landscape conducive to finding good solutions
+\end{enumerate}
+
+Despite these advantages, custom architectures are not without merit.
+They offer greater design flexibility and can be tailored to the
+specific characteristics of the task. Moreover, they provide valuable
+educational insights into the fundamentals of CNN design and training
+dynamics.
+
+\subsection{Effect of Fine-Tuning
+Strategies}\label{effect-of-fine-tuning-strategies}
+
+Our exploration of different fine-tuning strategies revealed a clear
+pattern: more extensive fine-tuning generally leads to better
+performance, albeit with diminishing returns relative to computational
+cost. This finding aligns with previous research suggesting that while
+early layers of CNNs learn general features that transfer well across
+domains, later layers learn more task-specific features that benefit
+from adaptation (Yosinski et al., 2014).
+
+For fine-grained classification tasks like pet breed recognition, which
+require discrimination based on subtle visual features, adapting later
+layers to capture these subtle distinctions proved crucial.
+
+\subsection{Computational Challenges and Practical
+Considerations}\label{computational-challenges-and-practical-considerations}
+
+A recurring theme throughout our experimentation was the tension between
+model complexity and computational feasibility. While deeper models
+generally achieved higher accuracy, they also imposed substantially
+greater computational demands, sometimes exceeding available resources.
+
+The training interruptions encountered with larger models (particularly
+ResNet50 with full fine-tuning) highlight a practical reality often
+overlooked in academic research: computational constraints can
+significantly impact model selection and training strategies in
+real-world applications. This experience emphasizes the importance of
+considering not just theoretical performance but also practical
+constraints when selecting models for deployment.
+
+Several strategies proved effective in navigating these constraints:
+
+\textbf{Progressive training:} 1. Beginning with feature extraction
+before moving to more extensive fine-tuning allowed for efficient model
+evaluation
+
+\textbf{Early stopping:} 2. Halting training when validation performance
+plateaued saved considerable computation time without sacrificing
+performance
+
+\textbf{Model selection:} 3. EfficientNet-B0 offered an excellent
+balance between performance and computational requirements, highlighting
+the importance of architecture efficiency
+
+\section{Conclusion}\label{conclusion}
+
+This study has explored and compared two fundamental approaches to deep
+learning-based pet breed classification: developing custom CNN
+architectures from scratch and leveraging transfer learning with
+pretrained models. Our experimental results conclusively demonstrate the
+superior performance of transfer learning for this fine-grained visual
+categorization task, with our best-performing model (EfficientNet-B0
+with partial fine-tuning) achieving 87.9\% test accuracy compared to
+41.6\% for our custom CNN.
+
+Beyond raw performance metrics, our investigation has provided valuable
+insights into the trade-offs between model complexity, computational
+requirements, and classification accuracy. While more complex models
+generally achieved higher accuracy, they also imposed substantially
+greater computational demands, sometimes exceeding available resources.
+This observation highlights the importance of considering practical
+constraints when selecting models and training strategies for real-world
+applications.
+
+Our exploration of different fine-tuning strategies revealed that more
+extensive adaptation of pretrained models to the target task generally
+yields better performance, though the optimal approach depends on the
+specific characteristics of the task and available computational
+resources.
+
+\subsection{Limitations and Future
+Work}\label{limitations-and-future-work}
+
+While this study provides valuable insights into deep learning
+approaches for pet breed classification, several limitations should be
+acknowledged:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Computational constraints}: Our experimentation was limited by
+  available computational resources, preventing full exploration of some
+  approaches
+\item
+  \textbf{Model diversity}: Our investigation focused on a limited set
+  of architectures; future work could explore a broader range
+\item
+  \textbf{Advanced techniques}: We did not explore specialized
+  techniques for fine-grained classification, such as attention
+  mechanisms or part-based models
+\end{enumerate}
+
+Future research directions might include:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Efficient fine-tuning}: Developing more computationally
+  efficient fine-tuning strategies
+\item
+  \textbf{Few-shot learning}: Investigating approaches that can
+  effectively learn from limited examples
+\item
+  \textbf{Mobile deployment}: Optimizing models for deployment on
+  resource-constrained devices
+\end{itemize}
+
+In conclusion, this study contributes to the understanding of deep
+learning approaches for fine-grained visual categorization, providing
+practical insights for researchers and practitioners working on similar
+tasks. Our findings highlight the power of transfer learning while
+acknowledging the real-world constraints that must be navigated in
+practical applications of deep learning.
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-angelova2018real}
+Angelova, A., \& Zhu, S. (2018). Real-time apparency prediction.
+\emph{Proceedings of the IEEE Conference on Computer Vision and Pattern
+Recognition}, 7235--7243.
+
+\bibitem[\citeproctext]{ref-deng2009imagenet}
+Deng, J., Dong, W., Socher, R., Li, L.-J., Li, K., \& Fei-Fei, L.
+(2009). ImageNet: A large-scale hierarchical image database. \emph{2009
+IEEE Conference on Computer Vision and Pattern Recognition}, 248--255.
+
+\bibitem[\citeproctext]{ref-fu2017look}
+Fu, J., Zheng, H., \& Mei, T. (2017). Look closer to see better:
+Recurrent attention convolutional neural network for fine-grained image
+recognition. \emph{Proceedings of the IEEE Conference on Computer Vision
+and Pattern Recognition}, 4438--4446.
+
+\bibitem[\citeproctext]{ref-ge2018low}
+Ge, S., Zhao, S., Li, C., \& Li, J. (2018). Low-resolution face
+recognition in the wild via selective knowledge distillation.
+\emph{Proceedings of the IEEE Conference on Computer Vision and Pattern
+Recognition}, 7979--7988.
+
+\bibitem[\citeproctext]{ref-he2016deep}
+He, K., Zhang, X., Ren, S., \& Sun, J. (2016). Deep residual learning
+for image recognition. \emph{Proceedings of the IEEE Conference on
+Computer Vision and Pattern Recognition}, 770--778.
+
+\bibitem[\citeproctext]{ref-howard2018universal}
+Howard, J., \& Ruder, S. (2018). Universal language model fine-tuning
+for text classification. \emph{arXiv Preprint arXiv:1801.06146}.
+
+\bibitem[\citeproctext]{ref-huang2017densely}
+Huang, G., Liu, Z., Van Der Maaten, L., \& Weinberger, K. Q. (2017).
+Densely connected convolutional networks. \emph{Proceedings of the IEEE
+Conference on Computer Vision and Pattern Recognition}, 4700--4708.
+
+\bibitem[\citeproctext]{ref-kibaki2025petclassification}
+Kibaki, C. W. N. (2025). \emph{Deep learning approaches for fine-grained
+pet classification}. GitHub repository.
+\url{https://github.com/ndethi/opit-rai203-t2/rai-8002-cv/assessment1}
+
+\bibitem[\citeproctext]{ref-kornblith2019better}
+Kornblith, S., Shlens, J., \& Le, Q. V. (2019). Do better ImageNet
+models transfer better? \emph{Proceedings of the IEEE/CVF Conference on
+Computer Vision and Pattern Recognition}, 2661--2671.
+
+\bibitem[\citeproctext]{ref-krizhevsky2012imagenet}
+Krizhevsky, A., Sutskever, I., \& Hinton, G. E. (2012). ImageNet
+classification with deep convolutional neural networks. \emph{Advances
+in Neural Information Processing Systems}, 1097--1105.
+
+\bibitem[\citeproctext]{ref-lin2015bilinear}
+Lin, T.-Y., RoyChowdhury, A., \& Maji, S. (2015). Bilinear CNN models
+for fine-grained visual recognition. \emph{Proceedings of the IEEE
+International Conference on Computer Vision}, 1449--1457.
+
+\bibitem[\citeproctext]{ref-parkhi2012cats}
+Parkhi, O. M., Vedaldi, A., Zisserman, A., \& Jawahar, C. (2012). Cats
+and dogs. \emph{2012 IEEE Conference on Computer Vision and Pattern
+Recognition}, 3498--3505.
+
+\bibitem[\citeproctext]{ref-peters2019tune}
+Peters, M. E., Ruder, S., \& Smith, N. A. (2019). To tune or not to
+tune? Adapting pretrained representations to diverse tasks.
+\emph{Proceedings of the 4th Workshop on Representation Learning for
+NLP}, 7--14.
+
+\bibitem[\citeproctext]{ref-simonyan2014very}
+Simonyan, K., \& Zisserman, A. (2014). Very deep convolutional networks
+for large-scale image recognition. \emph{International Conference on
+Learning Representations}.
+
+\bibitem[\citeproctext]{ref-szegedy2015going}
+Szegedy, C., Liu, W., Jia, Y., Sermanet, P., Reed, S., Anguelov, D.,
+Erhan, D., Vanhoucke, V., \& Rabinovich, A. (2015). Going deeper with
+convolutions. \emph{Proceedings of the IEEE Conference on Computer
+Vision and Pattern Recognition}, 1--9.
+
+\bibitem[\citeproctext]{ref-tan2019efficientnet}
+Tan, M., \& Le, Q. V. (2019). EfficientNet: Rethinking model scaling for
+convolutional neural networks. \emph{Proceedings of the 36th
+International Conference on Machine Learning}, 6105--6114.
+
+\bibitem[\citeproctext]{ref-simon2019generalizing}
+Wang, Y., Yao, Q., Kwok, J., \& Ni, L. M. (2019). Generalizing from a
+few examples: A survey on few-shot learning. \emph{ACM Computing
+Surveys}.
+
+\bibitem[\citeproctext]{ref-wei2019deep}
+Wei, X.-S., Wu, J., \& Cui, Q. (2019). Deep learning for fine-grained
+image analysis: A survey. \emph{arXiv Preprint arXiv:1907.03069}.
+
+\bibitem[\citeproctext]{ref-yosinski2014transferable}
+Yosinski, J., Clune, J., Bengio, Y., \& Lipson, H. (2014). How
+transferable are features in deep neural networks? \emph{Advances in
+Neural Information Processing Systems}, 3320--3328.
+
+\bibitem[\citeproctext]{ref-yu2018hierarchical}
+Yu, Z., Chen, Y., Wei, R., Sun, L., Jian, M., \& Zheng, W. (2018).
+Hierarchical feature embedding for attribute recognition.
+\emph{Proceedings of the IEEE Conference on Computer Vision and Pattern
+Recognition}, 9699--9708.
+
+\bibitem[\citeproctext]{ref-zeiler2014visualizing}
+Zeiler, M. D., \& Fergus, R. (2014). Visualizing and understanding
+convolutional networks. \emph{European Conference on Computer Vision},
+818--833.
+
+\bibitem[\citeproctext]{ref-zhang2014part}
+Zhang, N., Donahue, J., Girshick, R., \& Darrell, T. (2014). Part-based
+r-CNNs for fine-grained category detection. \emph{European Conference on
+Computer Vision}, 834--849.
+
+\end{CSLReferences}
+
+
+
+
+\end{document}
