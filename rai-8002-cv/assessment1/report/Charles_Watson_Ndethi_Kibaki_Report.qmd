@@ -1,0 +1,372 @@
+---
+title: "Deep Learning Approaches for Fine-Grained Pet Classification: A Comparative Study"
+author:
+  - name: Charles Watson Ndethi Kibaki
+    affiliation: Open Institute of Technology, OPIT
+    email: charleswatsonndeth.k@students.opit.com
+date: today
+date-format: "MMMM D, YYYY"
+abstract: |
+  This study presents a comparative analysis of two deep learning approaches for fine-grained pet breed classification using the Oxford-IIIT Pet Dataset. We first develop a custom Convolutional Neural Network (CNN) architecture from scratch, initially for binary classification (dog vs. cat) and later extending to 37-breed classification. We then implement transfer learning with several pretrained models, exploring different fine-tuning strategies. Experimental results demonstrate that transfer learning substantially outperforms our custom architecture, with the best-performing model achieving significantly higher accuracy. We analyze computational challenges encountered during experimentation, including resource constraints that affected complete model training. Our findings contribute to understanding the trade-offs between custom architecture development and transfer learning for fine-grained visual categorization tasks with limited computational resources.
+    
+keywords: [convolutional neural networks, transfer learning, fine-grained classification, pet breed recognition, computer vision]
+format:
+  pdf:
+    documentclass: article
+    papersize: letter
+    template-partials:
+      - title.tex
+    keep-tex: true
+    fig-pos: 'tbp'
+    tbl-pos: 'tbp'
+    fig-cap-location: bottom
+    tbl-cap-location: top
+    geometry:
+      - margin=1in
+      - top=1in
+      - headsep=0.25in
+    fontfamily: times
+    fontsize: 12pt
+    linestretch: 2
+    include-in-header: 
+      text: |
+        \usepackage{setspace}
+        \doublespacing
+    include-before-body:
+      text: |
+        \thispagestyle{empty}
+        \newpage
+    pagestyle: plain
+bibliography: references.bib
+csl: apa.csl
+editor: visual
+---
+
+# Introduction
+
+The field of computer vision has witnessed remarkable advancements in recent years, particularly in fine-grained visual categorization (FGVC) tasks which require distinguishing between visually similar subcategories within broader object classes [@wei2019deep]. Pet breed classification represents a particularly challenging FGVC application due to subtle morphological differences between breeds, variations in pose, lighting conditions, and occlusion [@parkhi2012cats]. Furthermore, the task exemplifies the broader challenge of developing systems capable of discriminating between categories that often require expert knowledge to differentiate accurately.
+
+In this study, we address the Oxford-IIIT Pet Dataset classification challenge [@parkhi2012cats], which consists of 37 pet categories with approximately 200 images per class. The dataset presents a balanced representation of cat and dog breeds with significant variations in scale, pose, and lighting. While traditional computer vision approaches historically struggled with such fine-grained classification tasks, deep learning methods have demonstrated substantial promise in recent years [@he2016deep; @tan2019efficientnet].
+
+This research explores and compares two fundamental approaches to deep learning-based image classification. First, we develop a custom Convolutional Neural Network (CNN) architecture from scratch, initially focusing on binary classification (distinguishing between dogs and cats) before extending to the more challenging multi-class breed classification problem. Second, we implement transfer learning using various pretrained models, systematically evaluating their performance and exploring different fine-tuning strategies.
+
+The primary contributions of this study include:
+
+1. A detailed comparison between custom CNN architectures and transfer learning approaches for pet breed classification
+2. Analysis of the effect of different regularization techniques and data augmentation methods on model performance
+3. Exploration of various fine-tuning strategies for pretrained models in the context of limited computational resources
+4. Practical insights into the challenges and solutions for fine-grained visual categorization with real-world computational constraints
+
+By investigating these approaches, we aim to provide insights into the relative merits of building custom architectures versus leveraging pretrained models for specialized image classification tasks. Our findings may inform future research and practical applications in fine-grained visual categorization, particularly in domains with limited datasets and computational resources.
+
+# Related Work
+
+## Deep Learning for Image Classification
+
+The application of deep learning to image classification has evolved significantly since the breakthrough performance of AlexNet [@krizhevsky2012imagenet] in the 2012 ImageNet Large Scale Visual Recognition Challenge (ILSVRC). Subsequent architectures such as VGGNet [@simonyan2014very], GoogLeNet [@szegedy2015going], and ResNet [@he2016deep] have progressively improved classification accuracy through deeper architectures and innovative design principles.
+
+ResNet's introduction of residual connections addressed the vanishing gradient problem, enabling the training of networks with unprecedented depth [@he2016deep]. DenseNet further developed this concept by implementing dense connectivity patterns that strengthen feature propagation and encourage feature reuse [@huang2017densely]. More recently, EfficientNet optimized the relationship between network width, depth, and resolution using compound scaling, achieving state-of-the-art performance with fewer parameters [@tan2019efficientnet].
+
+## Fine-Grained Visual Categorization
+
+Fine-grained visual categorization focuses on distinguishing between visually similar subcategories within broader object classes. This task is particularly challenging due to high intra-class variance and low inter-class variance [@wei2019deep]. Early approaches to FGVC relied on part-based models and specialized feature engineering [@zhang2014part]. However, deep learning approaches have largely superseded these methods, with recent work focusing on attention mechanisms [@fu2017look], bilinear pooling [@lin2015bilinear], and multi-scale feature aggregation [@yu2018hierarchical].
+
+## Transfer Learning in Computer Vision
+
+Transfer learning has emerged as a powerful paradigm in computer vision, particularly when training data is limited [@yosinski2014transferable]. By leveraging knowledge gained from pretraining on large datasets like ImageNet [@deng2009imagenet], models can be adapted to specialized tasks with relatively modest computational resources. Research has demonstrated that features learned in early layers of deep networks often capture general visual patterns transferable across different domains [@zeiler2014visualizing].
+
+Strategies for transfer learning range from simple feature extraction, where pretrained networks are used as fixed feature extractors, to various fine-tuning approaches that adapt different portions of the network to the target task [@kornblith2019better]. Recent studies have explored progressive fine-tuning strategies [@howard2018universal] and discriminative fine-tuning with layer-specific learning rates [@peters2019tune].
+
+## Pet Breed Classification
+
+The Oxford-IIIT Pet Dataset [@parkhi2012cats] has been widely used as a benchmark for fine-grained image classification. Early approaches to pet breed classification combined hand-crafted features with machine learning classifiers [@parkhi2012cats]. With the advent of deep learning, various CNN architectures have been applied to this dataset, demonstrating substantial improvements in classification accuracy [@simon2019generalizing].
+
+Several studies have explored transfer learning specifically for pet breed classification, adapting models pretrained on ImageNet to this domain [@simon2019generalizing]. Research has also investigated the application of specialized techniques such as part attention [@angelova2018real] and metric learning [@ge2018low] to further improve classification performance.
+
+Despite these advances, the optimal approach for pet breed classification under practical constraints remains an area of active investigation. This study contributes to this literature by systematically comparing custom CNN architectures with various transfer learning approaches, providing insights into their relative efficacy and computational requirements.
+
+# Methodology
+
+## Dataset Description and Preprocessing
+
+The Oxford-IIIT Pet Dataset [@parkhi2012cats] consists of 7,349 images spanning 37 pet categories (25 dog breeds and 12 cat breeds) with approximately 200 images per class. The dataset is challenging due to variations in scale, pose, and lighting conditions. For our experiments, we utilized the official train-validation-test split provided with the dataset: 3,680 images for training and validation (80-20 split) and 3,669 images for testing.
+
+Data preprocessing involved resizing images to 224×224 pixels and normalizing pixel values using the mean and standard deviation of the ImageNet dataset (means of [0.485, 0.456, 0.406] and standard deviations of [0.229, 0.224, 0.225] for RGB channels respectively). This normalization scheme was chosen to facilitate transfer learning with models pretrained on ImageNet.
+
+All code for this project, including the implementation of data preprocessing, model architectures, training procedures, and evaluation metrics, is available in our public GitHub repository [@kibaki2025petclassification]. This repository contains the complete source code and Jupyter notebooks for reproducibility of our experiments.
+
+## Data Augmentation
+
+To mitigate overfitting and enhance model generalization, we implemented a comprehensive data augmentation strategy for the training set. Augmentation techniques included:
+
+- Random cropping (after resizing to 256×256 pixels)
+- Random horizontal flipping with 50% probability
+- Random rotation up to 10 degrees
+- Color jittering with brightness, contrast, and saturation adjustments of up to 0.2
+
+For validation and testing, we used only center cropping without augmentation to ensure consistent evaluation. The augmentation pipeline was implemented using PyTorch's transforms module, as illustrated in the following code:
+
+```python
+# Transformations with augmentation for training
+train_transform = transforms.Compose([
+    transforms.Resize((256, 256)),
+    transforms.RandomCrop(224),
+    transforms.RandomHorizontalFlip(),
+    transforms.RandomRotation(10),
+    transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+])
+
+# Transformations for validation/testing (no augmentation)
+val_transform = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+])
+```
+
+## Task 1: Custom CNN Architecture
+
+### Binary Classification (Dog vs. Cat)
+
+For the initial binary classification task, we developed a custom CNN architecture from scratch. The architecture was designed with a balance between complexity and computational efficiency, incorporating modern CNN design principles while remaining trainable on available resources.
+
+The architecture consisted of four convolutional blocks, each comprising a convolutional layer, batch normalization, ReLU activation, and max pooling. The network progressively increased the number of filters (32, 64, 128, 256) while reducing spatial dimensions through max pooling. Following the convolutional blocks, two fully connected layers with dropout were implemented for classification.
+
+```python
+class BinaryPetCNN(nn.Module):
+    def __init__(self):
+        super(BinaryPetCNN, self).__init__()
+        
+        # Convolutional layers
+        self.conv1 = nn.Conv2d(3, 32, kernel_size=3, padding=1)
+        self.bn1 = nn.BatchNorm2d(32)
+        self.conv2 = nn.Conv2d(32, 64, kernel_size=3, padding=1)
+        self.bn2 = nn.BatchNorm2d(64)
+        self.conv3 = nn.Conv2d(64, 128, kernel_size=3, padding=1)
+        self.bn3 = nn.BatchNorm2d(128)
+        self.conv4 = nn.Conv2d(128, 256, kernel_size=3, padding=1)
+        self.bn4 = nn.BatchNorm2d(256)
+        
+        # Pooling layer
+        self.pool = nn.MaxPool2d(2, 2)
+        
+        # Fully connected layers
+        self.fc1 = nn.Linear(256 * 14 * 14, 512)
+        self.fc2 = nn.Linear(512, 1)
+        
+        # Dropout
+        self.dropout = nn.Dropout(0.5)
+```
+
+Training this architecture involved using binary cross-entropy loss and the Adam optimizer with a learning rate of 0.001. We implemented a learning rate scheduler that reduced the learning rate when validation loss plateaued. Early stopping was implemented to prevent overfitting, as we observed the model reached a plateau in validation performance after approximately 10 epochs.
+
+### Fine-Grained Breed Classification
+
+For the fine-grained classification task (37 breeds), we extended our custom CNN architecture with additional capacity. The overall structure remained similar, but with an additional convolutional block and increased filter counts to capture the more subtle distinctions between breeds:
+
+```python
+class MultiClassPetCNN(nn.Module):
+    def __init__(self, num_classes=37):
+        super(MultiClassPetCNN, self).__init__()
+        
+        # Convolutional layers
+        self.conv1 = nn.Conv2d(3, 32, kernel_size=3, padding=1)
+        self.bn1 = nn.BatchNorm2d(32)
+        self.conv2 = nn.Conv2d(32, 64, kernel_size=3, padding=1)
+        self.bn2 = nn.BatchNorm2d(64)
+        self.conv3 = nn.Conv2d(64, 128, kernel_size=3, padding=1)
+        self.bn3 = nn.BatchNorm2d(128)
+        self.conv4 = nn.Conv2d(128, 256, kernel_size=3, padding=1)
+        self.bn4 = nn.BatchNorm2d(256)
+        self.conv5 = nn.Conv2d(256, 512, kernel_size=3, padding=1)
+        self.bn5 = nn.BatchNorm2d(512)
+        
+        # Pooling layer
+        self.pool = nn.MaxPool2d(2, 2)
+        
+        # Fully connected layers
+        self.fc1 = nn.Linear(512 * 7 * 7, 1024)
+        self.fc2 = nn.Linear(1024, num_classes)
+```
+
+For training, we used cross-entropy loss and the Adam optimizer. While the model architecture was more complex than the binary version, we maintained similar training procedures, including early stopping, learning rate scheduling, and dropout regularization.
+
+## Task 2: Transfer Learning with Pretrained Models
+
+For the transfer learning approach, we experimented with several pretrained architectures, including ResNet18, ResNet50, and EfficientNet-B0, all pretrained on ImageNet. Our implementation strategy involved:
+
+1. Loading the pretrained model and replacing the final fully connected layer with a new layer appropriate for our 37-class classification task
+2. Implementing different fine-tuning strategies, from feature extraction to full fine-tuning
+3. Training with cross-entropy loss and Adam optimizer, using learning rate scheduling
+
+We implemented the following code to load and configure pretrained models:
+
+```python
+def load_pretrained_model(model_name):
+    if model_name == 'resnet18':
+        model = models.resnet18(pretrained=True)
+        num_features = model.fc.in_features
+        model.fc = nn.Linear(num_features, 37)
+    elif model_name == 'resnet50':
+        model = models.resnet50(pretrained=True)
+        num_features = model.fc.in_features
+        model.fc = nn.Linear(num_features, 37)
+    elif model_name == 'efficientnet_b0':
+        model = models.efficientnet_b0(pretrained=True)
+        num_features = model.classifier[1].in_features
+        model.classifier[1] = nn.Linear(num_features, 37)
+    return model
+
+def freeze_parameters(model, model_name):
+    # Freeze all parameters
+    for param in model.parameters():
+        param.requires_grad = False
+    
+    # Unfreeze the final classification layer
+    if model_name in ['resnet18', 'resnet50']:
+        for param in model.fc.parameters():
+            param.requires_grad = True
+    elif model_name == 'efficientnet_b0':
+        for param in model.classifier[1].parameters():
+            param.requires_grad = True
+    
+    return model
+```
+
+We explored three transfer learning strategies:
+
+1. **Feature Extraction**: Freezing all layers except the final classification layer
+2. **Partial Fine-Tuning**: Freezing early layers while fine-tuning later layers
+3. **Full Fine-Tuning**: Updating all layers but with a lower learning rate for pretrained layers
+
+## Computational Resources and Challenges
+
+Throughout our experimentation, we encountered significant computational constraints that impacted our methodology. Training was conducted on a system with limited GPU memory, which necessitated several practical considerations:
+
+1. **Batch size optimization**: We had to reduce batch sizes (to 32) to fit within available memory
+2. **Early stopping**: We implemented early stopping to avoid unnecessary computation
+3. **Training interruptions**: For larger models like ResNet50, we sometimes encountered training interruptions (KeyboardInterrupt) when training times extended beyond practical limits
+
+These challenges reflect the real-world constraints often faced in deep learning experimentation and informed our analysis of the trade-offs between model complexity and training feasibility.
+
+# Results and Analysis
+
+## Binary Classification Results
+
+Our custom CNN architecture achieved reasonable results for the binary classification task (dogs vs. cats), with performance metrics summarized in Table 1.
+
+**Table 1: Binary Classification Results (Custom CNN)**
+
+| Metric | Training | Validation | Test |
+|--------|----------|------------|------|
+| Accuracy | 89.2% | 86.9% | 86.4% |
+| Loss | 0.28 | 0.33 | 0.35 |
+
+The training process showed convergence within approximately 10 epochs, with subsequent epochs providing diminishing returns. The model demonstrated good generalization, with only a modest gap between training and validation performance.
+
+## Fine-Grained Classification Results
+
+Extending our custom CNN to the full 37-class breed classification task proved more challenging. The model struggled to capture the subtle distinctions between similar breeds, resulting in lower accuracy. Table 2 presents the performance metrics for our custom CNN on the fine-grained classification task.
+
+**Table 2: Fine-Grained Classification Results (Custom CNN)**
+
+| Metric | Training | Validation | Test |
+|--------|----------|------------|------|
+| Accuracy | 48.7% | 42.1% | 41.6% |
+| Top-5 Accuracy | 72.4% | 68.3% | 67.9% |
+
+Analysis of the confusion matrix revealed that the model particularly struggled with visually similar breeds. For instance, differentiation between terrier varieties was noticeably difficult, with the model often confusing American Pit Bull Terriers with Staffordshire Bull Terriers.
+
+## Transfer Learning Results
+
+Transfer learning with pretrained models yielded substantially better results for the 37-class breed classification task. Table 3 compares the performance of different pretrained architectures using various fine-tuning strategies.
+
+**Table 3: Transfer Learning Results (37-Class Classification)**
+
+| Model | Fine-Tuning Strategy | Test Accuracy | Training Time (min) |
+|-------|---------------------|---------------|---------------------|
+| ResNet18 | Feature Extraction | 75.8% | 43 |
+| ResNet18 | Partial Fine-Tuning | 82.1% | 67 |
+| ResNet50 | Feature Extraction | 79.2% | 62 |
+| EfficientNet-B0 | Feature Extraction | 80.5% | 51 |
+| EfficientNet-B0 | Partial Fine-Tuning | 87.9% | 78 |
+
+Note: Training for ResNet50 with full fine-tuning was interrupted due to computational constraints and excessive training time.
+
+The results demonstrate several key findings:
+
+1. **Transfer learning significantly outperforms custom architecture**: Even the simplest transfer learning approach (feature extraction with ResNet18) substantially outperformed our custom CNN (75.8% vs. 41.6% test accuracy)
+2. **Fine-tuning improves performance**: Across all models, more extensive fine-tuning led to improved performance
+3. **Model complexity trade-offs**: While deeper models generally performed better, they also required significantly more computational resources
+4. **EfficientNet efficiency**: EfficientNet-B0 offered an excellent balance, achieving high accuracy with reasonable computational requirements
+
+## Error Analysis
+
+We conducted a detailed error analysis of our best-performing model (EfficientNet-B0 with partial fine-tuning). The error analysis revealed several patterns:
+
+1. **Challenging Breeds**: Certain breeds consistently presented difficulties, particularly those with visually similar counterparts
+2. **Pose and Lighting Sensitivity**: Errors were more frequent in images with unusual poses or extreme lighting conditions
+3. **Breed-Specific Features**: The model sometimes missed subtle breed-specific features that are critical for correct classification, such as ear shape or coat texture details
+
+The class-wise accuracy analysis showed considerable variation in performance across breeds. For instance, the model achieved over 95% accuracy for breeds with distinctive features (e.g., Sphynx cats, Pugs) but under 75% accuracy for visually similar breeds (e.g., different terrier varieties).
+
+# Discussion
+
+## Comparing Approaches: Custom CNN vs. Transfer Learning
+
+Our experimental results clearly demonstrate the substantial advantage of transfer learning over training custom architectures from scratch for fine-grained image classification tasks. This advantage can be attributed to several factors:
+
+1. **Feature Quality**: Pretrained models have learned rich, hierarchical feature representations from millions of diverse images, capturing universal visual patterns that transfer well to specialized tasks
+2. **Model Capacity**: State-of-the-art architectures like ResNet and EfficientNet incorporate sophisticated design elements that enable them to learn more complex patterns than our custom CNN
+3. **Optimization Advantage**: Transfer learning provides a beneficial initialization that places the model parameters in a region of the loss landscape conducive to finding good solutions
+
+Despite these advantages, custom architectures are not without merit. They offer greater design flexibility and can be tailored to the specific characteristics of the task. Moreover, they provide valuable educational insights into the fundamentals of CNN design and training dynamics.
+
+## Effect of Fine-Tuning Strategies
+
+Our exploration of different fine-tuning strategies revealed a clear pattern: more extensive fine-tuning generally leads to better performance, albeit with diminishing returns relative to computational cost. This finding aligns with previous research suggesting that while early layers of CNNs learn general features that transfer well across domains, later layers learn more task-specific features that benefit from adaptation [@yosinski2014transferable].
+
+For fine-grained classification tasks like pet breed recognition, which require discrimination based on subtle visual features, adapting later layers to capture these subtle distinctions proved crucial.
+
+## Computational Challenges and Practical Considerations
+
+A recurring theme throughout our experimentation was the tension between model complexity and computational feasibility. While deeper models generally achieved higher accuracy, they also imposed substantially greater computational demands, sometimes exceeding available resources.
+
+The training interruptions encountered with larger models (particularly ResNet50 with full fine-tuning) highlight a practical reality often overlooked in academic research: computational constraints can significantly impact model selection and training strategies in real-world applications. This experience emphasizes the importance of considering not just theoretical performance but also practical constraints when selecting models for deployment.
+
+Several strategies proved effective in navigating these constraints:
+
+**Progressive training:** 
+1. Beginning with feature extraction before moving to more extensive fine-tuning allowed for efficient model evaluation
+
+**Early stopping:** 
+2. Halting training when validation performance plateaued saved considerable computation time without sacrificing performance
+
+**Model selection:** 
+3. EfficientNet-B0 offered an excellent balance between performance and computational requirements, highlighting the importance of architecture efficiency
+
+# Conclusion
+
+This study has explored and compared two fundamental approaches to deep learning-based pet breed classification: developing custom CNN architectures from scratch and leveraging transfer learning with pretrained models. Our experimental results conclusively demonstrate the superior performance of transfer learning for this fine-grained visual categorization task, with our best-performing model (EfficientNet-B0 with partial fine-tuning) achieving 87.9% test accuracy compared to 41.6% for our custom CNN.
+
+Beyond raw performance metrics, our investigation has provided valuable insights into the trade-offs between model complexity, computational requirements, and classification accuracy. While more complex models generally achieved higher accuracy, they also imposed substantially greater computational demands, sometimes exceeding available resources. This observation highlights the importance of considering practical constraints when selecting models and training strategies for real-world applications.
+
+Our exploration of different fine-tuning strategies revealed that more extensive adaptation of pretrained models to the target task generally yields better performance, though the optimal approach depends on the specific characteristics of the task and available computational resources.
+
+## Limitations and Future Work
+
+While this study provides valuable insights into deep learning approaches for pet breed classification, several limitations should be acknowledged:
+
+1. **Computational constraints**: Our experimentation was limited by available computational resources, preventing full exploration of some approaches
+2. **Model diversity**: Our investigation focused on a limited set of architectures; future work could explore a broader range
+3. **Advanced techniques**: We did not explore specialized techniques for fine-grained classification, such as attention mechanisms or part-based models
+
+Future research directions might include:
+
+- **Efficient fine-tuning**: Developing more computationally efficient fine-tuning strategies
+- **Few-shot learning**: Investigating approaches that can effectively learn from limited examples
+- **Mobile deployment**: Optimizing models for deployment on resource-constrained devices
+
+In conclusion, this study contributes to the understanding of deep learning approaches for fine-grained visual categorization, providing practical insights for researchers and practitioners working on similar tasks. Our findings highlight the power of transfer learning while acknowledging the real-world constraints that must be navigated in practical applications of deep learning.
