@@ -25,7 +25,153 @@ format:
           - |
               \usepackage{etoolbox}
               \AtBeginEnvironment{quote}{\small\ttfamily}
-bibliography: assessment2-references.bib
+bibliography: a2-references.bib
 csl: apa.csl
 editor: visual
 ---
+
+# Assessment 2: Named Entity Recognition for African Languages
+
+## Introduction and Problem Statement
+
+### Background Context
+- The critical importance of Natural Language Processing (NLP) for language preservation and accessibility
+- The challenge of "low-resource languages" (LRLs) in NLP, particularly African languages
+- Introduction to Named Entity Recognition (NER) as a fundamental NLP task
+- The significance of the MasakhaNER dataset in addressing representation gaps
+
+### Project Objectives
+- Explore, analyze, and preprocess the MasakhaNER dataset for 10 African languages
+- Develop and implement NER models appropriate for low-resource African languages
+- Evaluate model performance with appropriate metrics for NER tasks
+- Investigate approaches to improve NER for languages with limited digital resources
+
+### Relevance to Low-Resource Language Preservation
+- Connection to crowdsourcing and dataset creation for mother tongue preservation
+- Potential applications for cultural heritage documentation and accessibility
+
+## Data Exploration and Analysis
+
+### Dataset Overview
+- Source, creators, and purpose of the MasakhaNER dataset
+- Languages covered: Amharic, Hausa, Igbo, Kinyarwanda, Luganda, Luo, Nigerian-Pidgin, Swahili, Wolof, and Yorùbá
+- Entity classes: Person, Location, Organization, Date
+- Dataset size and distribution (~40k annotated sentences across languages)
+
+### Exploratory Data Analysis
+- Distribution of languages in the dataset
+- Sentence length statistics across languages
+- Entity type distribution analysis
+- Entity frequency patterns
+- Visualization of language-specific characteristics
+- Unique challenges for each language (script differences, morphological complexity, etc.)
+
+### Statistical Analysis
+- Token/type ratios for different languages
+- Entity density per language
+- Comparative analysis of entity distributions across languages
+- Identification of potential biases or gaps in annotation
+
+## Data Preprocessing
+
+### Text Processing Pipeline
+- Language-specific tokenization challenges
+- Character encoding considerations for different scripts
+- Handling of diacritics and special characters
+- Sentence segmentation approaches
+
+### Feature Engineering
+- Token-level feature extraction
+- Contextual features for NER
+- Handling of language-specific morphological features
+- One-hot encoding vs. embedding approaches for tokens
+
+### Data Transformation
+- BIO/BIOES tagging scheme implementation
+- Data formatting for model compatibility
+- Train/validation/test split strategy
+- Cross-lingual vs. language-specific preprocessing considerations
+
+## Model Implementation
+
+### Baseline Models
+- Traditional CRF (Conditional Random Fields) implementation
+- Simple BiLSTM (Bidirectional Long Short-Term Memory) approach
+- Analysis of language-agnostic baseline performance
+
+### Advanced Models
+- BiLSTM-CRF architecture implementation
+- Transformer-based approaches (adaptation of multilingual BERT)
+- Cross-lingual transfer learning techniques
+- Language-specific model adaptation strategies
+
+### Hyperparameter Tuning
+- Learning rate optimization
+- Batch size considerations for limited data
+- Regularization techniques to prevent overfitting
+- Embedding dimension experimentation
+
+## Model Evaluation
+
+### Evaluation Metrics
+- Entity-level precision, recall, and F1-score
+- Span-based exact match metrics
+- Per-entity type performance analysis
+- Per-language performance comparison
+
+### Error Analysis
+- Common error patterns across languages
+- Language-specific error categories
+- Impact of linguistic features on performance
+- Entity boundary detection challenges
+
+### Performance Visualization
+- Confusion matrices for entity types
+- Learning curves during training
+- Cross-language performance comparison charts
+- Error distribution visualizations
+
+## Discussion and Insights
+
+### Model Performance Analysis
+- Comparative analysis of model architectures
+- Language-specific performance differences
+- Impact of data size on model effectiveness
+- Linguistic factors affecting NER performance
+
+### Technical Challenges
+- Resource constraints for African language processing
+- Morphological complexity impact on NER
+- Cross-lingual transfer effectiveness
+- Annotation consistency challenges
+
+### Broader Implications
+- Contribution to low-resource language technology
+- Potential applications for language preservation
+- Educational and cultural heritage applications
+- Ethical considerations in developing NLP for underrepresented languages
+
+## Conclusions and Future Directions
+
+### Summary of Findings
+- Key insights from model performance
+- Most effective approaches for African language NER
+- Critical challenges identified
+
+### Recommendations
+- Suggested improvements for future iterations
+- Data collection and annotation strategies
+- Technical approaches for similar low-resource scenarios
+
+### Future Work
+- Potential for expanding to other African languages
+- Integration with other NLP tasks (machine translation, sentiment analysis)
+- Participatory design approaches for community involvement
+- Deployment considerations for practical applications
+
+## References
+
+- MasakhaNER dataset documentation and papers
+- Key NER methodological papers
+- Low-resource NLP literature
+- African language processing research
