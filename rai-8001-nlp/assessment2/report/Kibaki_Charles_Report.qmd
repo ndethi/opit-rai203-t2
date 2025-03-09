@@ -1,0 +1,31 @@
+---
+title: "Named Entity Recognition for African Languages: A Comparative Analysis Using the MasakhaNER Dataset"
+author:
+  - name: [Your Full Name]
+    affiliation: Open Institute of Technology, OPIT
+    email: [your.email]@students.opit.com
+date: today
+date-format: "MMMM D, YYYY"
+abstract: |
+  This study explores named entity recognition (NER) for low-resource African languages using the MasakhaNER dataset, which covers 10 diverse African languages. We implement and compare multiple NER approaches, from traditional conditional random fields (CRFs) to bidirectional LSTM models and transformer-based architectures. Our analysis focuses on language-specific performance variations, investigating how morphological complexity and limited training data affect recognition accuracy. Experimental results demonstrate significant performance differences across languages and entity types, with transformer-based models generally outperforming traditional approaches. We identify key challenges in cross-lingual transfer learning and propose strategies to improve NER for languages with minimal digital footprints. This work contributes to the broader goal of developing effective NLP technologies for underrepresented languages, supporting language preservation efforts and digital inclusion for African language communities.
+   
+keywords: [named entity recognition, low-resource languages, African languages, MasakhaNER, natural language processing, language preservation]
+format:
+     pdf:
+        number-sections: true
+        fig-width: 8
+        fig-height: 6
+        keep-tex: true
+        documentclass: article
+        geometry: "margin=1in"
+        header-includes:
+          - \usepackage{microtype}
+          - \sloppy
+          - \setlength{\emergencystretch}{3em}
+          - |
+              \usepackage{etoolbox}
+              \AtBeginEnvironment{quote}{\small\ttfamily}
+bibliography: assessment2-references.bib
+csl: apa.csl
+editor: visual
+---
