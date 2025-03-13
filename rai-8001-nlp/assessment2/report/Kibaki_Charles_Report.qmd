@@ -871,3 +871,14 @@ By advancing NER capabilities for African languages, we contribute to the broade
 
 ::: {#refs}
 :::
+
+# Appendices
+
+## Appendix A: AI Assistance Disclosure
+
+I would like to acknowledge the use of artificial intelligence tools, specifically Claude 3.7 Preview, in the production of the technical report, various versions of Gemini for Colab notebook error explanations and corrections, and Github Co-pilot using various models for Python programming assistance. 
+
+Given the highly technical nature of NER, the complexity of deep learning architectures, and the tight timelines for this assignment, leveraging AI assistance was valuable in generating meaningful content in this specialized domain.
+
+While AI was utilized for code generation, data visualization, and technical explanations, I have maintained critical oversight of the content, ensuring it aligns with course materials and accurately represents the NER concepts. My engagement with the AI-generated material has significantly enhanced my understanding of NER systems, particularly their application to low-resource languages. This knowledge is directly relevant to my intended research focus on low-resource languages (LRLs) and will inform my future work in this area.
+
