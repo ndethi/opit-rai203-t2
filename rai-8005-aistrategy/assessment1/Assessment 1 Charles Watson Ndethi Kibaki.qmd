@@ -30,7 +30,7 @@ format:
                     - |
                             \usepackage{etoolbox}
                             \AtBeginEnvironment{quote}{\small\ttfamily}
-bibliography: a2-references.bib
+bibliography: a1-references.bib
 csl: apa.csl
 execute:
     echo: true
@@ -437,56 +437,7 @@ By successfully implementing this AI strategy, Pharo Foundation can transform it
 
 As the Foundation works to foster self-reliance in Africa, AI can serve as a powerful enabler, helping to optimize the use of resources, improve transparency, and strengthen decision-making. With thoughtful implementation that balances technological innovation with organizational and ethical considerations, Pharo Foundation can leverage AI to amplify its contribution to sustainable development across Africa.
 
-## References
+# References {.unnumbered}
 
-Barros Pena, B., Clarke, R. E., Holmquist, L. E., & Vines, J. (2021). Circumspect users: older adults as critical adopters and resistors of technology. In CHI Conference on Human Factors in Computing Systems. Association for Computing Machinery.
-
-Bloedorn, E. E., Kotras, D. M., Schwartz, P. J., Chaney, C., Chaney, C., & Patsis, J. (2023). The MITRE AI Maturity Model and Organizational Assessment Tool Guide: A Path to Successful AI Adoption. MITRE.
-
-Brynjolfsson, E., & Mitchell, T. (2017). What can machine learning do? Workforce implications. Science, 358(6370), 1530-1534.
-
-Castelo, N., Bos, M. W., & Lehmann, D. R. (2019). Task-Dependent Algorithm Aversion. Journal of Marketing Research, 56(5), 809-825.
-
-Collins, C., Dennehy, D., Conboy, K., & Mikalef, P. (2021). Artificial intelligence in information systems research: A systematic literature review and research agenda. International Journal of Information Management, 60, 102383.
-
-Davenport, T. H., & Ronanki, R. (2018). Artificial intelligence for the real world. Harvard Business Review, 96(1), 108-116.
-
-Deci, E. L., & Flaste, R. (1995). Why We Do What We Do. New York, NY: Penguin Books.
-
-Edmondson, A. (2019). The Fearless Organization: Creating Psychological Safety in the Workplace for Learning, Innovation, and Growth. Hoboken, NJ: John Wiley & Sons.
-
-Florida, R. (2012). The Rise of the Creative Class, Revisited: Revised and Expanded. New York, NY: Basic Books.
-
-Iansiti, M., & Lakhani, K. R. (2020). Competing in the Age of AI. Harvard Business Review, 98(1), 60-67.
-
-Jung, M., & Seiter, M. (2021). Towards a better understanding on mitigating algorithm aversion in forecasting: an experimental study. Journal of Management Control, 32, 495-516.
-
-Kausel, E. E., Reyes, T., & Chacon, A. (2022). A longitudinal approach for understanding algorithm use. Journal of Behavioral Decision Making, 35(4), e2275.
-
-Lee, J. D., & See, K. A. (2004). Trust in automation: Designing for appropriate reliance. Human Factors, 46(1), 50-80.
-
-Longoni, C., Bonezzi, A., & Morewedge, C. K. (2019). Resistance to Medical Artificial Intelligence. Journal of Consumer Research, 46(4), 629-650.
-
-Maedche, A., Legner, C., Benlian, A., Berger, B., Gimpel, H., Hess, T., Hinz, O., Morana, S., & Söllner, M. (2019). AI-Based Digital Assistants. Business & Information Systems Engineering, 61(4), 535-544.
-
-McKinsey. (2023). The state of AI in early 2024: Gen AI adoption spikes and starts to generate value. McKinsey & Company.
-
-McKinsey. (2024). A data leader's operating guide to scaling gen AI. McKinsey Technology.
-
-Mikalef, P., & Gupta, M. (2021). Artificial intelligence capability: Conceptualization, measurement calibration, and empirical study on its impact on organizational creativity and firm performance. Information & Management, 58(3), 103434.
-
-Pharo Foundation. (2023). About Pharo Foundation. Retrieved from https://pharofoundation.org/our-story
-
-Pharo Foundation. (2024). Global Monitoring Framework: An Impact-Driven Approach to Design, Monitoring, and Evaluation.
-
-Pharo Foundation Finance Transformation Strategy. (2024). Internal strategic document.
-
-Shin, D. (2022a). Expanding the Role of Trust in the Experience of Algorithmic Journalism: User Sensemaking of Algorithmic Heuristics in Korean Users. Journalism Practice, 16(6), 1168-1191.
-
-Shin, D. (2022b). How do people judge the credibility of algorithmic sources? AI & Society, 37(1), 81-96.
-
-Shin, D., Lim, J. S., Ahmad, N., & Ibahrine, M. (2022). Understanding user sensemaking in fairness and transparency in algorithms: algorithmic sensemaking in over-the-top platform. AI & Society, 1-14.
-
-Strich, F., Mayer, A. S., & Fiedler, M. (2021). What do I do in a world of artificial intelligence? Investigating the impact of substitutive decision-making AI systems on employees' professional role identity. Journal of the Association for Information Systems, 22(2), 304-324.
-
-Thurman, N., Moeller, J., Helberger, N., & Trilling, D. (2019). My Friends, Editors, Algorithms, and I. Digital Journalism, 7(4), 447-469.
+::: {#refs}
+:::
