@@ -1,15 +1,17 @@
 ---
 title: "AI Strategy for Pharo Foundation Finance Transformation"
 author:
-    - name: Charles Watson Ndethi Kibaki
-        affiliation: Open Institute of Technology, OPIT
-        email: charleswatsonndeth.k@students.opit.com
+  - name: "Charles Watson Ndethi Kibaki"
+    affiliation: "Open Institute of Technology, OPIT"
+    email: "charleswatsonndeth.k@students.opit.com"
 date: today
 date-format: "MMMM D, YYYY"
 abstract: |
     This report outlines an AI strategy for Pharo Foundation's finance transformation, focusing on enhancing financial management and operational efficiency across Pharo Development and Pharo Ventures. The strategy employs the 3Rs framework—Replace, Reimagine, and Recombine—to integrate AI into finance functions. Key initiatives include a unified financial intelligence platform, intelligent process automation, predictive analytics, compliance and risk management tools, and a financial decision support system. The implementation roadmap spans 36 months, addressing data quality, connectivity, and skill gaps. Successful adoption of this strategy will improve operational efficiency, collaboration, financial controls, and decision-making, aligning with Pharo's mission of fostering self-reliance in Africa.
      
 keywords: [AI strategy, finance transformation, Pharo Foundation, artificial intelligence, financial management, non-profit, for-profit]
+nocite: |
+  @*
 format:
          pdf:
                 number-sections: true
@@ -24,7 +26,7 @@ format:
                     - \onehalfspacing
                     - \renewcommand{\familydefault}{\sfdefault}
                     - \usepackage{fontspec}
-                    - \setmainfont{Arial}
+                    - \setmainfont{/mnt/c/windows/fonts/ARIALN.TTF}
                     - \sloppy
                     - \setlength{\emergencystretch}{3em}
                     - |
@@ -365,7 +367,7 @@ Implementing AI in African contexts presents specific technical challenges:
 
 - **Connectivity Issues**: Many of the Foundation's operations are in areas with limited internet connectivity, which can impact cloud-based AI systems. Solutions must be designed with these constraints in mind.
 
-- **Integration with Existing Systems**: The recent migration to Microsoft Dynamics Business Central presents both an opportunity and a challenge. As noted in the finance transformation notes, there are "no clear incompany data strategy" and "users [are] unsure of new requisition workflow."
+- **Integration with Existing Systems**: The recent migration to Microsoft Dynamics Business Central presents both an opportunity and a challenge. As noted in the finance transformation notes, there are "no clear incompany data strategy" and "users [are] unsure of new requisition workflows."
 
 - **Ensuring Solution Scalability and Reliability**: AI solutions must be designed to scale across the Foundation's operations while maintaining reliability in varied technical environments.
 

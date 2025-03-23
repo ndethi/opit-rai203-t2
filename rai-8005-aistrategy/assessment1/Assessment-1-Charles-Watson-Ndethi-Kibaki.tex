@@ -1,0 +1,1391 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\usepackage{microtype}
+\usepackage{setspace}
+\onehalfspacing
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{fontspec}
+\setmainfont{/mnt/c/windows/fonts/ARIALN.TTF}
+\sloppy
+\setlength{\emergencystretch}{3em}
+\usepackage{etoolbox}
+\AtBeginEnvironment{quote}{\small\ttfamily}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={AI Strategy for Pharo Foundation Finance Transformation},
+  pdfauthor={Charles Watson Ndethi Kibaki},
+  pdfkeywords={AI strategy, finance transformation, Pharo
+Foundation, artificial intelligence, financial
+management, non-profit, for-profit},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{AI Strategy for Pharo Foundation Finance Transformation}
+\author{Charles Watson Ndethi Kibaki}
+\date{March 23, 2025}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+This report outlines an AI strategy for Pharo Foundation's finance
+transformation, focusing on enhancing financial management and
+operational efficiency across Pharo Development and Pharo Ventures. The
+strategy employs the 3Rs framework---Replace, Reimagine, and
+Recombine---to integrate AI into finance functions. Key initiatives
+include a unified financial intelligence platform, intelligent process
+automation, predictive analytics, compliance and risk management tools,
+and a financial decision support system. The implementation roadmap
+spans 36 months, addressing data quality, connectivity, and skill gaps.
+Successful adoption of this strategy will improve operational
+efficiency, collaboration, financial controls, and decision-making,
+aligning with Pharo's mission of fostering self-reliance in Africa.
+\end{abstract}
+
+
+\section{AI Strategy for Pharo Foundation Finance
+Transformation}\label{ai-strategy-for-pharo-foundation-finance-transformation}
+
+\subsection{Executive Summary}\label{executive-summary}
+
+The Pharo Foundation, encompassing both Pharo Development (non-profit)
+and Pharo Ventures (for-profit), is dedicated to fostering
+self-sufficiency in Africa through education, water management, and
+productivity enhancement. As the organization advances its finance
+transformation strategy to enhance financial management and operational
+efficiency, artificial intelligence (AI) presents significant
+opportunities to accelerate and deepen this transformation.
+
+This AI strategy proposes a structured approach to integrating AI
+capabilities into Pharo Foundation's finance functions, with an emphasis
+on the 3Rs framework: Replace manual processes, Reimagine operations,
+and Recombine existing systems. Key initiatives include implementing a
+unified financial intelligence platform, intelligent process automation,
+predictive analytics, compliance and risk management tools, and a
+financial decision support system.
+
+By implementing this AI strategy, Pharo Foundation can expect enhanced
+operational efficiency across both Development and Ventures arms,
+improved collaboration across countries of operation, strengthened
+financial controls, and enhanced decision-making capabilities.
+Implementation will follow a three-phase approach over 36 months,
+requiring investments in technology infrastructure, talent development,
+and organizational change management.
+
+For successful implementation, the Foundation must address data quality
+challenges, connectivity issues in African regions, and skill gaps while
+ensuring AI applications align with the organization's mission of
+fostering self-reliance in Africa. With thoughtful implementation, AI
+can become a powerful enabler of Pharo Foundation's vision of ``a
+vibrant, productive, and self-reliant Africa.''
+
+\subsection{Introduction}\label{introduction}
+
+Pharo Foundation operates through two main arms: Pharo Development,
+focusing on public goods and not-for-profit projects, and Pharo
+Ventures, investing in private sector and for-profit ventures. Both arms
+work toward achieving Pharo's missions but utilize different tools and
+approaches (Pharo Foundation, 2023). This dual structure creates unique
+financial management challenges that must be addressed through a
+comprehensive transformation strategy.
+
+The Foundation has recently embarked on a finance transformation
+journey, moving from Xero and Approvalmax to Microsoft Dynamics Business
+Central (BC) as its enterprise resource planning (ERP) system. This
+migration aims to modernize financial systems, streamline financial
+processes, and enhance financial data management to improve
+decision-making and operational efficiency (Pharo Foundation Finance
+Transformation Strategy, 2024). However, implementing BC has faced
+challenges, including user adaptation issues and inconsistent workflows
+across countries of operation.
+
+Artificial intelligence presents a significant opportunity to enhance
+this finance transformation. As Castelo et al.~(2019) note, ``AI is on
+the verge of reshaping the future of business operations, with the
+market for AI in transportation projected to reach \$10.3 billion by
+2030.'' In finance specifically, AI can automate routine tasks, enhance
+decision-making with data-driven insights, improve compliance
+monitoring, and optimize resource allocation (Jung \& Seiter, 2021).
+
+This AI strategy outlines how Pharo Foundation can leverage AI
+technologies to accelerate and enhance its finance transformation,
+supporting both arms in achieving their missions more effectively. The
+strategy aligns with Pharo's vision of ``a vibrant, productive, and
+self-reliant Africa'' by enabling more efficient, transparent, and
+data-driven financial operations that will ultimately strengthen the
+Foundation's impact across its education, water, and productivity
+missions.
+
+\subsection{AI Strategy}\label{ai-strategy}
+
+\subsubsection{Strategic Business
+Objectives}\label{strategic-business-objectives}
+
+The AI strategy for Pharo Foundation's finance transformation is
+designed to support the organization's vision of ``a vibrant,
+productive, and self-reliant Africa'' by enhancing financial operations
+across both Pharo Development and Pharo Ventures. This strategy directly
+supports Pharo's three core missions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Education Mission}: By optimizing financial resources and
+  improving resource allocation decisions, AI will help the Foundation
+  maximize the impact of its educational initiatives, from early
+  childhood education to vocational training.
+\item
+  \textbf{Water Mission}: AI-enhanced financial planning will improve
+  cost-effectiveness and sustainability of water infrastructure
+  projects, ensuring communities across Africa have access to safe and
+  affordable water sources.
+\item
+  \textbf{Productivity Mission}: Through better financial analytics and
+  decision support, the Foundation can more effectively eliminate
+  barriers to employment and productivity for working people.
+\end{enumerate}
+
+At the operational level, the AI strategy aims to enhance the finance
+transformation by: - Modernizing financial systems through intelligent
+automation and advanced analytics - Streamlining financial processes
+through AI-powered workflow optimization - Enhancing financial data
+management with improved data integration and quality controls -
+Improving decision-making through predictive analytics and scenario
+modeling - Maintaining strong controls and visibility through
+AI-enhanced risk management
+
+As Brynjolfsson and Mitchell (2017) observe, ``AI is driven by data. To
+fully leverage the value of AI at an enterprise level, organizations
+should focus on their proprietary information and treat it as a
+high-value, critical asset.'' For Pharo Foundation, this means
+leveraging its unique financial and operational data across multiple
+countries to generate insights that drive mission impact.
+
+\subsubsection{Strategic AI Frameworks Application: The 3Rs
+Model}\label{strategic-ai-frameworks-application-the-3rs-model}
+
+To structure the AI transformation of Pharo Foundation's finance
+function, we apply the 3Rs model: Replace, Reimagine, and Recombine
+(Iansiti \& Lakhani, 2020). This framework provides a systematic
+approach to identify opportunities for AI implementation across the
+finance function.
+
+\paragraph{Replace: Automating Manual Financial
+Processes}\label{replace-automating-manual-financial-processes}
+
+The first dimension of transformation involves identifying routine,
+manual processes that can be automated through AI:
+
+\begin{itemize}
+\item
+  \textbf{Financial Document Processing}: AI can extract data from
+  invoices, receipts, and financial documents through optical character
+  recognition (OCR) and natural language processing (NLP), eliminating
+  manual data entry. This is particularly valuable for Pharo
+  Foundation's operations across multiple African countries, where
+  document standards may vary.
+\item
+  \textbf{Transaction Categorization}: ML algorithms can automatically
+  categorize financial transactions based on historical patterns,
+  reducing manual classification work and improving consistency. This
+  addresses the current challenge of maintaining consistent financial
+  records across Development and Ventures arms.
+\item
+  \textbf{Basic Reporting and Reconciliation}: AI can automate the
+  generation of standard financial reports and perform preliminary
+  reconciliation of accounts, freeing finance staff to focus on analysis
+  and strategic tasks. This directly supports the objective to
+  ``streamline and standardize processes to eliminate bottlenecks,
+  improve efficiency and maximize controls'' (Pharo Foundation Finance
+  Transformation Strategy, 2024).
+\end{itemize}
+
+\paragraph{Reimagine: Transforming Financial
+Operations}\label{reimagine-transforming-financial-operations}
+
+The second dimension involves fundamentally rethinking how financial
+work is performed:
+
+\begin{itemize}
+\item
+  \textbf{Proactive Financial Risk Management}: Rather than reactive
+  monitoring, AI can continuously analyze financial data to identify
+  potential risks before they materialize, enabling proactive
+  mitigation. As noted by Maedche et al.~(2019), ``AI-powered risk
+  management can transform how organizations identify, assess, and
+  mitigate financial risks.''
+\item
+  \textbf{Intelligent Financial Forecasting}: Moving beyond traditional
+  forecasting methods, AI can analyze multiple internal and external
+  data sources to generate more accurate predictions about financial
+  performance and resource requirements. This addresses the Foundation's
+  need for ``data-driven decision-making'' and ``utilizing financial
+  data analytics for insights and informed decisions'' (Pharo Foundation
+  Finance Transformation Strategy, 2024).
+\item
+  \textbf{Cross-Entity Financial Insights}: AI can break down silos
+  between Pharo Development and Pharo Ventures, identifying patterns and
+  relationships that would be difficult to discover manually. This
+  directly supports the objective to develop ``a unified financial
+  system that integrates data from both non-profit and for-profit
+  operations'' (Pharo Foundation Finance Transformation Strategy, 2024).
+\end{itemize}
+
+\paragraph{Recombine: Enhancing Existing
+Systems}\label{recombine-enhancing-existing-systems}
+
+The third dimension focuses on integrating AI with existing systems to
+enhance their capabilities:
+
+\begin{itemize}
+\item
+  \textbf{AI-Enhanced Cloud Infrastructure}: Adding AI capabilities to
+  the Foundation's cloud-based systems (Microsoft 365 and Google Suite)
+  can improve data management, security, and accessibility. This aligns
+  with the infrastructure modernization goal to ``upgrade financial IT
+  infrastructure to cloud-based systems for scalability and
+  accessibility'' (Pharo Foundation Finance Transformation Strategy,
+  2024).
+\item
+  \textbf{Intelligent Connectors Between Systems}: AI can facilitate
+  seamless data flow between the Foundation's various systems, including
+  the new Microsoft Dynamics Business Central ERP, HRIS, EMIS, MES, and
+  LMS/HIMS. As Collins et al.~(2021) note, ``AI can significantly
+  enhance system integration by intelligently mapping data across
+  disparate systems.''
+\item
+  \textbf{Data-Driven Process Orchestration}: AI can optimize end-to-end
+  financial processes by analyzing process performance data and
+  recommending improvements, supporting the Foundation's goal of
+  ``continuous improvement'' with ``regular reviews and refinements''
+  (Pharo Foundation Finance Transformation Strategy, 2024).
+\end{itemize}
+
+\subsubsection{Specific AI Use Cases for Pharo's Finance
+Transformation}\label{specific-ai-use-cases-for-pharos-finance-transformation}
+
+Based on the 3Rs analysis and aligned with Pharo Foundation's finance
+transformation goals, five key AI use cases have been identified:
+
+\paragraph{1. Unified Financial Intelligence
+Platform}\label{unified-financial-intelligence-platform}
+
+This platform will serve as a centralized hub for financial data and
+insights across Pharo Development and Pharo Ventures:
+
+\begin{itemize}
+\item
+  \textbf{AI-Powered Data Integration}: Intelligent data integration
+  tools will consolidate financial information from multiple systems and
+  countries, creating a single source of truth for financial data.
+\item
+  \textbf{Cross-Entity Financial Analysis}: AI algorithms will analyze
+  patterns and relationships across both arms of the Foundation, helping
+  leaders understand the full financial picture and identify
+  opportunities for synergy.
+\item
+  \textbf{Automated Multi-Entity Reporting}: The platform will generate
+  customized reports for different stakeholder groups, from Board
+  members to country managers, with insights relevant to their specific
+  needs and responsibilities.
+\end{itemize}
+
+\textbf{Benefits}: This platform will provide a consolidated view of
+financial activities, improve reporting quality and timeliness, and
+enable better cross-entity decision-making. According to Mikalef and
+Gupta (2021), ``Organizations with integrated AI-powered financial
+systems can achieve up to 25\% improvement in decision-making speed and
+accuracy.''
+
+\paragraph{2. Intelligent Financial Process
+Automation}\label{intelligent-financial-process-automation}
+
+This use case focuses on automating routine financial tasks through AI:
+
+\begin{itemize}
+\item
+  \textbf{AI Document Processing}: Advanced OCR and NLP will extract and
+  validate data from financial documents, reducing manual data entry and
+  errors. This is particularly valuable for operations in countries with
+  limited digital infrastructure.
+\item
+  \textbf{Smart Workflow Routing}: AI will route financial approvals and
+  documents based on content, urgency, and organizational rules,
+  streamlining processes and reducing bottlenecks.
+\item
+  \textbf{Exception Detection and Handling}: AI will identify unusual
+  transactions or patterns that require human attention, focusing staff
+  time on high-value activities while routine transactions are processed
+  automatically.
+\end{itemize}
+
+\textbf{Benefits}: This automation will reduce manual effort, improve
+accuracy, accelerate processing times, and enhance controls. Research by
+Davenport and Ronanki (2018) found that ``finance process automation
+using AI can reduce processing times by 50-70\% while improving accuracy
+by 30-40\%.''
+
+\paragraph{3. Predictive Financial
+Analytics}\label{predictive-financial-analytics}
+
+This use case leverages AI to improve financial planning and resource
+allocation:
+
+\begin{itemize}
+\item
+  \textbf{AI-Based Forecasting}: Machine learning models will generate
+  accurate forecasts for both non-profit program expenses and for-profit
+  venture performance, improving budget planning.
+\item
+  \textbf{Cash Flow Optimization}: AI algorithms will analyze cash flow
+  patterns to optimize liquidity management across the Foundation's
+  operations in multiple countries and currencies.
+\item
+  \textbf{Resource Allocation Recommendations}: AI will analyze program
+  performance data to recommend optimal resource allocation to maximize
+  impact across the Foundation's three missions.
+\end{itemize}
+
+\textbf{Benefits}: These capabilities will enhance financial planning
+accuracy, improve resource utilization, and reduce financial risks. As
+noted by McKinsey (2024), ``Organizations that implement AI-driven
+forecasting can reduce forecast errors by 30-50\% compared to
+traditional methods.''
+
+\paragraph{4. AI-Enhanced Compliance and Risk
+Management}\label{ai-enhanced-compliance-and-risk-management}
+
+This use case strengthens governance and risk management:
+
+\begin{itemize}
+\item
+  \textbf{Automated Compliance Monitoring}: AI will continuously monitor
+  financial transactions and processes for compliance with relevant
+  regulations across the multiple African jurisdictions where Pharo
+  operates.
+\item
+  \textbf{Fraud Detection and Prevention}: Machine learning models will
+  identify potential fraudulent activities by detecting unusual patterns
+  in financial data, protecting the Foundation's resources.
+\item
+  \textbf{Risk Assessment for Projects and Ventures}: AI will evaluate
+  the financial risks associated with development projects and venture
+  investments, supporting better decision-making.
+\end{itemize}
+
+\textbf{Benefits}: These capabilities will strengthen governance,
+improve risk management, and reduce compliance issues. According to Shin
+et al.~(2022), ``AI-powered compliance monitoring can detect up to 90\%
+of potential compliance issues before they become problematic.''
+
+\paragraph{5. Financial Decision Support
+System}\label{financial-decision-support-system}
+
+This use case enhances decision-making through AI-powered insights:
+
+\begin{itemize}
+\item
+  \textbf{Scenario Modeling}: AI will generate and evaluate multiple
+  scenarios for financial decisions, helping leaders understand
+  potential outcomes and tradeoffs.
+\item
+  \textbf{Impact Analysis}: The system will assess the financial impact
+  of decisions on the Foundation's overall mission and specific
+  programs, ensuring alignment with strategic goals.
+\item
+  \textbf{Natural Language Interface}: A conversational AI interface
+  will allow non-technical users to query financial data and receive
+  insights in natural language, democratizing access to financial
+  intelligence.
+\end{itemize}
+
+\textbf{Benefits}: This system will enable data-driven decisions,
+improve investment outcomes, and make financial intelligence more
+accessible across the organization. Research by Lee and See (2004)
+indicates that ``AI-powered decision support systems can improve
+decision quality by 20-30\% by providing relevant information at the
+right time.''
+
+\subsection{Implementation Roadmap}\label{implementation-roadmap}
+
+The implementation of AI for Pharo Foundation's finance transformation
+will follow a phased approach over 36 months, balancing quick wins with
+long-term capability building. This roadmap considers the Foundation's
+current ERP implementation, which has faced some challenges but is
+``finally off to the races'' (Pharo Finance Notes, 2024).
+
+\subsubsection{Phase 1: Foundation (0-6
+months)}\label{phase-1-foundation-0-6-months}
+
+The initial phase will focus on establishing the necessary
+infrastructure, skills, and preliminary use cases:
+
+\paragraph{AI Readiness Assessment}\label{ai-readiness-assessment}
+
+\begin{itemize}
+\tightlist
+\item
+  Conduct a comprehensive assessment of the finance function's AI
+  readiness across all countries of operation
+\item
+  Evaluate data availability, quality, and accessibility
+\item
+  Assess current technology infrastructure and skills
+\item
+  Identify high-priority use cases based on potential impact and
+  feasibility
+\end{itemize}
+
+\paragraph{Data Infrastructure
+Preparation}\label{data-infrastructure-preparation}
+
+\begin{itemize}
+\tightlist
+\item
+  Establish data governance framework aligned with the Foundation's
+  values and operational needs
+\item
+  Develop data quality standards and improvement processes
+\item
+  Create data integration architecture to connect Microsoft Dynamics
+  Business Central with other systems
+\item
+  Implement data security protocols appropriate for financial
+  information
+\end{itemize}
+
+\paragraph{Pilot Implementations}\label{pilot-implementations}
+
+\begin{itemize}
+\tightlist
+\item
+  Deploy automated document processing for invoices and receipts
+\item
+  Implement a basic financial analytics dashboard for the CFO and Global
+  Finance Lead
+\item
+  Develop a proof-of-concept for the natural language interface to
+  financial data
+\end{itemize}
+
+\paragraph{Team Training and Skill
+Development}\label{team-training-and-skill-development}
+
+\begin{itemize}
+\tightlist
+\item
+  Conduct AI awareness training for all finance staff
+\item
+  Provide specialized training for the finance analysts who will be
+  working most closely with AI tools
+\item
+  Establish a community of practice for AI in finance across the
+  Foundation
+\end{itemize}
+
+\paragraph{Key Milestones and Success
+Metrics}\label{key-milestones-and-success-metrics}
+
+\begin{itemize}
+\tightlist
+\item
+  Completion of AI readiness assessment with clear action plan
+\item
+  Data governance framework established and approved
+\item
+  At least two pilot implementations successfully deployed
+\item
+  80\% of finance staff completed basic AI awareness training
+\end{itemize}
+
+According to the MITRE AI Maturity Model, ``Organizations in the early
+stages of AI adoption should focus on preparing their data
+infrastructure and conducting limited pilots to demonstrate value''
+(Bloedorn et al., 2023). This approach allows Pharo Foundation to build
+momentum while establishing the necessary foundation for more advanced
+implementations.
+
+\subsubsection{Phase 2: Expansion (7-18
+months)}\label{phase-2-expansion-7-18-months}
+
+The second phase will focus on scaling successful pilots and
+implementing more complex AI capabilities:
+
+\paragraph{Scaling Successful Pilots}\label{scaling-successful-pilots}
+
+\begin{itemize}
+\tightlist
+\item
+  Extend document processing automation to all countries of operation
+\item
+  Expand the financial analytics dashboard to country-level finance
+  managers
+\item
+  Implement full predictive forecasting capabilities for both
+  Development and Ventures
+\end{itemize}
+
+\paragraph{System Integration}\label{system-integration}
+
+\begin{itemize}
+\tightlist
+\item
+  Integrate AI capabilities with Microsoft Dynamics Business Central
+\item
+  Connect financial AI tools with the Foundation's cloud infrastructure
+  (Microsoft 365)
+\item
+  Establish connections with HRIS, EMIS, MES, and LMS/HIMS systems to
+  enrich financial data with operational context
+\end{itemize}
+
+\paragraph{Advanced AI Capability
+Implementation}\label{advanced-ai-capability-implementation}
+
+\begin{itemize}
+\tightlist
+\item
+  Deploy comprehensive predictive analytics for financial forecasting
+\item
+  Implement risk management tools for compliance monitoring
+\item
+  Develop cross-entity analysis capabilities to support unified
+  financial management
+\end{itemize}
+
+\paragraph{Team Upskilling and Change
+Management}\label{team-upskilling-and-change-management}
+
+\begin{itemize}
+\tightlist
+\item
+  Provide advanced AI skills training for selected finance team members
+\item
+  Implement change management initiatives to drive adoption
+\item
+  Establish feedback mechanisms to continuously improve AI tools
+\end{itemize}
+
+\paragraph{Key Milestones and Success
+Metrics}\label{key-milestones-and-success-metrics-1}
+
+\begin{itemize}
+\tightlist
+\item
+  AI document processing implemented across all countries
+\item
+  Predictive forecasting achieving accuracy targets (within 10\% of
+  actuals)
+\item
+  At least 50\% reduction in manual data entry for financial
+  transactions
+\item
+  Positive user satisfaction scores (\textgreater80\%) from finance team
+  members
+\end{itemize}
+
+As noted by Kausel et al.~(2022), ``The expansion phase of AI
+implementation requires strong change management to overcome potential
+resistance and ensure adoption.'' Pharo Foundation will need to
+carefully balance technical implementation with organizational change
+management during this phase.
+
+\subsubsection{Phase 3: Optimization (19-36
+months)}\label{phase-3-optimization-19-36-months}
+
+The final phase will focus on advanced AI capabilities, continuous
+improvement, and knowledge sharing:
+
+\paragraph{AI-Driven Continuous
+Improvement}\label{ai-driven-continuous-improvement}
+
+\begin{itemize}
+\tightlist
+\item
+  Implement AI tools that automatically identify process improvement
+  opportunities
+\item
+  Establish automated quality monitoring for financial data and
+  processes
+\item
+  Develop self-optimizing AI models that improve with continued use
+\end{itemize}
+
+\paragraph{Advanced Analytics and
+Insights}\label{advanced-analytics-and-insights}
+
+\begin{itemize}
+\tightlist
+\item
+  Deploy sophisticated scenario planning capabilities
+\item
+  Implement impact assessment tools that connect financial decisions to
+  mission outcomes
+\item
+  Develop AI-powered strategic planning support for both arms of the
+  Foundation
+\end{itemize}
+
+\paragraph{AI Center of Excellence}\label{ai-center-of-excellence}
+
+\begin{itemize}
+\tightlist
+\item
+  Establish a dedicated AI Center of Excellence for finance
+\item
+  Develop internal AI innovation capabilities
+\item
+  Create a framework for evaluating and implementing new AI technologies
+\end{itemize}
+
+\paragraph{Knowledge Sharing Across
+Operations}\label{knowledge-sharing-across-operations}
+
+\begin{itemize}
+\tightlist
+\item
+  Implement AI-powered knowledge management systems
+\item
+  Establish communities of practice across countries
+\item
+  Develop training and documentation to support continuous learning
+\end{itemize}
+
+\paragraph{Key Milestones and Success
+Metrics}\label{key-milestones-and-success-metrics-2}
+
+\begin{itemize}
+\tightlist
+\item
+  AI Center of Excellence established and operational
+\item
+  At least 70\% of routine financial processes automated
+\item
+  Financial forecasting accuracy improved to within 5\% of actuals
+\item
+  Demonstrated link between AI insights and improved program outcomes
+\end{itemize}
+
+As Strich et al.~(2021) note, ``The most mature stage of AI
+implementation involves embedding AI capabilities throughout the
+organization and creating continuous improvement mechanisms.'' By the
+end of this phase, AI should be fully integrated into Pharo Foundation's
+finance function and delivering measurable value.
+
+\subsubsection{Resource Requirements}\label{resource-requirements}
+
+Successful implementation of this AI strategy will require investments
+in technology, talent, and organizational change:
+
+\paragraph{Technology Infrastructure}\label{technology-infrastructure}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Cloud Computing Resources}: Enhanced cloud infrastructure to
+  support AI workloads, potentially expanding current Microsoft 365
+  capabilities
+\item
+  \textbf{AI Development Platforms}: Tools and platforms for developing,
+  testing, and deploying AI models
+\item
+  \textbf{Data Storage and Processing}: Expanded data warehouse
+  capabilities to support AI analytics
+\item
+  \textbf{Integration Middleware}: Tools to facilitate data flow between
+  systems, especially between Business Central and other operational
+  systems
+\end{itemize}
+
+\paragraph{Talent and Skills}\label{talent-and-skills}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Data Scientists and AI Specialists}: Either hired directly or
+  contracted, to develop and implement AI solutions
+\item
+  \textbf{Financial Technology Experts}: To bridge the gap between
+  finance domain knowledge and AI capabilities
+\item
+  \textbf{Change Management Professionals}: To support the
+  organizational transition to AI-enhanced finance operations
+\item
+  \textbf{Training Programs}: Comprehensive training to upskill existing
+  finance staff
+\end{itemize}
+
+\paragraph{Organizational Changes}\label{organizational-changes}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{New Roles and Responsibilities}: Creation of new positions
+  such as AI Product Owner for Finance and Data Governance Lead
+\item
+  \textbf{Revised Workflows and Processes}: Redesign of financial
+  processes to incorporate AI capabilities
+\item
+  \textbf{Governance Structures}: Establishment of oversight committees
+  for AI implementation and ethics
+\item
+  \textbf{Cross-Functional Collaboration Mechanisms}: Forums and
+  processes to facilitate collaboration between finance, IT, and program
+  teams
+\end{itemize}
+
+The investment required for this AI strategy implementation should be
+viewed in the context of expected returns. According to McKinsey (2024),
+``Organizations that successfully implement AI in finance functions can
+expect cost reductions of 20-30\% while improving decision quality and
+speed.''
+
+\subsubsection{Monitoring and Evaluation
+Metrics}\label{monitoring-and-evaluation-metrics}
+
+Drawing from Pharo Foundation's Global Monitoring Framework (GMF), this
+AI strategy will be monitored and evaluated using a structured approach
+that emphasizes credible, actionable, and responsible data collection
+and analysis.
+
+\paragraph{Technical Performance
+Metrics}\label{technical-performance-metrics}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{AI Model Accuracy}: Measuring the precision and recall of AI
+  models against established benchmarks
+\item
+  \textbf{System Response Times}: Tracking the speed of AI systems in
+  responding to user queries and processing data
+\item
+  \textbf{Data Quality Measurements}: Monitoring data completeness,
+  accuracy, and timeliness to ensure AI models have quality inputs
+\end{itemize}
+
+\paragraph{Business Impact Metrics}\label{business-impact-metrics}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Process Efficiency Improvements}: Measuring reductions in
+  processing time and manual effort
+\item
+  \textbf{Cost Reduction}: Tracking direct cost savings from AI
+  implementation
+\item
+  \textbf{Revenue Enhancement for Pharo Ventures}: Assessing the impact
+  of AI insights on investment returns
+\item
+  \textbf{Project Effectiveness for Pharo Development}: Measuring
+  improved resource allocation efficiency for development projects
+\item
+  \textbf{User Adoption Rates}: Tracking the percentage of finance staff
+  actively using AI tools
+\end{itemize}
+
+\paragraph{ROI Calculation Framework}\label{roi-calculation-framework}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Cost-Benefit Analysis}: Comparing implementation costs with
+  quantifiable benefits
+\item
+  \textbf{Value Realization Timeline}: Tracking when benefits are
+  realized relative to investments
+\item
+  \textbf{Success Criteria Definition}: Clear definitions of what
+  constitutes success for each AI initiative
+\end{itemize}
+
+Drawing from the GMF's approach, the monitoring framework will
+incorporate both I-scores (implementation fidelity) and D-scores (design
+fidelity) to ensure that AI solutions are not only technically sound but
+also meeting user needs. As noted in the GMF, ``While rigor is
+important, we recognize that timely recommendations are essential for
+enhancing program outcomes and driving future investments'' (Pharo
+Foundation GMF, 2024).
+
+\subsection{Challenges and Ethical
+Considerations}\label{challenges-and-ethical-considerations}
+
+Implementing AI in Pharo Foundation's finance function presents unique
+challenges given the organization's dual structure and multi-country
+operations in Africa. These challenges must be addressed proactively to
+ensure successful implementation and alignment with the Foundation's
+values.
+
+\subsubsection{Implementation
+Challenges}\label{implementation-challenges}
+
+\paragraph{Data Quality and Integration
+Issues}\label{data-quality-and-integration-issues}
+
+Data challenges are particularly acute in the African context, where
+digital infrastructure may be limited:
+
+\begin{itemize}
+\item
+  \textbf{Addressing Data Silos}: Pharo Development and Pharo Ventures
+  currently operate with separate systems and data stores. As noted in
+  the finance transformation strategy, creating ``a unified financial
+  system that integrates data from both non-profit and for-profit
+  operations'' is a key objective but presents significant technical
+  challenges.
+\item
+  \textbf{Standardizing Data Across Countries}: The Foundation operates
+  across multiple African countries (Ethiopia, Kenya, Rwanda, and
+  Somaliland), each with different financial systems and practices.
+  Creating standardized data definitions and formats across these
+  contexts will require significant effort.
+\item
+  \textbf{Implementing Robust Data Governance}: According to Barros Pena
+  et al.~(2021), ``Organizations implementing AI in emerging markets
+  face significantly greater data governance challenges than those in
+  developed economies.'' The Foundation will need to develop data
+  governance frameworks that work across its diverse operational
+  contexts.
+\end{itemize}
+
+To address these challenges, the AI strategy must include strong data
+governance components and phased implementation that prioritizes data
+quality improvement. As Thurman et al.~(2019) note, ``Without quality
+data, even the most sophisticated AI models will deliver limited
+value.''
+
+\paragraph{Change Management Hurdles}\label{change-management-hurdles}
+
+Cultural and organizational factors present significant challenges:
+
+\begin{itemize}
+\item
+  \textbf{Managing Transition from Manual to AI-Assisted Processes}: The
+  finance transformation notes highlight that ``legacy workflows are
+  hard to let go of'' and users are ``creatures of habit.'' Helping
+  finance staff adapt to AI-enhanced workflows will require dedicated
+  change management.
+\item
+  \textbf{Building AI Literacy Across Diverse Teams}: There is a
+  ``finance knowledge gap between Kenya and other regions (Ethiopia,
+  Rwanda and especially Somaliland)'' noted in the finance
+  transformation documentation. This disparity will need to be addressed
+  through tailored training programs.
+\item
+  \textbf{Ensuring User Acceptance and Engagement}: According to
+  Edmondson (2019), psychological safety is essential for successful
+  technology adoption. The Foundation must create an environment where
+  finance staff feel safe experimenting with new AI tools.
+\end{itemize}
+
+Successful adoption will require a comprehensive change management
+strategy that includes clear communication, targeted training, and
+visible leadership support. As Florida (2012) suggests, ``Today's
+knowledge workers cannot simply be ordered to adopt new technologies;
+they must be motivated to engage.''
+
+\paragraph{Technical Challenges}\label{technical-challenges}
+
+Implementing AI in African contexts presents specific technical
+challenges:
+
+\begin{itemize}
+\item
+  \textbf{Connectivity Issues}: Many of the Foundation's operations are
+  in areas with limited internet connectivity, which can impact
+  cloud-based AI systems. Solutions must be designed with these
+  constraints in mind.
+\item
+  \textbf{Integration with Existing Systems}: The recent migration to
+  Microsoft Dynamics Business Central presents both an opportunity and a
+  challenge. As noted in the finance transformation notes, there are
+  ``no clear incompany data strategy'' and ``users {[}are{]} unsure of
+  new requisition workflows.''
+\item
+  \textbf{Ensuring Solution Scalability and Reliability}: AI solutions
+  must be designed to scale across the Foundation's operations while
+  maintaining reliability in varied technical environments.
+\end{itemize}
+
+These technical challenges require careful planning and potentially
+hybrid approaches that combine cloud and edge computing technologies. As
+noted by Jung and Seiter (2021), ``AI implementations in emerging
+markets often require adaptation of standard approaches to account for
+infrastructure limitations.''
+
+\subsubsection{Ethical Implications}\label{ethical-implications}
+
+Implementing AI in finance also raises important ethical considerations
+that align with Pharo Foundation's values of integrity, excellence, and
+impact:
+
+\paragraph{Fairness and Bias
+Considerations}\label{fairness-and-bias-considerations}
+
+\begin{itemize}
+\item
+  \textbf{Ensuring Cultural Appropriateness}: AI models must be
+  evaluated for cultural appropriateness across the different African
+  contexts where Pharo operates. Models trained primarily on Western
+  data may not perform equally well in African contexts.
+\item
+  \textbf{Addressing Potential Biases}: According to Shin (2022b), ``AI
+  models can perpetuate existing biases in financial decision-making if
+  not carefully designed and monitored.'' The Foundation must implement
+  bias detection and mitigation strategies.
+\item
+  \textbf{Equitable Application}: AI benefits should be distributed
+  equitably across Pharo's operations, ensuring that technology does not
+  exacerbate existing inequalities between regions or between
+  Development and Ventures arms.
+\end{itemize}
+
+These considerations require ongoing monitoring and adjustment of AI
+systems to ensure they support the Foundation's mission of fostering
+self-reliance across Africa.
+
+\paragraph{Accountability Frameworks}\label{accountability-frameworks}
+
+\begin{itemize}
+\item
+  \textbf{Clear Responsibility Structures}: The Foundation must
+  establish clear accountability for AI decisions, particularly those
+  related to financial resource allocation or risk assessment.
+\item
+  \textbf{Oversight Mechanisms}: Implementing governance structures that
+  provide appropriate oversight of AI systems while maintaining
+  operational efficiency.
+\item
+  \textbf{Audit Procedures}: Developing procedures for regular auditing
+  of AI systems to ensure they operate as intended and align with
+  organizational values.
+\end{itemize}
+
+Shin et al.~(2022) emphasize that ``algorithmic transparency and
+accountability are especially important in contexts where technology
+adoption may outpace regulatory frameworks.'' This is particularly
+relevant in the African countries where Pharo operates.
+
+\paragraph{Societal Impact}\label{societal-impact}
+
+\begin{itemize}
+\item
+  \textbf{Effect on Workforce Roles and Skills}: AI implementation will
+  change the nature of finance roles at Pharo Foundation. According to
+  McKinsey (2023), ``AI in finance functions typically shifts roles from
+  transaction processing to analysis and decision support.''
+\item
+  \textbf{Alignment with Mission of Self-Reliance}: All AI
+  implementations should ultimately support Pharo's mission of fostering
+  self-reliance in Africa, ensuring technology builds rather than
+  replaces local capacity.
+\item
+  \textbf{Contribution to Sustainable Development Goals}: AI
+  applications should be evaluated for their contribution to sustainable
+  development in the regions where Pharo operates.
+\end{itemize}
+
+As Pharo Foundation aims to create ``a vibrant, productive, and
+self-reliant Africa,'' AI implementation must be thoughtfully designed
+to enhance rather than diminish human capabilities. As noted by Longoni
+et al.~(2019), ``Technology implementations are most successful when
+they augment rather than replace human judgment and expertise.''
+
+\subsection{Conclusion and
+Recommendations}\label{conclusion-and-recommendations}
+
+Pharo Foundation stands at a pivotal moment in its finance
+transformation journey, with artificial intelligence offering powerful
+capabilities to enhance efficiency, improve decision-making, and
+strengthen governance. By strategically implementing AI across its
+finance functions, the Foundation can better support its mission of
+fostering a ``vibrant, productive, and self-reliant Africa.''
+
+\subsubsection{Key Strategic
+Recommendations}\label{key-strategic-recommendations}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Prioritize Data Foundation}: Before implementing advanced AI
+  capabilities, ensure the Foundation has strong data governance,
+  quality processes, and integration architecture. As noted by Shin
+  (2022a), ``The quality of AI outputs is directly dependent on the
+  quality of data inputs.''
+\item
+  \textbf{Take a Phased Approach}: Follow the three-phase implementation
+  roadmap, starting with high-value, low-complexity use cases like
+  document processing automation before progressing to more
+  sophisticated applications. This approach aligns with best practices
+  identified by Bloedorn et al.~(2023) in the MITRE AI Maturity Model.
+\item
+  \textbf{Invest in People}: Complement technology investments with
+  comprehensive training and change management to build AI literacy
+  across the finance function. As Deci and Flaste (1995) emphasize,
+  intrinsic motivation is essential for successful technology adoption.
+\item
+  \textbf{Ensure Cross-Entity Integration}: Design AI solutions that
+  bridge Pharo Development and Pharo Ventures, supporting the
+  Foundation's goal of a unified financial system that enables seamless
+  data flow and coordination across entities, business units, and
+  countries.
+\item
+  \textbf{Embed Ethical Considerations}: Integrate fairness,
+  accountability, and alignment with Pharo's mission into all AI
+  implementations, ensuring technology enhances rather than undermines
+  the Foundation's values and goals.
+\end{enumerate}
+
+\subsubsection{Critical Success Factors}\label{critical-success-factors}
+
+For successful AI implementation, the Foundation should focus on these
+critical factors:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Executive Sponsorship}: Active support from the CFO and Global
+  Finance Lead to drive change and remove barriers
+\item
+  \textbf{Cross-Functional Collaboration}: Close partnership between
+  finance, IT, and program teams
+\item
+  \textbf{User-Centered Design}: Development of AI solutions with
+  continuous input from finance staff
+\item
+  \textbf{Robust Governance}: Clear structures for decision-making, risk
+  management, and ethical oversight
+\item
+  \textbf{Continuous Learning}: Mechanisms to capture lessons learned
+  and improve implementation approaches
+\end{itemize}
+
+\subsubsection{Long-term Vision}\label{long-term-vision}
+
+By successfully implementing this AI strategy, Pharo Foundation can
+transform its finance function from a transaction-processing and
+reporting center to a strategic partner that provides data-driven
+insights to drive mission impact. AI-enhanced finance capabilities will
+support more efficient resource allocation, stronger risk management,
+and ultimately greater impact across Pharo's education, water, and
+productivity missions.
+
+As the Foundation works to foster self-reliance in Africa, AI can serve
+as a powerful enabler, helping to optimize the use of resources, improve
+transparency, and strengthen decision-making. With thoughtful
+implementation that balances technological innovation with
+organizational and ethical considerations, Pharo Foundation can leverage
+AI to amplify its contribution to sustainable development across Africa.
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-barrospena2021circumspect}
+Barros Pena, B., Clarke, R. E., Holmquist, L. E., \& Vines, J. (2021).
+Circumspect users: Older adults as critical adopters and resistors of
+technology. \emph{Proceedings of the CHI Conference on Human Factors in
+Computing Systems}.
+
+\bibitem[\citeproctext]{ref-bloedorn2023mitre}
+Bloedorn, E. E., Kotras, D. M., Schwartz, P. J., Chaney, C., Chaney, C.,
+\& Patsis, J. (2023). \emph{The MITRE AI maturity model and
+organizational assessment tool guide: A path to successful AI adoption}.
+MITRE.
+
+\bibitem[\citeproctext]{ref-brynjolfsson2017what}
+Brynjolfsson, E., \& Mitchell, T. (2017). What can machine learning do?
+Workforce implications. \emph{Science}, \emph{358}(6370), 1530--1534.
+
+\bibitem[\citeproctext]{ref-castelo2019task}
+Castelo, N., Bos, M. W., \& Lehmann, D. R. (2019). Task-dependent
+algorithm aversion. \emph{Journal of Marketing Research}, \emph{56}(5),
+809--825.
+
+\bibitem[\citeproctext]{ref-collins2021artificial}
+Collins, C., Dennehy, D., Conboy, K., \& Mikalef, P. (2021). Artificial
+intelligence in information systems research: A systematic literature
+review and research agenda. \emph{International Journal of Information
+Management}, \emph{60}, 102383.
+
+\bibitem[\citeproctext]{ref-davenport2018artificial}
+Davenport, T. H., \& Ronanki, R. (2018). Artificial intelligence for the
+real world. \emph{Harvard Business Review}, \emph{96}(1), 108--116.
+
+\bibitem[\citeproctext]{ref-deci1995why}
+Deci, E. L., \& Flaste, R. (1995). \emph{Why we do what we do}. Penguin
+Books.
+
+\bibitem[\citeproctext]{ref-edmondson2019fearless}
+Edmondson, A. (2019). \emph{The fearless organization: Creating
+psychological safety in the workplace for learning, innovation, and
+growth}. John Wiley \& Sons.
+
+\bibitem[\citeproctext]{ref-florida2012creative}
+Florida, R. (2012). \emph{The rise of the creative class, revisited:
+Revised and expanded}. Basic Books.
+
+\bibitem[\citeproctext]{ref-iansiti2020competing}
+Iansiti, M., \& Lakhani, K. R. (2020). Competing in the age of AI.
+\emph{Harvard Business Review}, \emph{98}(1), 60--67.
+
+\bibitem[\citeproctext]{ref-jung2021towards}
+Jung, M., \& Seiter, M. (2021). Towards a better understanding on
+mitigating algorithm aversion in forecasting: An experimental study.
+\emph{Journal of Management Control}, \emph{32}, 495--516.
+
+\bibitem[\citeproctext]{ref-kausel2022longitudinal}
+Kausel, E. E., Reyes, T., \& Chacon, A. (2022). A longitudinal approach
+for understanding algorithm use. \emph{Journal of Behavioral Decision
+Making}, \emph{35}(4), e2275.
+
+\bibitem[\citeproctext]{ref-lee2004trust}
+Lee, J. D., \& See, K. A. (2004). Trust in automation: Designing for
+appropriate reliance. \emph{Human Factors}, \emph{46}(1), 50--80.
+
+\bibitem[\citeproctext]{ref-longoni2019resistance}
+Longoni, C., Bonezzi, A., \& Morewedge, C. K. (2019). Resistance to
+medical artificial intelligence. \emph{Journal of Consumer Research},
+\emph{46}(4), 629--650.
+
+\bibitem[\citeproctext]{ref-maedche2019ai}
+Maedche, A., Legner, C., Benlian, A., Berger, B., Gimpel, H., Hess, T.,
+Hinz, O., Morana, S., \& Söllner, M. (2019). AI-based digital
+assistants. \emph{Business \& Information Systems Engineering},
+\emph{61}(4), 535--544.
+
+\bibitem[\citeproctext]{ref-mckinsey2023state}
+McKinsey \& Company. (2023). \emph{The state of AI in early 2024: Gen AI
+adoption spikes and starts to generate value}.
+
+\bibitem[\citeproctext]{ref-mckinsey2024data}
+McKinsey Technology. (2024). \emph{A data leader's operating guide to
+scaling gen AI}.
+
+\bibitem[\citeproctext]{ref-mikalef2021artificial}
+Mikalef, P., \& Gupta, M. (2021). Artificial intelligence capability:
+Conceptualization, measurement calibration, and empirical study on its
+impact on organizational creativity and firm performance.
+\emph{Information \& Management}, \emph{58}(3), 103434.
+
+\bibitem[\citeproctext]{ref-pharo2023about}
+Pharo Foundation. (2023). \emph{About pharo foundation}.
+\url{https://pharofoundation.org/our-story}.
+
+\bibitem[\citeproctext]{ref-pharo2024gmf}
+Pharo Foundation. (2024). \emph{Global monitoring framework: An
+impact-driven approach to design, monitoring, and evaluation}.
+
+\bibitem[\citeproctext]{ref-pharo2024finance}
+Pharo Foundation Finance Transformation Strategy. (2024). \emph{Internal
+strategic document}.
+
+\bibitem[\citeproctext]{ref-shin2022a}
+Shin, D. (2022a). Expanding the role of trust in the experience of
+algorithmic journalism: User sensemaking of algorithmic heuristics in
+korean users. \emph{Journalism Practice}, \emph{16}(6), 1168--1191.
+
+\bibitem[\citeproctext]{ref-shin2022b}
+Shin, D. (2022b). How do people judge the credibility of algorithmic
+sources? \emph{AI \& Society}, \emph{37}(1), 81--96.
+
+\bibitem[\citeproctext]{ref-shin2022understanding}
+Shin, D., Lim, J. S., Ahmad, N., \& Ibahrine, M. (2022). Understanding
+user sensemaking in fairness and transparency in algorithms: Algorithmic
+sensemaking in over-the-top platform. \emph{AI \& Society}, 1--14.
+
+\bibitem[\citeproctext]{ref-strich2021what}
+Strich, F., Mayer, A. S., \& Fiedler, M. (2021). What do i do in a world
+of artificial intelligence? Investigating the impact of substitutive
+decision-making AI systems on employees' professional role identity.
+\emph{Journal of the Association for Information Systems}, \emph{22}(2),
+304--324.
+
+\bibitem[\citeproctext]{ref-thurman2019my}
+Thurman, N., Moeller, J., Helberger, N., \& Trilling, D. (2019). My
+friends, editors, algorithms, and i. \emph{Digital Journalism},
+\emph{7}(4), 447--469.
+
+\end{CSLReferences}
+
+
+
+
+\end{document}
