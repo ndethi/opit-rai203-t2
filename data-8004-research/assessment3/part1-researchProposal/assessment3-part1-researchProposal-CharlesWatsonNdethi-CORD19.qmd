@@ -16,17 +16,19 @@ csl: apa.csl
 format:
     pdf:
         documentclass: article
-        classoption: [twocolumn]
         include-in-header:
             text: |
                 \usepackage{graphicx}
                 \usepackage{booktabs}
-number-sections: true
+        number-sections: true
+        toc: true
+        toc-depth: 3
+        toc-title: "Table of Contents"
 ---
 
-## 1. Introduction
+## Introduction
 
-### 1.1 Background
+### Background
 
 The COVID-19 pandemic triggered an explosion of scientific research as the global community raced to understand and combat the novel coronavirus. This unprecedented situation led to the creation of the COVID-19 Open Research Dataset (CORD-19), a comprehensive collection of scientific papers about COVID-19, SARS-CoV-2, and related coronaviruses. CORD-19 represents a significant effort to consolidate scientific knowledge, with over 1,000,000 scholarly articles, including more than 400,000 with full text [@wang2020cord19].
 
@@ -34,13 +36,13 @@ While this resource has been invaluable for research and policy development, que
 
 The global nature of the COVID-19 pandemic requires global information sharing. However, the predominance of English in scientific publishing may create significant information gaps for non-English speaking populations, especially those speaking low-resource languages. Understanding these gaps is crucial for developing strategies to enhance information equity in global health crises.
 
-### 1.2 Problem Statement
+### Problem Statement
 
 Despite the comprehensive nature of the CORD-19 dataset, there is limited understanding of its linguistic diversity and the extent to which low-resource languages are represented. This creates potential disparities in information access, which may contribute to health inequities and hamper global pandemic response efforts. Additionally, without empirical evidence of these representation gaps, it is difficult to prioritize translation efforts or develop appropriate cross-lingual information retrieval systems.
 
 This research seeks to address this gap by systematically analyzing the linguistic diversity of the CORD-19 dataset, with particular attention to the representation of low-resource languages, including African languages. By identifying specific patterns of language distribution and representation gaps, this study will provide crucial groundwork for future efforts to improve cross-lingual information access in scientific domains.
 
-### 1.3 Research Question and Objectives
+### Research Question and Objectives
 
 This study is guided by the primary research question:
 
@@ -58,7 +60,7 @@ To address this question comprehensively, the research has the following specifi
 
 5. Identify specific representation gaps for low-resource languages, with particular focus on African languages.
 
-### 1.4 Significance of the Study
+### Significance of the Study
 
 This research addresses a critical gap in understanding how scientific information about COVID-19 has been distributed across language communities. The findings will:
 
@@ -70,9 +72,9 @@ This research addresses a critical gap in understanding how scientific informati
 
 For low-resource African languages specifically, this research will establish baseline measures of representation in scientific literature that can inform future resource development efforts. The methodological approach developed can also be extended to other domains and datasets to assess linguistic diversity and representation gaps more broadly.
 
-## 2. Literature Review
+## Literature Review
 
-### 2.1 Linguistic Diversity in Scientific Publishing
+### Linguistic Diversity in Scientific Publishing
 
 Scientific publishing has historically been dominated by a small number of languages, with English emerging as the predominant language of international scientific communication [@amano2016]. This dominance creates challenges for non-English speakers in accessing scientific information and contributes to what has been termed "linguistic imperialism" in academic publishing [@phillipson1992].
 
@@ -80,7 +82,7 @@ Several studies have examined linguistic diversity in scientific literature acro
 
 In the context of COVID-19, @taskin2020 conducted a preliminary analysis of early pandemic literature and found that English-language publications dominated the discourse, potentially limiting information access for non-English speaking healthcare providers and populations. However, there has been limited systematic analysis of language distribution in comprehensive COVID-19 literature collections like CORD-19.
 
-### 2.2 Low-Resource Languages and NLP
+### Low-Resource Languages and NLP
 
 Low-resource languages (LRLs) are typically defined as languages with limited availability of digital resources, computational tools, and NLP systems [@cieri2016]. These languages face significant challenges in the digital age, as they often lack basic resources such as digital corpora, part-of-speech taggers, or machine translation systems [@joshi2020state].
 
@@ -90,7 +92,7 @@ African languages, in particular, face significant resource challenges. @nekoto2
 
 The limited availability of resources for low-resource languages has direct implications for information access. As @besacier2014 note, speakers of these languages often face a "digital language divide" that restricts their ability to access and contribute to digital content, including critical health information.
 
-### 2.3 Health Information Disparities
+### Health Information Disparities
 
 Language barriers have been identified as significant contributors to health disparities globally [@yeheskel2019]. Limited English proficiency has been associated with poorer health outcomes, reduced access to preventive services, and decreased satisfaction with healthcare [@pazzanese2020].
 
@@ -100,7 +102,7 @@ During the COVID-19 pandemic, these language-based disparities became particular
 
 These studies highlight the real-world impact of language representation gaps in health information. However, most have focused on public health communications rather than scientific literature, leaving a gap in understanding how language barriers might affect access to the growing body of COVID-19 research.
 
-### 2.4 Cross-Lingual Information Retrieval and Access
+### Cross-Lingual Information Retrieval and Access
 
 Cross-lingual information retrieval (CLIR) systems aim to bridge language gaps by allowing users to find information in languages different from their query language [@zhou2012]. These systems have become increasingly sophisticated with advances in neural machine translation and multilingual language models [@litschko2021].
 
@@ -110,15 +112,15 @@ In the scientific domain, @nakov2018 explored cross-lingual biomedical informati
 
 For COVID-19 specifically, @guo2021 developed a multilingual search system for COVID-19 literature, but noted significant challenges for low-resource languages due to limited training data and linguistic resources. Their work underscores the need for better understanding of language representation in COVID-19 literature as a foundation for developing more inclusive information access systems.
 
-### 2.5 Literature Gap
+### Literature Gap
 
 While previous research has examined language disparities in scientific publishing broadly and COVID-19 public health communications specifically, there remains a significant gap in understanding the linguistic diversity of comprehensive COVID-19 scientific literature collections like CORD-19. Additionally, few studies have specifically addressed representation gaps for low-resource languages, particularly African languages, in this context.
 
 This research aims to address these gaps by providing a systematic analysis of language distribution in the CORD-19 dataset, with specific attention to low-resource languages. By examining not only language presence but also content characteristics, text complexity, and named entity distributions, this study will provide a more nuanced understanding of representation gaps that can inform future efforts to improve cross-lingual scientific information access.
 
-## 3. Methodology
+## Methodology
 
-### 3.1 Research Design
+### Research Design
 
 This study will employ a mixed-methods approach combining quantitative content analysis with computational linguistic techniques to analyze the linguistic diversity of the CORD-19 dataset. The research design involves:
 
@@ -130,13 +132,13 @@ This study will employ a mixed-methods approach combining quantitative content a
 
 This design allows for both broad quantitative assessment of language representation and deeper qualitative insights into specific gaps and barriers for low-resource languages.
 
-### 3.2 Data Source
+### Data Source
 
 The primary data source for this study is the COVID-19 Open Research Dataset (CORD-19), a comprehensive collection of scholarly articles about COVID-19 and related coronaviruses. As of its latest release, CORD-19 contains over 1,000,000 scholarly articles, including over 400,000 with full text.
 
 The dataset includes articles from various sources, including PubMed Central, bioRxiv, and medRxiv, as well as content from the WHO and commercial publishers. It provides both metadata (authors, publication date, journal, etc.) and full-text content where available, allowing for comprehensive language analysis.
 
-### 3.3 Sampling Strategy
+### Sampling Strategy
 
 Given the size of the CORD-19 dataset and the computational resources required for language identification and analysis, this study will employ a stratified random sampling approach. The sampling strategy will include:
 
@@ -147,7 +149,7 @@ Given the size of the CORD-19 dataset and the computational resources required f
 
 This approach balances computational feasibility with the need for comprehensive coverage, particularly for low-frequency languages.
 
-### 3.4 Data Collection Procedures
+### Data Collection Procedures
 
 Data collection will involve the following steps:
 
@@ -158,9 +160,9 @@ Data collection will involve the following steps:
 5. Collection of additional metrics (text length, publication venue, citation count if available)
 6. Documentation of data processing decisions and limitations
 
-### 3.5 Data Analysis Methods
+### Data Analysis Methods
 
-#### 3.5.1 Language Identification
+#### Language Identification
 
 Accurate language identification is crucial for this study. To maximize accuracy across both high and low-resource languages, multiple language identification approaches will be employed:
 
@@ -171,7 +173,7 @@ Accurate language identification is crucial for this study. To maximize accuracy
 
 For documents with multiple languages (e.g., abstract in multiple languages), the system will identify and record all languages present and their respective proportions.
 
-#### 3.5.2 Language Distribution Analysis
+#### Language Distribution Analysis
 
 Quantitative analysis of language distribution will include:
 
@@ -181,7 +183,7 @@ Quantitative analysis of language distribution will include:
 4. Correlation analysis between language and other document characteristics (publication venue, citation count, etc.)
 5. Comparative analysis with language speaker populations to identify representational disparities
 
-#### 3.5.3 Content Type Analysis
+#### Content Type Analysis
 
 To understand how content differs across languages, basic topic modeling and content classification will be performed:
 
@@ -190,7 +192,7 @@ To understand how content differs across languages, basic topic modeling and con
 3. Classification of documents into broad categories (clinical, epidemiological, biological, etc.)
 4. Cross-lingual comparison of topic distribution using available metadata and translated keywords
 
-#### 3.5.4 Text Complexity Analysis
+#### Text Complexity Analysis
 
 Text complexity analysis will assess potential barriers to information accessibility:
 
@@ -199,7 +201,7 @@ Text complexity analysis will assess potential barriers to information accessibi
 3. Assessment of specialized terminology density
 4. Comparison of complexity metrics across languages and document types
 
-#### 3.5.5 Named Entity Analysis
+#### Named Entity Analysis
 
 Named entity recognition will be used to identify terminology gaps:
 
@@ -208,7 +210,7 @@ Named entity recognition will be used to identify terminology gaps:
 3. Analysis of entity distribution across available non-English content
 4. Identification of terminology gaps for potential translation priorities
 
-### 3.6 Ethical Considerations
+### Ethical Considerations
 
 While this study primarily analyzes publicly available dataset content rather than human subjects, several ethical considerations will be addressed:
 
@@ -218,7 +220,7 @@ While this study primarily analyzes publicly available dataset content rather th
 4. Transparent reporting of methodological decisions and their potential impact on results
 5. Commitment to making findings accessible to diverse linguistic communities through translation of key results
 
-### 3.7 Reliability and Validity
+### Reliability and Validity
 
 To ensure the reliability and validity of findings, the following measures will be implemented:
 
@@ -228,9 +230,9 @@ To ensure the reliability and validity of findings, the following measures will 
 4. Acknowledgment of limitations and potential biases in the dataset and analysis methods
 5. Validation of content analysis results through expert review where feasible
 
-## 4. Expected Results
+## Expected Results
 
-### 4.1 Anticipated Findings
+### Anticipated Findings
 
 Based on previous literature on language distribution in scientific publishing, the study anticipates finding:
 
@@ -243,7 +245,7 @@ Based on previous literature on language distribution in scientific publishing, 
 7. Higher text complexity in non-English content, potentially reflecting translation of more complex scientific material
 8. Significant terminology gaps for technical and biomedical terms in low-resource languages
 
-### 4.2 Contribution to Knowledge
+### Contribution to Knowledge
 
 The expected results will contribute to knowledge in several ways:
 
@@ -254,7 +256,7 @@ The expected results will contribute to knowledge in several ways:
 5. Create a methodological framework for analyzing linguistic diversity in scientific literature collections
 6. Establish baseline measures that can inform future work on cross-lingual information access
 
-## 5. Timeline
+## Timeline
 
 The proposed research will be completed within a 4-week timeframe with the following schedule:
 
@@ -282,7 +284,7 @@ The proposed research will be completed within a 4-week timeframe with the follo
 - Prepare visualizations and tables
 - Finalize research report and documentation
 
-## 6. Limitations
+## Limitations
 
 This study has several limitations that should be acknowledged:
 
@@ -298,7 +300,7 @@ This study has several limitations that should be acknowledged:
 
 Despite these limitations, the study will provide valuable insights into linguistic diversity and representation gaps in COVID-19 scientific literature, with important implications for information access equity.
 
-## 7. Conclusion
+## Conclusion
 
 This research proposal outlines a systematic approach to analyzing the linguistic diversity of the CORD-19 dataset and identifying representation gaps for low-resource languages. By combining language identification techniques with content analysis and linguistic assessment, the study will provide empirical evidence of language-based disparities in access to COVID-19 scientific information.
 
