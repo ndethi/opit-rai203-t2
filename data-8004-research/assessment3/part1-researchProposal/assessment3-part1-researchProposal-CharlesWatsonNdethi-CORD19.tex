@@ -1,0 +1,1396 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Linguistic Diversity and Representation Gaps in COVID-19 Research: A Systematic Analysis of the CORD-19 Dataset},
+  pdfauthor={Charles Watson Ndethi Kibaki},
+  pdfkeywords={COVID-19, CORD-19, linguistic diversity, low-resource
+languages, health information equity, cross-lingual information
+retrieval, African languages},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Linguistic Diversity and Representation Gaps in COVID-19
+Research: A Systematic Analysis of the CORD-19 Dataset}
+\author{Charles Watson Ndethi Kibaki}
+\date{2025-04-06}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+The COVID-19 pandemic generated an unprecedented volume of scientific
+literature, yet access to this critical information may be limited by
+language barriers. This research proposal outlines a systematic
+investigation of linguistic diversity within the COVID-19 Open Research
+Dataset (CORD-19), with particular focus on identifying representation
+gaps for low-resource languages. The study will analyze language
+distribution patterns, assess content availability across languages, and
+evaluate text complexity and named entity distributions to identify
+specific disparities. Using language identification techniques and
+content analysis methods, this research aims to quantify the extent to
+which low-resource languages, particularly African languages, are
+underrepresented in COVID-19 scientific literature. The findings will
+provide empirical evidence of information access inequities and create a
+foundation for future work in cross-lingual information access,
+particularly for underrepresented language communities. This study has
+implications for global health information equity and will inform
+strategies for extending scientific knowledge to low-resource language
+speakers.
+\end{abstract}
+
+\renewcommand*\contentsname{Table of Contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+
+\subsection{Introduction}\label{introduction}
+
+\subsubsection{Background}\label{background}
+
+The COVID-19 pandemic triggered an explosion of scientific research as
+the global community raced to understand and combat the novel
+coronavirus. This unprecedented situation led to the creation of the
+COVID-19 Open Research Dataset (CORD-19), a comprehensive collection of
+scientific papers about COVID-19, SARS-CoV-2, and related coronaviruses.
+CORD-19 represents a significant effort to consolidate scientific
+knowledge, with over 1,000,000 scholarly articles, including more than
+400,000 with full text (Wang et al., 2020).
+
+While this resource has been invaluable for research and policy
+development, questions remain about its linguistic diversity and the
+extent to which critical information is accessible across different
+language communities. Language barriers in health information access
+have been identified as significant factors contributing to health
+disparities (Pazzanese, 2020). These disparities may be particularly
+acute for speakers of low-resource languages -- languages with limited
+digital presence, computational resources, and NLP tools (Joshi et al.,
+2020).
+
+The global nature of the COVID-19 pandemic requires global information
+sharing. However, the predominance of English in scientific publishing
+may create significant information gaps for non-English speaking
+populations, especially those speaking low-resource languages.
+Understanding these gaps is crucial for developing strategies to enhance
+information equity in global health crises.
+
+\subsubsection{Problem Statement}\label{problem-statement}
+
+Despite the comprehensive nature of the CORD-19 dataset, there is
+limited understanding of its linguistic diversity and the extent to
+which low-resource languages are represented. This creates potential
+disparities in information access, which may contribute to health
+inequities and hamper global pandemic response efforts. Additionally,
+without empirical evidence of these representation gaps, it is difficult
+to prioritize translation efforts or develop appropriate cross-lingual
+information retrieval systems.
+
+This research seeks to address this gap by systematically analyzing the
+linguistic diversity of the CORD-19 dataset, with particular attention
+to the representation of low-resource languages, including African
+languages. By identifying specific patterns of language distribution and
+representation gaps, this study will provide crucial groundwork for
+future efforts to improve cross-lingual information access in scientific
+domains.
+
+\subsubsection{Research Question and
+Objectives}\label{research-question-and-objectives}
+
+This study is guided by the primary research question:
+
+\textbf{What patterns of linguistic diversity exist within the CORD-19
+dataset, and what representation gaps can be identified for low-resource
+languages?}
+
+To address this question comprehensively, the research has the following
+specific objectives:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Quantify the distribution of languages across the CORD-19 dataset
+  using automated language identification methods.
+\item
+  Analyze the relationship between language availability and content
+  characteristics such as publication date, topic area, and document
+  type.
+\item
+  Assess text complexity and readability metrics across languages to
+  identify potential barriers to information accessibility.
+\item
+  Examine named entity distributions across languages to identify
+  terminology gaps that may affect health information understanding.
+\item
+  Identify specific representation gaps for low-resource languages, with
+  particular focus on African languages.
+\end{enumerate}
+
+\subsubsection{Significance of the
+Study}\label{significance-of-the-study}
+
+This research addresses a critical gap in understanding how scientific
+information about COVID-19 has been distributed across language
+communities. The findings will:
+
+\begin{itemize}
+\tightlist
+\item
+  Provide quantitative evidence of language representation gaps in
+  COVID-19 scientific literature
+\item
+  Identify specific barriers to information access for speakers of
+  low-resource languages
+\item
+  Inform prioritization strategies for translation efforts and resource
+  development
+\item
+  Create a foundation for developing more effective cross-lingual
+  information systems
+\item
+  Contribute to broader discussions about information equity in global
+  health crises
+\end{itemize}
+
+For low-resource African languages specifically, this research will
+establish baseline measures of representation in scientific literature
+that can inform future resource development efforts. The methodological
+approach developed can also be extended to other domains and datasets to
+assess linguistic diversity and representation gaps more broadly.
+
+\subsection{Theoretical Framework}\label{theoretical-framework}
+
+This research is grounded in several theoretical perspectives that
+provide the conceptual foundation for understanding linguistic diversity
+and representation gaps in scientific literature.
+
+\subsubsection{Information Access Equity
+Theory}\label{information-access-equity-theory}
+
+The study draws on information access equity theory, which posits that
+equitable access to information is a fundamental right and a
+prerequisite for social justice (\textbf{mathiesen2015?}). This
+theoretical perspective emphasizes that disparities in information
+access contribute to broader social inequalities and that language
+barriers constitute a significant dimension of information inequity
+(\textbf{bowker2017?}). Within this framework, linguistic diversity in
+scientific literature is not merely a matter of representation but is
+directly linked to health outcomes and social participation.
+
+\subsubsection{Critical Language Policy}\label{critical-language-policy}
+
+Critical language policy theory (\textbf{tollefson2006?}) provides a
+lens for examining how language hierarchies and power dynamics influence
+the production and dissemination of scientific knowledge. This
+perspective encourages analysis of how linguistic hegemony in scientific
+publishing reflects and reinforces broader social and political power
+structures. By examining representation gaps for low-resource languages,
+this research contributes to critical analysis of language policies in
+scientific communication and their implications for global knowledge
+equity.
+
+\subsubsection{Digital Linguistics
+Diversity}\label{digital-linguistics-diversity}
+
+The concept of digital linguistic diversity (\textbf{kornai2013?})
+offers a framework for understanding how languages are represented in
+digital spaces. This theory describes the process of ``digital language
+death'' whereby languages without sufficient digital presence become
+increasingly marginalized in the information age. By analyzing the
+representation of low-resource languages in the CORD-19 dataset, this
+research operationalizes digital linguistic diversity in the context of
+scientific literature and contributes to understanding the digital
+vitality of these languages.
+
+\subsubsection{Cross-Lingual Information Retrieval
+Models}\label{cross-lingual-information-retrieval-models}
+
+The research also builds on theoretical models of cross-lingual
+information retrieval (CLIR) that describe how information can be
+accessed across language boundaries (\textbf{nie2010?}). These models
+typically distinguish between document translation approaches (where
+entire collections are translated) and query translation approaches
+(where user queries are translated to match document languages).
+Understanding representation gaps in COVID-19 literature will inform
+which CLIR approaches may be most appropriate for addressing identified
+disparities.
+
+\subsection{Literature Review}\label{literature-review}
+
+\subsubsection{Linguistic Diversity in Scientific
+Publishing}\label{linguistic-diversity-in-scientific-publishing}
+
+Scientific publishing has historically been dominated by a small number
+of languages, with English emerging as the predominant language of
+international scientific communication (Amano et al., 2016). This
+dominance creates challenges for non-English speakers in accessing
+scientific information and contributes to what has been termed
+``linguistic imperialism'' in academic publishing (Phillipson, 1992).
+
+Several studies have examined linguistic diversity in scientific
+literature across various disciplines. Amano et al. (2016) found that
+over 75\% of biodiversity conservation literature is published in
+English, creating significant barriers for conservation efforts in
+non-English speaking regions. Similarly, Liu (2017) analyzed the
+language distribution of medical literature and found that
+English-language publications significantly outnumbered those in other
+languages, even for research conducted in non-English speaking
+countries.
+
+In the context of COVID-19, Taşkın et al. (2020) conducted a preliminary
+analysis of early pandemic literature and found that English-language
+publications dominated the discourse, potentially limiting information
+access for non-English speaking healthcare providers and populations.
+However, there has been limited systematic analysis of language
+distribution in comprehensive COVID-19 literature collections like
+CORD-19.
+
+\subsubsection{Low-Resource Languages and
+NLP}\label{low-resource-languages-and-nlp}
+
+Low-resource languages (LRLs) are typically defined as languages with
+limited availability of digital resources, computational tools, and NLP
+systems (Cieri et al., 2016). These languages face significant
+challenges in the digital age, as they often lack basic resources such
+as digital corpora, part-of-speech taggers, or machine translation
+systems (Joshi et al., 2020).
+
+Joshi et al. (2020) proposed a taxonomy of languages based on their
+resource availability, categorizing them from ``The Winners'' (languages
+with abundant resources) to ``The Left-Behinds'' (languages with
+virtually no digital resources). According to their analysis, the
+majority of the world's languages fall into the lower categories,
+highlighting substantial disparities in language technology development.
+
+African languages, in particular, face significant resource challenges.
+Nekoto et al. (2020) documented the state of NLP for African languages,
+highlighting that most fall into the ``Left-Behind'' or ``Scraping By''
+categories in Joshi's taxonomy. Their participatory research approach
+with the Masakhane community demonstrates the potential for
+community-driven efforts to address these resource gaps.
+
+The limited availability of resources for low-resource languages has
+direct implications for information access. As Besacier et al. (2014)
+note, speakers of these languages often face a ``digital language
+divide'' that restricts their ability to access and contribute to
+digital content, including critical health information.
+
+\subsubsection{Health Information
+Disparities}\label{health-information-disparities}
+
+Language barriers have been identified as significant contributors to
+health disparities globally (Yeheskel \& Rawal, 2019). Limited English
+proficiency has been associated with poorer health outcomes, reduced
+access to preventive services, and decreased satisfaction with
+healthcare (Pazzanese, 2020).
+
+During the COVID-19 pandemic, these language-based disparities became
+particularly evident. Piller et al. (2020) documented how language
+barriers affected various aspects of pandemic response, from
+understanding public health directives to accessing testing and
+treatment information. They found that multilingual information
+provision was often inadequate, with information in languages other than
+the dominant national language frequently delayed, reduced in content,
+or entirely absent.
+
+Kim et al. (2020) specifically examined COVID-19 information
+availability for limited English proficiency populations in the United
+States and found significant gaps in translated materials, especially
+for speakers of less common languages. Similar patterns have been
+observed globally, with Yeheskel \& Rawal (2019) noting particular
+challenges for speakers of indigenous and minority languages.
+
+These studies highlight the real-world impact of language representation
+gaps in health information. However, most have focused on public health
+communications rather than scientific literature, leaving a gap in
+understanding how language barriers might affect access to the growing
+body of COVID-19 research.
+
+\subsubsection{Cross-Lingual Information Retrieval and
+Access}\label{cross-lingual-information-retrieval-and-access}
+
+Cross-lingual information retrieval (CLIR) systems aim to bridge
+language gaps by allowing users to find information in languages
+different from their query language (Zhou et al., 2012). These systems
+have become increasingly sophisticated with advances in neural machine
+translation and multilingual language models (Litschko et al., 2021).
+
+Recent advances in multilingual language models like mBERT (Devlin et
+al., 2019) and XLM-R (Conneau et al., 2020) have shown promise for
+cross-lingual applications, including for some low-resource languages.
+However, as Lauscher et al. (2020) demonstrate, these models still show
+significant performance gaps for truly low-resource languages,
+particularly those that are typologically distant from high-resource
+languages.
+
+In the scientific domain, Nakov et al. (2018) explored cross-lingual
+biomedical information retrieval, highlighting both the potential and
+limitations of current approaches. Their work suggests that
+domain-specific knowledge and terminology present particular challenges
+for cross-lingual access to scientific content.
+
+For COVID-19 specifically, Guo et al. (2021) developed a multilingual
+search system for COVID-19 literature, but noted significant challenges
+for low-resource languages due to limited training data and linguistic
+resources. Their work underscores the need for better understanding of
+language representation in COVID-19 literature as a foundation for
+developing more inclusive information access systems.
+
+\subsubsection{Literature Gap}\label{literature-gap}
+
+While previous research has examined language disparities in scientific
+publishing broadly and COVID-19 public health communications
+specifically, there remains a significant gap in understanding the
+linguistic diversity of comprehensive COVID-19 scientific literature
+collections like CORD-19. Additionally, few studies have specifically
+addressed representation gaps for low-resource languages, particularly
+African languages, in this context.
+
+This research aims to address these gaps by providing a systematic
+analysis of language distribution in the CORD-19 dataset, with specific
+attention to low-resource languages. By examining not only language
+presence but also content characteristics, text complexity, and named
+entity distributions, this study will provide a more nuanced
+understanding of representation gaps that can inform future efforts to
+improve cross-lingual scientific information access.
+
+\subsection{Methodology}\label{methodology}
+
+\subsubsection{Research Design}\label{research-design}
+
+This study will employ a mixed-methods approach combining quantitative
+content analysis with computational linguistic techniques to analyze the
+linguistic diversity of the CORD-19 dataset. The research design
+involves:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Automated language identification of documents in the dataset
+\item
+  Quantitative analysis of language distribution patterns
+\item
+  Content analysis of topic distribution across languages
+\item
+  Linguistic analysis of text complexity and named entity distribution
+\item
+  Comparative analysis to identify representation gaps for low-resource
+  languages
+\end{enumerate}
+
+This design allows for both broad quantitative assessment of language
+representation and deeper qualitative insights into specific gaps and
+barriers for low-resource languages.
+
+\subsubsection{Statistical Analysis
+Framework}\label{statistical-analysis-framework}
+
+The quantitative components of the study will employ a robust
+statistical analysis framework to ensure scientific rigor:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Descriptive Statistics}: Frequency distributions, measures of
+  central tendency, and dispersion metrics will be calculated for
+  language representation.
+\item
+  \textbf{Inferential Statistics}: Chi-square tests will be used to
+  determine if observed language distributions differ significantly from
+  expected distributions based on global speaker populations.
+\item
+  \textbf{Correlation Analysis}: Spearman's rank correlation coefficient
+  will be used to analyze relationships between language representation
+  and factors such as publication date, citation count, and document
+  characteristics.
+\item
+  \textbf{Time Series Analysis}: ARIMA modeling will be applied to
+  temporal data to identify trends and patterns in language
+  representation throughout the pandemic timeline.
+\item
+  \textbf{Multidimensional Scaling}: To visualize relationships between
+  languages based on content similarity and representation patterns.
+\end{enumerate}
+
+All statistical analyses will be conducted with a significance level of
+α = 0.05, with appropriate corrections for multiple comparisons when
+necessary (e.g., Bonferroni correction).
+
+\subsubsection{Data Source}\label{data-source}
+
+The primary data source for this study is the COVID-19 Open Research
+Dataset (CORD-19), a comprehensive collection of scholarly articles
+about COVID-19 and related coronaviruses. As of its latest release,
+CORD-19 contains over 1,000,000 scholarly articles, including over
+400,000 with full text.
+
+The dataset includes articles from various sources, including PubMed
+Central, bioRxiv, and medRxiv, as well as content from the WHO and
+commercial publishers. It provides both metadata (authors, publication
+date, journal, etc.) and full-text content where available, allowing for
+comprehensive language analysis.
+
+\subsubsection{Sampling Strategy}\label{sampling-strategy}
+
+Given the size of the CORD-19 dataset and the computational resources
+required for language identification and analysis, this study will
+employ a stratified random sampling approach. The sampling strategy will
+include:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Initial random sampling of 10,000 documents to establish baseline
+  language distribution
+\item
+  Stratified sampling based on publication date to ensure temporal
+  representation across the pandemic
+\item
+  Targeted oversampling of potential non-English content based on
+  metadata indicators (author affiliations, publication venue, etc.)
+\item
+  Full analysis of all identified non-English content to maximize
+  insights on linguistic diversity
+\end{enumerate}
+
+This approach balances computational feasibility with the need for
+comprehensive coverage, particularly for low-frequency languages.
+
+\subsubsection{Data Collection
+Procedures}\label{data-collection-procedures}
+
+Data collection will involve the following steps:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Acquisition of the latest version of the CORD-19 dataset
+\item
+  Extraction of relevant metadata (publication date, title, authors,
+  abstract, full text if available)
+\item
+  Pre-processing of text content (cleaning, normalization)
+\item
+  Application of language identification algorithms to determine the
+  primary language of each document
+\item
+  Collection of additional metrics (text length, publication venue,
+  citation count if available)
+\item
+  Documentation of data processing decisions and limitations
+\end{enumerate}
+
+\subsubsection{Data Analysis Methods}\label{data-analysis-methods}
+
+\paragraph{Language Identification}\label{language-identification}
+
+Accurate language identification is crucial for this study. To maximize
+accuracy across both high and low-resource languages, multiple language
+identification approaches will be employed:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  FastText language identification (Joulin et al., 2017) as the primary
+  method due to its coverage of 176 languages
+\item
+  langdetect (based on Google's language detection) as a supplementary
+  method
+\item
+  African Language Identification (AfriLID) tool (Adebara et al., 2022)
+  for improved detection of African languages
+\item
+  Manual verification for a subset of documents to validate automated
+  identification accuracy
+\end{enumerate}
+
+For documents with multiple languages (e.g., abstract in multiple
+languages), the system will identify and record all languages present
+and their respective proportions.
+
+\paragraph{Language Distribution
+Analysis}\label{language-distribution-analysis}
+
+Quantitative analysis of language distribution will include:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Frequency counts and percentages of documents by primary language
+\item
+  Temporal analysis of language distribution across the pandemic
+  timeline
+\item
+  Analysis of language distribution by document section (title,
+  abstract, full text)
+\item
+  Correlation analysis between language and other document
+  characteristics (publication venue, citation count, etc.)
+\item
+  Comparative analysis with language speaker populations to identify
+  representational disparities
+\end{enumerate}
+
+\paragraph{Content Type Analysis}\label{content-type-analysis}
+
+To understand how content differs across languages, advanced topic
+modeling and content classification will be performed:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Extraction of keywords and phrases using TF-IDF scores with BM25
+  weighting to account for document length biases
+\item
+  Application of Latent Dirichlet Allocation (LDA) for topic modeling of
+  English content
+\item
+  Implementation of Structural Topic Modeling (STM) to incorporate
+  metadata covariates into topic analysis
+\item
+  Cross-lingual topic alignment using multilingual word embeddings
+  (specifically, MUSE aligned embeddings)
+\item
+  Classification of documents into broad categories (clinical,
+  epidemiological, biological, etc.) using a pre-trained SciBERT
+  classifier fine-tuned on a manually labeled subset
+\item
+  Cross-lingual comparison of topic distribution using available
+  metadata and translated keywords
+\item
+  Calculation of Jensen-Shannon divergence to quantify topical
+  differences between languages
+\end{enumerate}
+
+\paragraph{Text Complexity Analysis}\label{text-complexity-analysis}
+
+Text complexity analysis will assess potential barriers to information
+accessibility:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Calculation of readability metrics (where applicable for supported
+  languages)
+\item
+  Analysis of sentence length and syntactic complexity
+\item
+  Assessment of specialized terminology density
+\item
+  Comparison of complexity metrics across languages and document types
+\end{enumerate}
+
+\paragraph{Named Entity Analysis}\label{named-entity-analysis}
+
+Named entity recognition will be used to identify terminology gaps:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Application of biomedical named entity recognition to English
+  documents using BioBERT (\textbf{lee2020?})
+\item
+  Extraction of key medical entities (diseases, treatments, genes, etc.)
+\item
+  Analysis of entity distribution across available non-English content
+\item
+  Implementation of cross-lingual entity linking to identify terminology
+  equivalences and gaps
+\item
+  Calculation of terminology coverage metrics for each language
+\item
+  Construction of biomedical terminology networks to visualize knowledge
+  representation across languages
+\item
+  Identification of terminology gaps for potential translation
+  priorities
+\end{enumerate}
+
+\subsubsection{Evaluation Metrics}\label{evaluation-metrics}
+
+To ensure methodological rigor, the following evaluation metrics will be
+employed:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Language Identification Accuracy}: Precision, recall, and
+  F1-score for language identification, with particular attention to
+  low-resource languages
+\item
+  \textbf{Topic Coherence}: Topic quality will be assessed using
+  normalized pointwise mutual information (NPMI) and human evaluation
+\item
+  \textbf{Named Entity Recognition Performance}: F1-scores for entity
+  recognition across different languages and entity types
+\item
+  \textbf{Inter-coder Reliability}: Cohen's Kappa coefficient for manual
+  verification tasks involving multiple annotators
+\item
+  \textbf{Cross-lingual Alignment Quality}: Word alignment error rate
+  (WAER) for cross-lingual entity and topic mapping
+\end{enumerate}
+
+\subsubsection{Ethical Considerations}\label{ethical-considerations}
+
+While this study primarily analyzes publicly available dataset content
+rather than human subjects, several ethical considerations will be
+addressed:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Proper attribution of the CORD-19 dataset and compliance with its
+  usage terms
+\item
+  Careful interpretation of findings to avoid reinforcing language
+  hierarchies or stereotypes
+\item
+  Acknowledgment of limitations in language identification accuracy,
+  particularly for low-resource languages
+\item
+  Transparent reporting of methodological decisions and their potential
+  impact on results
+\item
+  Commitment to making findings accessible to diverse linguistic
+  communities through translation of key results
+\end{enumerate}
+
+\subsubsection{Reliability and Validity}\label{reliability-and-validity}
+
+To ensure the reliability and validity of findings, the following
+measures will be implemented:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Multiple language identification methods with cross-validation to
+  improve accuracy
+\item
+  Manual verification of a sample of language identification results
+\item
+  Transparent documentation of all data processing steps and analytical
+  decisions
+\item
+  Acknowledgment of limitations and potential biases in the dataset and
+  analysis methods
+\item
+  Validation of content analysis results through expert review where
+  feasible
+\end{enumerate}
+
+\subsection{Expected Results}\label{expected-results}
+
+\subsubsection{Anticipated Findings}\label{anticipated-findings}
+
+Based on previous literature on language distribution in scientific
+publishing, the study anticipates finding:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Significant overrepresentation of English relative to global speaker
+  populations, with potentially over 90\% of content in English
+\item
+  Limited representation of major world languages like Chinese, Spanish,
+  French, and Arabic
+\item
+  Minimal to non-existent representation of low-resource languages,
+  particularly African languages
+\item
+  Potential temporal trends showing increased linguistic diversity later
+  in the pandemic as information dissemination efforts expanded
+\item
+  Correlation between language availability and document characteristics
+  such as publication venue prestige and citation count
+\item
+  Variations in content focus across different languages, with potential
+  gaps in specialized topic areas for non-English content
+\item
+  Higher text complexity in non-English content, potentially reflecting
+  translation of more complex scientific material
+\item
+  Significant terminology gaps for technical and biomedical terms in
+  low-resource languages
+\end{enumerate}
+
+\subsubsection{Contribution to
+Knowledge}\label{contribution-to-knowledge}
+
+The expected results will contribute to knowledge in several ways:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Provide empirical evidence of language representation gaps in COVID-19
+  scientific literature
+\item
+  Quantify the extent of these gaps for specific language groups,
+  particularly African languages
+\item
+  Identify patterns in content availability across languages that can
+  inform translation priorities
+\item
+  Highlight specific barriers to information accessibility for speakers
+  of low-resource languages
+\item
+  Create a methodological framework for analyzing linguistic diversity
+  in scientific literature collections
+\item
+  Establish baseline measures that can inform future work on
+  cross-lingual information access
+\end{enumerate}
+
+\subsection{Implications and
+Applications}\label{implications-and-applications}
+
+The research findings will have significant implications for multiple
+domains:
+
+\subsubsection{Health Information
+Policy}\label{health-information-policy}
+
+Results will inform health information dissemination policies during
+global health emergencies, providing evidence-based recommendations for:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Minimum language coverage requirements for emergency health
+  information
+\item
+  Prioritization frameworks for translation of scientific content
+\item
+  Resource allocation strategies to address linguistic disparities in
+  information access
+\end{enumerate}
+
+\subsubsection{NLP and Cross-lingual System
+Development}\label{nlp-and-cross-lingual-system-development}
+
+Findings will directly contribute to the development of improved
+cross-lingual information systems by:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Identifying specific language pairs with critical access gaps that
+  require targeted solution development
+\item
+  Highlighting domain-specific terminology that should be prioritized in
+  cross-lingual biomedical resources
+\item
+  Providing baseline metrics against which future cross-lingual systems
+  can be evaluated
+\item
+  Informing training data collection priorities for low-resource
+  language NLP
+\end{enumerate}
+
+\subsubsection{Global Health Equity}\label{global-health-equity}
+
+The research supports global health equity initiatives by:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Quantifying information access disparities that may contribute to
+  health outcome inequities
+\item
+  Providing evidence to support advocacy for greater linguistic
+  inclusion in scientific publishing
+\item
+  Identifying specific language communities most affected by information
+  access barriers
+\item
+  Creating accountability metrics for international organizations'
+  information sharing practices
+\end{enumerate}
+
+\subsubsection{Future Research Agenda}\label{future-research-agenda}
+
+This study will establish a foundation for a broader research agenda on
+linguistic diversity in scientific communication, including:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Longitudinal studies tracking changes in language representation over
+  time
+\item
+  Comparative analyses across different scientific domains
+\item
+  User studies examining how language barriers affect information
+  utilization
+\item
+  Development and testing of targeted interventions to address
+  identified gaps
+\end{enumerate}
+
+\subsection{Resource Requirements and
+Feasibility}\label{resource-requirements-and-feasibility}
+
+\subsubsection{Computational Resources}\label{computational-resources}
+
+The proposed research requires significant computational resources to
+process and analyze the CORD-19 dataset:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{High-performance computing environment}: Access to a server
+  with minimum 32 CPU cores, 64GB RAM, and GPU acceleration for language
+  model inference
+\item
+  \textbf{Storage capacity}: Approximately 1TB storage for the CORD-19
+  dataset and intermediate processing results
+\item
+  \textbf{Software infrastructure}: Python environment with NLP
+  libraries including spaCy, HuggingFace Transformers, FastText, and
+  language-specific processing tools
+\end{enumerate}
+
+These requirements are feasible within the research environment at OPIT,
+which provides access to the necessary computational infrastructure.
+
+\subsubsection{Linguistic Expertise}\label{linguistic-expertise}
+
+The project requires expertise in multiple areas:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Computational linguistics}: For implementation of language
+  identification and NLP techniques
+\item
+  \textbf{African languages}: Consultation with speakers of selected
+  African languages for verification and analysis
+\item
+  \textbf{Biomedical domain knowledge}: For appropriate interpretation
+  of terminology and content analysis
+\end{enumerate}
+
+This expertise will be secured through a combination of the researcher's
+skills and strategic collaborations with the African language technology
+community, particularly the Masakhane research collective.
+
+\subsubsection{Cost Considerations}\label{cost-considerations}
+
+The primary costs associated with this research include:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Computational resource usage: Approximately 200 GPU hours for model
+  training and inference
+\item
+  Language consultant fees: \$1,000 for verification and analysis by
+  native speakers of selected low-resource languages
+\item
+  Software licenses: \$500 for specialized analysis tools
+\item
+  Publication and dissemination: \$1,500 for open-access publication and
+  translation of key findings
+\end{enumerate}
+
+Total estimated budget: \$3,000, which is feasible within the available
+research funding.
+
+\subsection{Timeline}\label{timeline}
+
+The proposed research will be completed within a 4-week timeframe with
+the following schedule:
+
+\subsubsection{Week 1: Data Preparation and Language
+Identification}\label{week-1-data-preparation-and-language-identification}
+
+\begin{itemize}
+\tightlist
+\item
+  Acquire and preprocess the CORD-19 dataset
+\item
+  Implement and validate language identification methods
+\item
+  Create data processing pipeline for analysis
+\item
+  Begin initial language distribution analysis
+\end{itemize}
+
+\subsubsection{Week 2: Quantitative
+Analysis}\label{week-2-quantitative-analysis}
+
+\begin{itemize}
+\tightlist
+\item
+  Complete language distribution analysis
+\item
+  Conduct temporal and correlation analyses
+\item
+  Begin content type classification
+\item
+  Prepare preliminary findings on language representation
+\end{itemize}
+
+\subsubsection{Week 3: Linguistic
+Analysis}\label{week-3-linguistic-analysis}
+
+\begin{itemize}
+\tightlist
+\item
+  Conduct text complexity analysis
+\item
+  Implement named entity recognition
+\item
+  Analyze terminology distribution
+\item
+  Begin comparative analysis of representation gaps
+\end{itemize}
+
+\subsubsection{Week 4: Synthesis and
+Reporting}\label{week-4-synthesis-and-reporting}
+
+\begin{itemize}
+\tightlist
+\item
+  Complete all analyses
+\item
+  Synthesize findings across analytical components
+\item
+  Prepare visualizations and tables
+\item
+  Finalize research report and documentation
+\end{itemize}
+
+\subsection{Limitations}\label{limitations}
+
+This study has several limitations that should be acknowledged:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Language Identification Accuracy}: Automated language
+  identification may have lower accuracy for low-resource languages or
+  short text segments. This limitation will be partially addressed
+  through multiple identification methods and manual verification, but
+  some misclassification may remain.
+\item
+  \textbf{Dataset Bias}: The CORD-19 dataset itself may have collection
+  biases that affect language representation. For example, the methods
+  used to collect articles may favor certain sources or languages.
+\item
+  \textbf{Content Analysis Depth}: Given the timeframe and resources,
+  content analysis will be relatively high-level and may not capture
+  nuanced differences in how topics are discussed across languages.
+\item
+  \textbf{Named Entity Recognition Limitations}: Biomedical named entity
+  recognition tools are primarily developed for English and a few
+  high-resource languages, limiting the depth of terminology gap
+  analysis for low-resource languages.
+\item
+  \textbf{Temporal Coverage}: The analysis covers a specific time period
+  defined by the CORD-19 dataset and may not reflect the most recent
+  trends in linguistic diversity.
+\end{enumerate}
+
+Despite these limitations, the study will provide valuable insights into
+linguistic diversity and representation gaps in COVID-19 scientific
+literature, with important implications for information access equity.
+
+\subsection{Future Research
+Directions}\label{future-research-directions}
+
+This study establishes a foundation for several promising future
+research directions:
+
+\subsubsection{Longitudinal Analysis of Linguistic
+Diversity}\label{longitudinal-analysis-of-linguistic-diversity}
+
+Future work could track changes in language representation over time,
+particularly examining how major global events like pandemics influence
+scientific publishing patterns and language inclusion.
+
+\subsubsection{Intervention Studies}\label{intervention-studies}
+
+Based on the identified representation gaps, intervention studies could
+test strategies for improving cross-lingual information access, such as:
+- Targeted translation efforts for underrepresented languages -
+Development of specialized cross-lingual retrieval systems - Creation of
+multilingual terminological resources
+
+\subsubsection{Comparative Analysis Across Scientific
+Domains}\label{comparative-analysis-across-scientific-domains}
+
+Extending this methodological approach to other scientific domains would
+provide insights into whether the patterns observed in COVID-19
+literature are domain-specific or reflect broader trends in scientific
+communication.
+
+\subsubsection{User Experience Research}\label{user-experience-research}
+
+Studies examining how speakers of low-resource languages interact with
+and utilize scientific information when it is available could complement
+this content-focused analysis with insights into user experience and
+information behavior.
+
+\subsubsection{Automated Translation Quality
+Assessment}\label{automated-translation-quality-assessment}
+
+Developing methods to automatically assess the quality of translated
+scientific content could help scale up efforts to increase linguistic
+diversity while maintaining information accuracy.
+
+\subsection{Conclusion}\label{conclusion}
+
+This research proposal outlines a systematic approach to analyzing the
+linguistic diversity of the CORD-19 dataset and identifying
+representation gaps for low-resource languages. By combining language
+identification techniques with content analysis and linguistic
+assessment, the study will provide empirical evidence of language-based
+disparities in access to COVID-19 scientific information.
+
+The findings will have implications for global health information equity
+and will inform strategies for improving cross-lingual information
+access, particularly for speakers of low-resource languages. This
+research also provides a foundation for future work on developing better
+cross-lingual information retrieval systems and prioritizing translation
+efforts for scientific content.
+
+Understanding the linguistic landscape of COVID-19 research is a crucial
+step toward ensuring that scientific knowledge is accessible to all
+language communities, regardless of the resources available for their
+languages. This study contributes to this goal by systematically
+documenting existing gaps and establishing priorities for addressing
+them.
+
+\section{References}\label{sec-references}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-adebara2022}
+Adebara, I., Elmadany, A., Abdul-Mageed, M., \& Inciante, A. (2022).
+\emph{AfriLID: A neural language identification tool for african
+languages}.
+
+\bibitem[\citeproctext]{ref-amano2016}
+Amano, T., González-Varo, J. P., \& Sutherland, W. J. (2016). Languages
+are still a major barrier to global science. \emph{PLOS Biology},
+\emph{14}(12), e2000933.
+
+\bibitem[\citeproctext]{ref-besacier2014}
+Besacier, L., Barnard, E., Karpov, A., \& Schultz, T. (2014). Automatic
+speech recognition for under-resourced languages: A survey. \emph{Speech
+Communication}, \emph{56}, 85--100.
+
+\bibitem[\citeproctext]{ref-cieri2016}
+Cieri, C., Maxwell, M., Strassel, S., \& Tracey, J. (2016). Addressing
+the crisis in language resource development for low-resource languages.
+\emph{Proceedings of the Tenth International Conference on Language
+Resources and Evaluation (LREC'16)}, 3585--3591.
+
+\bibitem[\citeproctext]{ref-conneau2020}
+Conneau, A., Khandelwal, K., Goyal, N., Chaudhary, V., Wenzek, G.,
+Guzmán, F., Grave, E., Ott, M., Zettlemoyer, L., \& Stoyanov, V. (2020).
+Unsupervised cross-lingual representation learning at scale.
+\emph{Proceedings of the 58th Annual Meeting of the Association for
+Computational Linguistics}, 8440--8451.
+
+\bibitem[\citeproctext]{ref-devlin2019}
+Devlin, J., Chang, M.-W., Lee, K., \& Toutanova, K. (2019). BERT:
+Pre-training of deep bidirectional transformers for language
+understanding. \emph{Proceedings of the 2019 Conference of the North
+American Chapter of the Association for Computational Linguistics: Human
+Language Technologies}, \emph{1}, 4171--4186.
+
+\bibitem[\citeproctext]{ref-guo2021}
+Guo, Y., Xu, W., Zheng, X., Luo, Z., Li, L., He, Y., Gui, T., Chen, Q.,
+Ma, Y., \& Liu, P. (2021). MuCoW: A multi-lingual COVID-19 news dataset.
+\emph{Proceedings of the 44th International ACM SIGIR Conference on
+Research and Development in Information Retrieval}, 2492--2498.
+
+\bibitem[\citeproctext]{ref-joshi2020state}
+Joshi, P., Santy, S., Budhiraja, A., Bali, K., \& Choudhury, M. (2020).
+The state and fate of linguistic diversity and inclusion in the NLP
+world. \emph{Proceedings of the 58th Annual Meeting of the Association
+for Computational Linguistics}, 6282--6293.
+
+\bibitem[\citeproctext]{ref-joulin2017}
+Joulin, A., Grave, E., Bojanowski, P., \& Mikolov, T. (2017). Fast text
+supervised models for label encoding and language identification.
+\emph{Proceedings of the 21st Conference on Computational Natural
+Language Learning (CoNLL 2017)}, 427--431.
+
+\bibitem[\citeproctext]{ref-kim2020}
+Kim, J., Rios, N., \& Stokes, A. (2020). When public health messaging
+gets lost in translation: During a pandemic, practitioners need to adapt
+to serve communities with limited english proficiency. \emph{Health
+Affairs Blog}.
+\url{https://www.healthaffairs.org/do/10.1377/hblog20200724.76648/full/}
+
+\bibitem[\citeproctext]{ref-lauscher2020}
+Lauscher, A., Ravishankar, V., Vulić, I., \& Glavaš, G. (2020). From
+zero to hero: On the limitations of zero-shot language transfer with
+multilingual transformers. \emph{Proceedings of the 2020 Conference on
+Empirical Methods in Natural Language Processing (EMNLP)}, 4483--4499.
+
+\bibitem[\citeproctext]{ref-litschko2021}
+Litschko, R., Vulić, I., \& Glavaš, G. (2021). Evaluating multilingual
+text encoders for unsupervised cross-lingual retrieval.
+\emph{Proceedings of the 43rd European Conference on Information
+Retrieval Research}.
+
+\bibitem[\citeproctext]{ref-liu2017}
+Liu, W. (2017). The dominance of english in global scholarly publishing.
+\emph{International Higher Education}, \emph{90}, 14--16.
+
+\bibitem[\citeproctext]{ref-nakov2018}
+Nakov, P., Goeuriot, L., Kelly, L., Kriewel, S., Palotti, J., \& Zuccon,
+G. (2018). A guide to the CLEF-2018 lab on consumer health search in a
+multilingual setting: Parallel search, query selection, and test
+collection selection. \emph{International Conference of the
+Cross-Language Evaluation Forum for European Languages}, 272--284.
+
+\bibitem[\citeproctext]{ref-nekoto2020}
+Nekoto, W., Marivate, V., Matsila, T., Fasubaa, T., Kolawole, T.,
+Fagbohungbe, T., Akinola, S. O., Muhammad, S. H., Kabongo, S., Osei, S.,
+et al. (2020). Participatory research for low-resourced machine
+translation: A case study in african languages. \emph{Findings of the
+Association for Computational Linguistics: EMNLP 2020}, 2144--2160.
+
+\bibitem[\citeproctext]{ref-pazzanese2020}
+Pazzanese, C. (2020). Battling the 'pandemic of misinformation'.
+\emph{The Harvard Gazette}.
+\url{https://news.harvard.edu/gazette/story/2020/05/social-media-used-to-spread-create-covid-19-falsehoods/}
+
+\bibitem[\citeproctext]{ref-phillipson1992}
+Phillipson, R. (1992). \emph{Linguistic imperialism}. Oxford University
+Press.
+
+\bibitem[\citeproctext]{ref-piller2020}
+Piller, I., Zhang, J., \& Li, J. (2020). Covid-19 forces us to take
+linguistic diversity seriously: A commentary. \emph{Multilingua},
+\emph{39}(5), 503--515.
+
+\bibitem[\citeproctext]{ref-taskin2020}
+Taşkın, Z., Doğan, G., Akça, S., Şencan, İ., \& Akbulut, M. (2020).
+Co-occurrence network of COVID-19 publications: An analysis of the early
+research phases. \emph{arXiv Preprint arXiv:2009.12820}.
+
+\bibitem[\citeproctext]{ref-wang2020cord19}
+Wang, L. L., Lo, K., Chandrasekhar, Y., Reas, R., Yang, J., Burdick, D.,
+Eide, D., Funk, K., Katsis, Y., Kinney, R., Li, Y., Liu, Z., Merrill,
+W., Mooney, P., Murdick, D., Rishi, D., Sheehan, J., Shen, Z., Stilson,
+B., \ldots{} Kohlmeier, S. (2020). CORD-19: The COVID-19 open research
+dataset. \emph{arXiv Preprint arXiv:2004.10706}.
+
+\bibitem[\citeproctext]{ref-yeheskel2019}
+Yeheskel, A., \& Rawal, S. (2019). Challenges and opportunities for
+reinventing multilingual health communication. \emph{Journal of General
+Internal Medicine}, \emph{34}(8), 1698--1699.
+
+\bibitem[\citeproctext]{ref-zhou2012}
+Zhou, D., Truran, M., Brailsford, T., Wade, V., \& Ashman, H. (2012).
+Cross-language information retrieval. \emph{ACM Computing Surveys
+(CSUR)}, \emph{45}(1), 1--44.
+
+\end{CSLReferences}
+
+
+
+
+\end{document}
