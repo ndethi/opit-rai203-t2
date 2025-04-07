@@ -103,6 +103,14 @@ The solution came through Week 5's discussion of experimental design principles,
 
 This lesson in strategic focus has important implications for my capstone project on African language NLP. Rather than attempting to address all aspects of low-resource language processing, I now understand the value of identifying specific, well-defined research questions that can be investigated with appropriate depth. This approach is likely to yield more substantial contributions than a broader but shallower investigation.
 
+## Computational Challenges in NLP Research
+
+A significant challenge I encountered was confronting the computational demands of natural language processing tasks. My work with the CORD-19 dataset revealed how resource-intensive NLP research can be, particularly when analyzing documents across multiple languages. Even basic tasks like multilingual text preprocessing and language identification required substantial computation time and occasionally exceeded available memory resources.
+
+These limitations became particularly evident when implementing cross-lingual analysis techniques. What appeared conceptually straightforward in research papers often proved computationally intractable without specialized hardware. I found myself constantly balancing methodological rigor against practical constraints, making strategic decisions about sampling approaches to work within available resources.
+
+This experience has important implications for my future research in low-resource African languages, where computational efficiency becomes even more critical. It also highlighted broader equity issues in NLP research, where access to computational resources often determines which languages receive attention. Moving forward, I plan to explore more efficient methodologies while seeking collaborative arrangements that can provide access to necessary computing infrastructure for work with underrepresented languages.
+
 ## The Role of AI in Research
 
 Throughout this course, I've developed a nuanced understanding of artificial intelligence's role in the research process. While AI tools can significantly assist with data analysis, literature review, and even writing tasks, they cannot replace human judgment in defining research objectives and interpreting results within meaningful contexts. 
