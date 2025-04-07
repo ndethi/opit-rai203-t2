@@ -321,7 +321,10 @@ While computational constraints limited some aspects of our analysis, the clear 
 
 Addressing the linguistic representation gaps identified in this analysis is not merely an academic concern but a practical necessity for ensuring that scientific knowledge about global health challenges is accessible to all language communities. As the digital language divide continues to affect information access, deliberate efforts to improve linguistic diversity in scientific literature will be essential for building a more equitable global knowledge ecosystem.
 
-# References
+# References {.unnumbered}
+
+::: {#refs}
+:::
 
 # Appendices
 
@@ -339,19 +342,26 @@ def load_metadata():
 
     # Basic preprocessing
     # Convert date to datetime
-    metadata_df['publish_time'] = pd.to_datetime(metadata_df['publish_time'], errors='coerce')
+    metadata_df['publish_time'] = pd.to_datetime(
+        metadata_df['publish_time'], 
+        errors='coerce'
+    )
 
     # Filter for COVID-19 era papers (2020 onwards)
-    covid_era_df = metadata_df[metadata_df['publish_time'] >= '2020-01-01'].copy()
+    covid_era_df = metadata_df[
+        metadata_df['publish_time'] >= '2020-01-01'
+    ].copy()
 
-    # Create a sample for analysis (adjust based on your computational resources)
-    # We'll use stratified sampling to ensure temporal representation
+    # Create a sample for analysis using stratified sampling
     covid_era_df['year_month'] = covid_era_df['publish_time'].dt.to_period('M')
 
     # Take a stratified sample
     sample_size = min(50000, len(covid_era_df))
     sample_df = covid_era_df.groupby('year_month', group_keys=False).apply(
-        lambda x: x.sample(min(len(x), int(sample_size/len(covid_era_df.year_month.unique()))), random_state=42)
+        lambda x: x.sample(
+            min(len(x), int(sample_size/len(covid_era_df.year_month.unique()))), 
+            random_state=42
+        )
     )
 
     return sample_df
@@ -383,7 +393,9 @@ def load_fulltext_samples():
 def extract_text_from_doc(doc):
     """Extract title, abstract, and body text from a document"""
     title = doc.get('metadata', {}).get('title', '')
-    abstract = ' '.join([para.get('text', '') for para in doc.get('abstract', [])])
+    abstract = ' '.join([
+        para.get('text', '') for para in doc.get('abstract', [])
+    ])
 
     # Extract body text paragraphs
     body_text = []
@@ -422,9 +434,16 @@ def identify_language(text, min_length=50):
         fasttext_pred = fasttext_model.predict(text.replace('\n', ' '))
         ft_lang = fasttext_pred[0][0].replace('__label__', '')
         ft_conf = float(fasttext_pred[1][0])
-        results['fasttext'] = {'lang': ft_lang, 'confidence': ft_conf}
+        results['fasttext'] = {
+            'lang': ft_lang, 
+            'confidence': ft_conf
+        }
     except Exception as e:
-        results['fasttext'] = {'lang': 'unknown', 'confidence': 0, 'error': str(e)}
+        results['fasttext'] = {
+            'lang': 'unknown', 
+            'confidence': 0, 
+            'error': str(e)
+        }
 
     # langdetect - modified to handle different versions
     try:
@@ -432,29 +451,55 @@ def identify_language(text, min_length=50):
         ld_pred = langdetect.detect_langs(text)
         ld_lang = ld_pred[0].lang
         ld_conf = ld_pred[0].prob
-        results['langdetect'] = {'lang': ld_lang, 'confidence': ld_conf}
+        results['langdetect'] = {
+            'lang': ld_lang, 
+            'confidence': ld_conf
+        }
     except (AttributeError, TypeError):
         try:
             # Fall back to simpler detect function
             ld_lang = langdetect.detect(text)
-            results['langdetect'] = {'lang': ld_lang, 'confidence': 0.5}  # Using fixed confidence when prob not available
+            # Using fixed confidence when prob not available
+            results['langdetect'] = {
+                'lang': ld_lang, 
+                'confidence': 0.5
+            }
         except Exception as e:
-            results['langdetect'] = {'lang': 'unknown', 'confidence': 0, 'error': str(e)}
+            results['langdetect'] = {
+                'lang': 'unknown', 
+                'confidence': 0, 
+                'error': str(e)
+            }
     except Exception as e:
-        results['langdetect'] = {'lang': 'unknown', 'confidence': 0, 'error': str(e)}
+        results['langdetect'] = {
+            'lang': 'unknown', 
+            'confidence': 0, 
+            'error': str(e)
+        }
 
     # CLD3
     try:
         cld3_pred = pycld3.get_language(text)
         cld3_lang = cld3_pred[0]
         cld3_conf = cld3_pred[1]
-        results['cld3'] = {'lang': cld3_lang, 'confidence': cld3_conf}
+        results['cld3'] = {
+            'lang': cld3_lang, 
+            'confidence': cld3_conf
+        }
     except Exception as e:
-        results['cld3'] = {'lang': 'unknown', 'confidence': 0, 'error': str(e)}
+        results['cld3'] = {
+            'lang': 'unknown', 
+            'confidence': 0, 
+            'error': str(e)
+        }
 
     # Determine consensus
     # If at least 2 methods agree, use that language
-    languages = [results[m]['lang'] for m in results if 'error' not in results[m]]
+    languages = [
+        results[m]['lang'] 
+        for m in results if 'error' not in results[m]
+    ]
+    
     if not languages:
         consensus = 'unknown'
         confidence = 0
@@ -463,10 +508,17 @@ def identify_language(text, min_length=50):
         consensus = language_counts.most_common(1)[0][0]
 
         # Calculate average confidence for the consensus language
-        confidence_sum = sum(results[m]['confidence'] for m in results
-                           if 'error' not in results[m] and results[m]['lang'] == consensus)
-        confidence = confidence_sum / sum(1 for m in results
-                                      if 'error' not in results[m] and results[m]['lang'] == consensus)
+        confidence_sum = sum(
+            results[m]['confidence'] 
+            for m in results
+            if ('error' not in results[m] 
+                and results[m]['lang'] == consensus)
+        )
+        confidence = confidence_sum / sum(
+            1 for m in results
+            if ('error' not in results[m] 
+                and results[m]['lang'] == consensus)
+        )
 
     results['consensus'] = consensus
     results['confidence'] = confidence
@@ -488,7 +540,6 @@ def identify_document_languages(df, text_column='full_text'):
             lang_result = {'consensus': 'unknown', 'confidence': 0}
         else:
             # For longer texts, use the first 2000 characters for faster processing
-            # This is a reasonable compromise for language detection
             lang_result = identify_language(text[:2000])
 
         results.append({
@@ -522,10 +573,13 @@ def preprocess_text(text, language='en'):
     # Tokenize
     tokens = word_tokenize(text)
 
-    # Remove stopwords for English (for other languages, we'll keep all words)
+    # Remove stopwords for English (for other languages, keep all words)
     if language == 'en':
         stop_words = set(stopwords.words('english'))
-        tokens = [token for token in tokens if token not in stop_words and len(token) > 2]
+        tokens = [
+            token for token in tokens 
+            if token not in stop_words and len(token) > 2
+        ]
     else:
         # For non-English, just remove very short words
         tokens = [token for token in tokens if len(token) > 2]
@@ -533,17 +587,23 @@ def preprocess_text(text, language='en'):
     return " ".join(tokens)
 
 # Perform LDA topic modeling for English documents
-def perform_topic_modeling(df, language='en', num_topics=20, min_docs=50):
+def perform_topic_modeling(
+    df, language='en', num_topics=20, min_docs=50
+):
     """Perform LDA topic modeling on documents of a specific language"""
     # Filter documents by language
     lang_docs = df[df['language'] == language]
 
     if len(lang_docs) < min_docs:
-        print(f"Not enough documents ({len(lang_docs)}) for topic modeling in language: {language}")
+        print(f"Not enough documents ({len(lang_docs)}) for topic modeling")
         return None, None, None
 
     # Create a document-term matrix
-    vectorizer = TfidfVectorizer(max_features=10000, min_df=5, max_df=0.8)
+    vectorizer = TfidfVectorizer(
+        max_features=10000, 
+        min_df=5, 
+        max_df=0.8
+    )
     dtm = vectorizer.fit_transform(lang_docs['processed_text'])
 
     # Train LDA model
@@ -561,7 +621,8 @@ def perform_topic_modeling(df, language='en', num_topics=20, min_docs=50):
     # Create a dictionary of topics
     topic_dict = {}
     for topic_idx, topic in enumerate(lda_model.components_):
-        top_words_idx = topic.argsort()[:-11:-1]  # Get indices of top 10 words
+        # Get indices of top 10 words
+        top_words_idx = topic.argsort()[:-11:-1]
         top_words = [feature_names[i] for i in top_words_idx]
         topic_dict[f"Topic {topic_idx+1}"] = top_words
 
@@ -571,7 +632,7 @@ def perform_topic_modeling(df, language='en', num_topics=20, min_docs=50):
 ### Statistical Analysis of Language Distribution
 
 ```python
-# Statistical test: Chi-square test to determine if language distribution differs significantly from global speaker populations
+# Statistical test: Chi-square test for language distribution
 def chi_square_test_language_distribution(observed_counts):
     """
     Perform chi-square test comparing observed language distribution
@@ -580,7 +641,6 @@ def chi_square_test_language_distribution(observed_counts):
     from scipy.stats import chi2_contingency
 
     # Approximate global speaker percentages for major languages
-    # Sources: Ethnologue, various linguistic population studies
     global_speakers = {
         'en': 17.0,  # English
         'zh': 14.1,  # Chinese
@@ -601,15 +661,21 @@ def chi_square_test_language_distribution(observed_counts):
     for lang in global_speakers:
         if lang == 'other':
             # Sum counts for all languages not specifically listed
-            count = sum(observed_counts.get(l, 0) for l in observed_counts
-                        if l not in global_speakers or l == 'other')
+            count = sum(
+                observed_counts.get(l, 0) 
+                for l in observed_counts
+                if l not in global_speakers or l == 'other'
+            )
         else:
             count = observed_counts.get(lang, 0)
         observed.append(count)
 
     # Calculate expected counts based on global speaker percentages
     total_count = sum(observed)
-    expected = [total_count * (global_speakers[lang]/100) for lang in global_speakers]
+    expected = [
+        total_count * (global_speakers[lang]/100) 
+        for lang in global_speakers
+    ]
 
     # Perform chi-square test
     chi2, p, dof, expected = chi2_contingency([observed, expected])
