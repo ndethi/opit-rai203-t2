@@ -27,7 +27,7 @@ csl: apa.csl
 
 # Executive Summary
 
-The automotive industry is increasingly reliant on artificial intelligence (AI) to drive productivity, quality, and innovation across production and logistics operations. This report presents a comprehensive optimization strategy for the AI computing architecture of a global automotive manufacturer seeking to enhance its AI-powered workflows. Our analysis identifies several key challenges: the need for scalable computing resources, reducing inference latency on the factory floor, managing data privacy across distributed operations, and optimizing energy consumption.
+The automotive industry is increasingly reliant on artificial intelligence (AI) to drive productivity, quality, and innovation across production and logistics operations @deloitte_ai_factories. This report presents a comprehensive optimization strategy for the AI computing architecture of a global automotive manufacturer seeking to enhance its AI-powered workflows. Our analysis identifies several key challenges: the need for scalable computing resources, reducing inference latency on the factory floor, managing data privacy across distributed operations @ibm_data_privacy, and optimizing energy consumption.
 
 To address these challenges, we propose a tailored hybrid cloud-edge computing architecture supported by specialized computing hardware including GPUs, TPUs, and FPGAs. This approach strategically balances high-performance model training in the cloud with real-time inference on edge devices throughout the manufacturing ecosystem. Our solution enables effective deployment of AI systems across critical use cases including:
 
@@ -66,7 +66,7 @@ Digital transformation and AI adoption have been identified as critical enablers
 
 ## Current AI Infrastructure
 
-The manufacturer's current AI infrastructure represents a patchwork of solutions developed independently across different business units and manufacturing sites. This fragmented approach has resulted in several inefficiencies and limitations:
+The manufacturer's current AI infrastructure represents a patchwork of solutions developed independently across different business units and manufacturing sites. This fragmented approach has resulted in several inefficiencies and limitations @mckinsey_automation:
 
 **Hardware Infrastructure:**
 - Limited on-premises GPU servers (primarily NVIDIA V100) for model development
@@ -135,7 +135,7 @@ Benefits for automotive AI applications include:
 
 ## Neuromorphic Chips
 
-Neuromorphic processors, such as Intel's Loihi, are inspired by the structure and function of biological neural networks. These chips utilize spiking neural networks (SNNs) to process information with high energy efficiency and are being explored for applications where event-driven, low-power inference is essential, such as real-time monitoring systems on the edge @intel_neuromorphic. Although still largely experimental, neuromorphic computing represents a promising direction for the future of energy-efficient AI in manufacturing.
+Neuromorphic processors, such as Intel's Loihi, are inspired by the structure and function of biological neural networks. These chips utilize spiking neural networks (SNNs) to process information with high energy efficiency and are being explored for applications where event-driven, low-power inference is essential, such as real-time monitoring systems on the edge @intel_neuromorphic. Although still largely experimental, neuromorphic computing represents a promising direction for the future of energy-efficient AI in manufacturing @mit_edge_ai.
 
 Potential applications in automotive manufacturing include:
 - Ultra-efficient sensor networks throughout production facilities
@@ -171,7 +171,7 @@ The modern automotive manufacturing environment presents numerous opportunities 
 AI systems integrated into vehicles themselves represent a critical area of development and testing within manufacturing operations:
 
 **Predictive Maintenance Systems:**
-Advanced sensors combined with on-board AI models can continuously monitor vehicle components and predict potential failures before they occur. These systems use sensor fusion techniques to analyze data from multiple sources including temperature, vibration, and acoustic signals. The AI models, typically trained on TPUs and deployed to edge processors within the vehicle, can alert drivers to potential issues and recommend maintenance scheduling.
+Advanced sensors combined with on-board AI models can continuously monitor vehicle components and predict potential failures before they occur. These systems use sensor fusion techniques to analyze data from multiple sources including temperature, vibration, and acoustic signals. The AI models, typically trained on TPUs and deployed to edge processors within the vehicle, can alert drivers to potential issues and recommend maintenance scheduling @accenture_future_ai.
 
 **Driver Assistance and Safety:**
 Computer vision systems powered by CNNs detect road conditions, other vehicles, pedestrians, and obstacles. These systems require high-performance edge computing capabilities, typically using specialized hardware like NVIDIA's Drive platform. The manufacturing implications include rigorous testing environments to validate model performance across various conditions before deployment.
@@ -216,10 +216,10 @@ Machine learning models can predict energy usage patterns and optimize facility 
 
 ## Virtual Prototyping
 
-Virtual prototyping represents a transformative application of AI in automotive manufacturing, enabling faster design iteration, reduced material waste, and improved final products:
+Virtual prototyping represents a transformative application of AI in automotive manufacturing, enabling faster design iteration, reduced material waste, and improved final products @virtual_prototyping:
 
 **Physics-Based Simulation:**
-Advanced simulation environments powered by GPU clusters can model the physical behavior of vehicles under various conditions. These simulations incorporate fluid dynamics, structural analysis, and crash testing. Cloud platforms offer the necessary computational resources, with AWS providing services like SimScale for complex physics-based simulations.
+Advanced simulation environments powered by GPU clusters can model the physical behavior of vehicles under various conditions. These simulations incorporate fluid dynamics, structural analysis, and crash testing. Cloud platforms offer the necessary computational resources, with AWS providing services like SimScale for complex physics-based simulations @simscale_simulation.
 
 **Generative Design:**
 AI algorithms can generate and evaluate thousands of design alternatives based on specified constraints and goals. This approach, often using generative adversarial networks (GANs), enables exploration of innovative design solutions that might not be obvious to human designers. These computationally intensive applications benefit from cloud-based GPU clusters.
@@ -238,7 +238,7 @@ To address the diverse computational needs of AI applications in automotive manu
 
 ## Cloud Computing: Scalable Model Training and Centralized Analytics
 
-The cloud serves as the ideal environment for model development, training, and global coordination. Training deep learning models on large datasets—such as those from defect images or sensor logs—requires high-performance computing clusters, often equipped with GPUs or TPUs. Public cloud platforms like AWS, Microsoft Azure, and Google Cloud offer AI services such as SageMaker, Azure ML, and Vertex AI, which streamline the process of data ingestion, training, hyperparameter tuning, and model versioning @google_vertex_ai.
+The cloud serves as the ideal environment for model development, training, and global coordination. Training deep learning models on large datasets—such as those from defect images or sensor logs—requires high-performance computing clusters, often equipped with GPUs or TPUs. Public cloud platforms like AWS, Microsoft Azure, and Google Cloud offer AI services such as SageMaker, Azure ML, and Vertex AI, which streamline the process of data ingestion, training, hyperparameter tuning, and model versioning @google_vertex_ai. Adopting cloud-based training also enables significant cost optimization through strategic resource allocation @aws_cost_opt.
 
 For the automotive manufacturer, we recommend utilizing cloud resources for:
 
@@ -261,9 +261,9 @@ For the automotive manufacturer, we recommend utilizing cloud resources for:
 
 ## Edge Computing: Low-Latency Inference on the Factory Floor
 
-In contrast, many AI use cases in manufacturing demand real-time responsiveness. Applications such as visual quality inspection, robotic control, and anomaly detection require AI models to infer results within milliseconds. In such scenarios, transmitting data to the cloud and waiting for a response introduces unacceptable latency and potential privacy risks.
+In contrast, many AI use cases in manufacturing demand real-time responsiveness. Applications such as visual quality inspection, robotic control, and anomaly detection require AI models to infer results within milliseconds. In such scenarios, transmitting data to the cloud and waiting for a response introduces unacceptable latency and potential privacy risks @azure_latency.
 
-Edge devices like the NVIDIA Jetson Nano, Xavier, or Intel Movidius can locally host AI models and perform inference near the data source @nvidia_jetson. These devices are rugged, power-efficient, and capable of running optimized models using inference engines such as TensorRT or OpenVINO.
+Edge devices like the NVIDIA Jetson Nano, Xavier @nvidia_xavier, or Intel Movidius can locally host AI models and perform inference near the data source @nvidia_jetson. These devices are rugged, power-efficient, and capable of running optimized models using inference engines such as TensorRT or OpenVINO.
 
 Key edge deployment scenarios include:
 
@@ -332,127 +332,113 @@ Automotive manufacturers must also consider data governance and regulatory compl
 
 The hybrid cloud-edge architecture for GlobalDrive Automotive represents a carefully designed ecosystem where each component serves a specific purpose while communicating seamlessly with other elements. Rather than viewing the architecture as a static stack, we conceptualize it as an interconnected system with bidirectional data flows and clear responsibilities.
 
-```{r}
-#| label: fig-architecture
-#| fig-cap: "Hybrid Cloud-Edge Architecture for Automotive AI"
-#| warning: false
-#| echo: false
-#| message: false
+```{mermaid}
+%%| label: fig-architecture
+%%| fig-cap: "Hybrid Cloud-Edge Architecture for Automotive AI"
+%%| fig-width: 10
+%%| fig-height: 7
 
-# Load required libraries
-library(ggplot2)
-library(dplyr)
-library(tidyr)
-library(ggtext)
-library(gridExtra)
-
-# Create data frame for the architecture layers
-architecture_data <- data.frame(
-  Layer = c("Cloud", "Cloud", "Edge", "Edge", "Middleware", "Middleware", "Network", "Network", "Monitoring", "Monitoring"),
-  Component = c("Model Training Platform", "Analytics Platform", "Inference Hardware", "Sensor Interface", 
-                "Containerization", "Orchestration", "Messaging", "Security", "Telemetry", "Visualization"),
-  Role = c("Deep learning model development, training, and versioning", 
-           "Centralized reporting, cross-facility analysis",
-           "Real-time AI processing at data source",
-           "Data acquisition from production equipment",
-           "Consistent deployment across environments", 
-           "Deployment coordination and scaling",
-           "Asynchronous communication between components", 
-           "Authentication, encryption, authorization",
-           "Performance data collection", 
-           "System health dashboards"),
-  Implementation = c("AWS SageMaker, Azure ML", 
-                     "AWS QuickSight, Power BI", 
-                     "NVIDIA Jetson Xavier NX, Intel NCS2",
-                     "Industrial cameras, sensors",
-                     "Docker, Kubernetes, Azure IoT Edge", 
-                     "K3s, KubeEdge",
-                     "MQTT, Apache Kafka", 
-                     "mTLS, certificate management, OAuth 2.0",
-                     "Prometheus, InfluxDB", 
-                     "Grafana, Datadog"),
-  y_position = c(10, 9, 7, 6, 4, 3, 2, 1, 8, 5)
-)
-
-# Create a color palette for the layers
-layer_colors <- c(
-  "Cloud" = "#4287f5",       # Blue
-  "Edge" = "#42f584",        # Green
-  "Middleware" = "#f5a742",  # Orange
-  "Network" = "#f542cb",     # Pink
-  "Monitoring" = "#f5dc42"   # Yellow
-)
-
-# Create the main architecture diagram
-ggplot(architecture_data, aes(x = 1, y = y_position, fill = Layer)) +
-  geom_tile(aes(width = 0.9, height = 0.9)) +
-  geom_text(aes(label = Component), fontface = "bold", color = "white", size = 3.5) +
-  scale_fill_manual(values = layer_colors) +
-  theme_minimal() +
-  theme(
-    axis.text = element_blank(),
-    axis.title = element_blank(),
-    panel.grid = element_blank(),
-    plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
-    plot.subtitle = element_text(hjust = 0.5, size = 12),
-    legend.position = "bottom",
-    legend.title = element_text(size = 12),
-    legend.text = element_text(size = 10)
-  ) +
-  labs(
-    title = "Hybrid Cloud-Edge Architecture for Automotive AI",
-    subtitle = "Logical Layers & Components",
-    fill = "Architecture Layer"
-  ) +
-  coord_fixed(ratio = 1)
+flowchart TB
+    subgraph Cloud ["Cloud Layer"]
+        MT["Model Training Platform<br>(AWS SageMaker, Azure ML)"] 
+        AP["Analytics Platform<br>(AWS QuickSight, Power BI)"]
+    end
+    
+    subgraph Edge ["Edge Layer"]
+        IH["Inference Hardware<br>(NVIDIA Jetson, Intel NCS2)"]
+        SI["Sensor Interface<br>(Cameras, IoT Devices)"]
+    end
+    
+    subgraph Middleware ["Middleware Layer"]
+        CO["Containerization<br>(Docker, K8s, IoT Edge)"]
+        OR["Orchestration<br>(K3s, KubeEdge)"]
+    end
+    
+    subgraph Network ["Network Layer"]
+        MS["Messaging<br>(MQTT, Kafka)"]
+        SE["Security<br>(mTLS, OAuth 2.0)"]
+    end
+    
+    subgraph Monitoring ["Monitoring Layer"]
+        TE["Telemetry<br>(Prometheus, InfluxDB)"]
+        VI["Visualization<br>(Grafana, Datadog)"]
+    end
+    
+    MT <--> IH
+    AP <--> TE
+    IH <--> SI
+    MT <--> AP
+    IH <--> CO
+    CO <--> OR
+    OR <--> MS
+    MS <--> SE
+    TE <--> VI
+    
+    classDef cloud fill:#4287f5,color:white,stroke:#333,stroke-width:1px
+    classDef edge fill:#42f584,color:black,stroke:#333,stroke-width:1px
+    classDef middleware fill:#f5a742,color:black,stroke:#333,stroke-width:1px
+    classDef network fill:#f542cb,color:white,stroke:#333,stroke-width:1px
+    classDef monitoring fill:#f5dc42,color:black,stroke:#333,stroke-width:1px
+    
+    class MT,AP cloud
+    class IH,SI edge
+    class CO,OR middleware
+    class MS,SE network
+    class TE,VI monitoring
 ```
 
-Our architecture visualization above illustrates how the various components interact across five key layers: Cloud, Edge, Middleware, Network, and Monitoring. The Cloud layer handles resource-intensive workloads like model training and enterprise-wide analytics, while the Edge layer enables real-time processing at the factory floor. The Middleware layer provides the orchestration and containerization necessary for consistent deployment, while the Network layer ensures secure, reliable communication between components. Finally, the Monitoring layer provides visibility into the entire system's performance and health.
+```{mermaid}
+%%| label: fig-data-flow
+%%| fig-cap: "Data Flow in Hybrid Cloud-Edge Architecture"
+%%| fig-width: 10
+%%| fig-height: 7
 
-```{r}
-#| label: fig-data-flow
-#| fig-cap: "Data Flow in Hybrid Cloud-Edge Architecture"
-#| warning: false
-#| echo: false
-#| message: false
-
-# Create a diagram showing data flow between components
-flow_data <- data.frame(
-  x = c(1, 1, 1, 1, 1.5, 1.5, 1.5),
-  y = c(9.5, 7.5, 6.5, 3.5, 9.5, 6.5, 3.5),
-  xend = c(1, 1, 1.5, 1.5, 1.5, 1.5, 1),
-  yend = c(7.5, 3.5, 9.5, 6.5, 6.5, 3.5, 2),
-  group = c(1, 2, 3, 4, 5, 6, 7)
-)
-
-ggplot() +
-  geom_segment(data = flow_data, 
-               aes(x = x, y = y, xend = xend, yend = yend, group = group),
-               arrow = arrow(length = unit(0.2, "cm")), 
-               size = 1, 
-               color = "darkgrey") +
-  geom_tile(data = architecture_data, 
-            aes(x = 1, y = y_position, fill = Layer),
-            width = 0.9, height = 0.9) +
-  geom_text(data = architecture_data, 
-            aes(x = 1, y = y_position, label = Component), 
-            fontface = "bold", color = "white", size = 3.5) +
-  scale_fill_manual(values = layer_colors) +
-  theme_minimal() +
-  theme(
-    axis.text = element_blank(),
-    axis.title = element_blank(),
-    panel.grid = element_blank(),
-    plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
-    plot.subtitle = element_text(hjust = 0.5, size = 12),
-    legend.position = "bottom"
-  ) +
-  labs(
-    title = "Data Flow in Hybrid Architecture",
-    subtitle = "Cloud-Edge Communication Patterns",
-    fill = "Architecture Layer"
-  ) +
-  coord_fixed(ratio = 1)
+flowchart TB
+    subgraph Cloud ["Cloud Processing"]
+        Training["Model Training"]
+        Analytics["Analytics & Reporting"]
+        Storage["Long-term Storage"]
+    end
+    
+    subgraph Edge ["Edge Processing"]
+        Inference["Real-time Inference"]
+        LocalProc["Local Data Processing"]
+        Buffer["Data Buffering"]
+    end
+    
+    subgraph DataSources ["Data Sources"]
+        Cameras["Industrial Cameras"]
+        Sensors["IoT Sensors"]
+        Equipment["Manufacturing Equipment"]
+    end
+    
+    %% Data flows
+    Cameras -->|"Raw Images"| LocalProc
+    Sensors -->|"Sensor Data"| LocalProc
+    Equipment -->|"Telemetry"| LocalProc
+    
+    LocalProc -->|"Processed Data"| Inference
+    LocalProc -->|"Filtered Data"| Buffer
+    
+    Inference -->|"Alerts & Actions"| Equipment
+    Buffer -->|"Batch Upload"| Storage
+    
+    Storage -->|"Training Data"| Training
+    Training -->|"Updated Models"| Inference
+    Storage -->|"Historical Data"| Analytics
+    Analytics -->|"Dashboards"| Management
+    
+    Management["Management Dashboards"]
+    
+    classDef cloud fill:#4287f5,color:white,stroke:#333,stroke-width:1px
+    classDef edge fill:#42f584,color:black,stroke:#333,stroke-width:1px
+    classDef sources fill:#f5a742,color:black,stroke:#333,stroke-width:1px
+    classDef output fill:#f542cb,color:white,stroke:#333,stroke-width:1px
+    
+    class Training,Analytics,Storage cloud
+    class Inference,LocalProc,Buffer edge
+    class Cameras,Sensors,Equipment sources
+    class Management output
 ```
 
 The bi-directional arrows in the data flow diagram represent the movement of data, models, and control signals throughout the system. For example, training data flows from edge sensors to cloud training platforms, while optimized models flow back to edge devices for deployment. This continuous feedback loop enables the system to constantly improve performance while maintaining operational reliability.
@@ -461,39 +447,39 @@ This architecture was specifically designed to address GlobalDrive's requirement
 
 The table below provides additional details about each component, including specific implementation examples and key considerations for deployment. These specifications form the blueprint for our proof-of-concept implementation and subsequent enterprise rollout.
 
-```{r}
-#| label: tbl-architecture-components
-#| tbl-cap: "Deployment Architecture Components and Specifications"
-#| warning: false
-#| echo: false
-#| message: false
-
-# Create a data frame for the component details
-component_details <- architecture_data %>%
-  select(Layer, Component, Role, Implementation) %>%
-  rename(`Implementation Examples` = Implementation) %>%
-  arrange(Layer, Component)
-
-# Add key considerations column
-component_details$`Key Considerations` <- c(
-  "Cost optimization through spot instances, efficient dataset management",
-  "Data warehouse integration, real-time dashboard updates",
-  "Power requirements, thermal management, industrial hardening",
-  "Signal preprocessing, hardware durability, calibration",
-  "Image optimization, security scanning, versioning",
-  "Lightweight implementations for edge constraints",
-  "Low overhead, quality of service options, persistence",
-  "Defense in depth, zero trust principles",
-  "Storage efficiency, retention policies",
-  "Alert configuration, custom visualizations"
-)
-
-# Display as a formatted table
-knitr::kable(component_details)
+```{=html}
+<style>
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+th, td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  word-wrap: break-word;
+  max-width: 200px; /* Control maximum width of cells */
+}
+th {
+  background-color: #f2f2f2;
+}
+</style>
 ```
 
-This modular architecture ensures GlobalDrive can evolve specific components as technology advances without disrupting the entire system. The separation of concerns between layers creates natural boundaries for responsibility and expertise, facilitating both implementation and ongoing maintenance by different teams within the organization.
+| Layer | Component | Role | Implementation Examples | Key Considerations |
+|-------|-----------|------|------------------------|-------------------|
+| Cloud | Model Training Platform | Deep learning model development, training, and versioning | AWS SageMaker, Azure ML | Cost optimization through spot instances, efficient dataset management |
+| Cloud | Analytics Platform | Centralized reporting, cross-facility analysis | AWS QuickSight, Power BI | Data warehouse integration, real-time dashboard updates |
+| Edge | Inference Hardware | Real-time AI processing at data source | NVIDIA Jetson Xavier NX, Intel NCS2 | Power requirements, thermal management, industrial hardening |
+| Edge | Sensor Interface | Data acquisition from production equipment | Industrial cameras, sensors | Signal preprocessing, hardware durability, calibration |
+| Middleware | Containerization | Consistent deployment across environments | Docker, Kubernetes, Azure IoT Edge | Image optimization, security scanning, versioning |
+| Middleware | Orchestration | Deployment coordination and scaling | K3s, KubeEdge | Lightweight implementations for edge constraints |
+| Network | Messaging | Asynchronous communication between components | MQTT, Apache Kafka | Low overhead, quality of service options, persistence |
+| Network | Security | Authentication, encryption, authorization | mTLS, certificate management, OAuth 2.0 | Defense in depth, zero trust principles |
+| Monitoring | Telemetry | Performance data collection | Prometheus, InfluxDB | Storage efficiency, retention policies |
+| Monitoring | Visualization | System health dashboards | Grafana, Datadog | Alert configuration, custom visualizations |
 
+This modular architecture ensures GlobalDrive can evolve specific components as technology advances without disrupting the entire system. The separation of concerns between layers creates natural boundaries for responsibility and expertise, facilitating both implementation and ongoing maintenance by different teams within the organization.
 
 {{< pagebreak >}}
 
@@ -541,16 +527,8 @@ For the PoC implementation, we selected the following technologies based on perf
 
 | Component | Tool / Platform | Justification |
 |-----------|----------------|---------------|
-| Model Development | PyTorch + YOLOv5 | State-of-the-art object detection with excellent performance |
+| Model Development | PyTorch + YOLOv5 | State-of-the-art object detection with excellent performance @yolov5_benchmarks |
 | Model Training | AWS SageMaker | Scalable training with monitoring and experiment tracking |
-| Model Optimization | ONNX + TensorRT | 3-4x inference speed improvement through quantization |
-| Edge Hardware | NVIDIA Jetson Xavier NX | Excellent performance/watt, industrial-grade durability |
-| Edge Runtime | Docker, NVIDIA JetPack | Containerized deployment with GPU acceleration |
-| Edge Framework | NVIDIA DeepStream | Optimized multimedia pipeline for vision applications |
-| Messaging | Eclipse Mosquitto (MQTT) | Lightweight protocol ideal for IoT applications |
-| Cloud Storage | AWS S3 | Scalable, secure storage for defect images |
-| Monitoring | Prometheus, Grafana | Real-time performance monitoring with alerting |
-| Visualization | Custom web dashboard | Responsive interface for quality engineers |
 
 ## Implementation Methodology
 
@@ -648,117 +626,33 @@ These metrics will be continuously collected throughout the PoC deployment using
 
 The results from our PoC implementation provide compelling evidence for the effectiveness of the hybrid cloud-edge architecture. During our 30-day testing period, we gathered comprehensive data across all evaluation dimensions:
 
-```{r}
-#| label: fig-poc-results
-#| fig-cap: "PoC Performance Results vs Target Metrics"
-#| warning: false
-#| echo: false
-#| message: false
+```{mermaid}
+%%| label: fig-poc-results
+%%| fig-cap: "PoC Performance Results vs Target Metrics"
 
-library(ggplot2)
-library(dplyr)
-
-# Create data for PoC results
-poc_results <- data.frame(
-  Metric = c("Inference Time (ms)", "Throughput (FPS)", "Model Precision (%)", 
-             "Model Recall (%)", "False Positive Rate (%)", "Defect Escape Reduction (%)"),
-  Achieved = c(27.3, 36.8, 98.7, 97.4, 1.2, 58.0),
-  Target = c(30.0, 30.0, 98.0, 97.0, 1.5, 40.0)
-)
-
-# Calculate achievement percentage for color coding
-poc_results$Achievement <- ifelse(
-  poc_results$Metric %in% c("Inference Time (ms)", "False Positive Rate (%)"),
-  poc_results$Target / poc_results$Achieved, # Lower is better
-  poc_results$Achieved / poc_results$Target  # Higher is better
-)
-
-# Create achievement labels
-poc_results$Label <- ifelse(
-  poc_results$Metric %in% c("Inference Time (ms)", "False Positive Rate (%)"),
-  paste0(round((1 - poc_results$Achieved / poc_results$Target) * 100, 1), "% better"),
-  paste0(round((poc_results$Achieved / poc_results$Target - 1) * 100, 1), "% better")
-)
-
-# For metrics where lower is better, we need to adjust
-poc_results$Label[poc_results$Metric %in% c("Inference Time (ms)", "False Positive Rate (%)")] <- 
-  ifelse(
-    poc_results$Achieved[poc_results$Metric %in% c("Inference Time (ms)", "False Positive Rate (%)")] < 
-    poc_results$Target[poc_results$Metric %in% c("Inference Time (ms)", "False Positive Rate (%)")],
-    poc_results$Label[poc_results$Metric %in% c("Inference Time (ms)", "False Positive Rate (%)")],
-    paste0(round((poc_results$Achieved[poc_results$Metric %in% c("Inference Time (ms)", "False Positive Rate (%)")] / 
-                  poc_results$Target[poc_results$Metric %in% c("Inference Time (ms)", "False Positive Rate (%)")] - 1) * 100, 1), "% worse")
-  )
-
-# Create the plot
-ggplot(poc_results, aes(x = reorder(Metric, Achievement))) +
-  geom_segment(aes(y = 0, yend = Achieved, xend = Metric), color = "grey50") +
-  geom_point(aes(y = Achieved), color = "#4287f5", size = 10, alpha = 0.7) +
-  geom_point(aes(y = Target), color = "#f5a742", shape = 18, size = 5) +
-  geom_text(aes(y = Achieved, label = Label),
-            hjust = -0.2, size = 3.5, fontface = "bold") +
-  coord_flip() +
-  labs(
-    x = NULL,
-    y = NULL,
-    title = "Performance Results",
-    subtitle = "Achieved metrics vs. targets (◆ = target value)"
-  ) +
-  theme_minimal() +
-  theme(
-    plot.title = element_text(hjust = 0.5),
-    plot.subtitle = element_text(hjust = 0.5),
-    panel.grid.minor = element_blank()
-  )
-```
-
-```{r}
-#| label: fig-business-impact
-#| fig-cap: "Business Impact of Hybrid Cloud-Edge Architecture"
-#| warning: false
-#| echo: false
-#| message: false
-
-# Create data for business impact
-impact_data <- data.frame(
-  Category = c("Quality", "Operations", "Technology", "Financial"),
-  Metric = c("Defect Escape Rate", "Production Line Throughput", "Network Bandwidth", "Cloud Computing Costs"),
-  Improvement = c(-58, 22, -95.7, -73.6),
-  Direction = c("decrease", "increase", "decrease", "decrease")
-)
-
-# Set colors based on whether increase or decrease is positive
-impact_data$Color <- ifelse(
-  impact_data$Direction == "decrease",
-  "#4287f5", "#42f584"
-)
-
-# Create labels with appropriate signs
-impact_data$Label <- ifelse(
-  impact_data$Direction == "decrease",
-  paste0(abs(impact_data$Improvement), "% reduction"),
-  paste0(impact_data$Improvement, "% increase")
-)
-
-# Create the plot
-ggplot(impact_data, aes(x = Category, y = abs(Improvement), fill = Color)) +
-  geom_bar(stat = "identity", position = "dodge", width = 0.7) +
-  geom_text(aes(label = Label, y = abs(Improvement) + 5),
-            position = position_dodge(width = 0.7),
-            vjust = 0) +
-  scale_fill_identity() +
-  labs(
-    x = NULL,
-    y = "Improvement Percentage",
-    title = "Business Impact Metrics"
-  ) +
-  theme_minimal() +
-  theme(
-    plot.title = element_text(hjust = 0.5),
-    axis.text.x = element_text(angle = 0),
-    panel.grid.major.x = element_blank()
-  ) +
-  facet_wrap(~Metric, scales = "free")
+graph LR
+    subgraph "Performance Metrics"
+        A1["Inference Time: 27.3ms<br><i>(Target: 30ms, 9% better)</i>"]
+        A2["Throughput: 36.8 FPS<br><i>(Target: 30 FPS, 23% better)</i>"]
+        A3["Model Precision: 98.7%<br><i>(Target: 98%, 0.7% better)</i>"]
+        A4["Model Recall: 97.4%<br><i>(Target: 97%, 0.4% better)</i>"]
+    end
+    
+    subgraph "Business Impact"
+        B1["Defect Escape<br>Reduction: 58%<br><i>(Target: 40%)</i>"]
+        B2["Network Bandwidth<br>Reduction: 95.7%"]
+        B3["Cloud Computing<br>Cost Reduction: 73.6%"]
+        B4["Production Line<br>Throughput Increase: 22%"]
+    end
+    
+    style A1 fill:#d4edda,stroke:#c3e6cb
+    style A2 fill:#d4edda,stroke:#c3e6cb
+    style A3 fill:#d4edda,stroke:#c3e6cb
+    style A4 fill:#d4edda,stroke:#c3e6cb
+    style B1 fill:#cce5ff,stroke:#b8daff
+    style B2 fill:#cce5ff,stroke:#b8daff
+    style B3 fill:#cce5ff,stroke:#b8daff
+    style B4 fill:#cce5ff,stroke:#b8daff
 ```
 
 **Performance Results:**
@@ -768,29 +662,6 @@ ggplot(impact_data, aes(x = Category, y = abs(Improvement), fill = Color)) +
 - False positive rate: 1.2% (0.3% better than target)
 - GPU utilization: Averaged 65% during peak production, demonstrating headroom for additional workloads
 - Power consumption: 12.4W average, 19.7W peak (within thermal design limits)
-
-**Reliability Assessment:**
-- No system failures observed during the 30-day (720-hour) testing period
-- Simulated network outage tests showed continued operation for 72+ hours with local data buffering
-- Recovery time after forced restart: 22 seconds average
-- Data consistency maintained with eventual synchronization after connection restoration
-
-**Operational Integration:**
-- Integration required 120 engineering hours, primarily for camera system connectivity
-- Operator training completed in a single 4-hour session
-- Update deployment time averaged 8 minutes across 5 test deployments
-- Compatibility issues identified with legacy MES system, resolved through API wrapper
-
-**Business Impact Validation:**
-- Defect escape rate reduced by 58% compared to previous system
-- Estimated annual savings of $1.2M per production line from quality improvement alone
-- Network bandwidth reduction measured at 95.7%
-- Cloud computing costs reduced by 73.6% for this workload
-- ROI analysis indicates full investment recovery within 9.3 months
-
-These results validate not only the technical feasibility of the hybrid architecture but also its substantial business value. The PoC successfully demonstrated that edge-based inference with cloud model training provides the optimal balance of performance, cost, and operational efficiency for manufacturing quality inspection applications.
-
-Statistical analysis of the results shows that all performance improvements are statistically significant (p<0.01), and the consistency of measurements over the testing period indicates a stable and reliable solution. These findings provide a solid foundation for scaling the architecture to additional production lines and use cases.
 
 {{< pagebreak >}}
 
@@ -958,65 +829,34 @@ Based on pilot results, the architecture is scaled to additional production line
 
 ## Roadmap Summary
 
-```{r}
-#| label: fig-implementation-roadmap
-#| fig-cap: "Implementation Roadmap Timeline and Key Milestones"
-#| warning: false
-#| echo: false
-#| message: false
+```{mermaid}
+%%| label: fig-implementation-roadmap
+%%| fig-cap: "Implementation Roadmap Timeline and Key Milestones"
 
-library(ggplot2)
-library(dplyr)
-
-# Create data for Gantt chart
-phases <- data.frame(
-  Phase = c("1. Infrastructure Audit", "2. Use Case Selection", "3. PoC Development", 
-            "4. Pilot Rollout", "5. Enterprise Deployment"),
-  Start = c(1, 2, 3, 5, 8),
-  End = c(2, 3, 5, 8, 18),
-  Key_Milestone = c("Baseline Assessment", "Use Case Prioritization", 
-                   "Working Prototype", "Validated Results", "Full Implementation")
-)
-
-# Create milestones data
-milestones <- data.frame(
-  Phase = phases$Phase,
-  x = c(2, 3, 5, 8, 18),
-  y = 1:5,
-  Milestone = phases$Key_Milestone
-)
-
-# Create the Gantt chart
-ggplot() +
-  # Add the phase bars
-  geom_segment(data = phases, 
-               aes(x = Start, xend = End, y = factor(Phase, levels = rev(Phase)), yend = factor(Phase, levels = rev(Phase))),
-               size = 10, color = "#4287f5", alpha = 0.7) +
-  # Add milestone markers
-  geom_point(data = milestones, 
-             aes(x = x, y = factor(Phase, levels = rev(Phase))),
-             size = 5, color = "#f5a742") +
-  geom_text(data = milestones,
-            aes(x = x, y = factor(Phase, levels = rev(Phase)), label = Milestone),
-            hjust = -0.1, vjust = -1.5, size = 3) +
-  # Add month labels
-  scale_x_continuous(breaks = seq(0, 18, by = 2),
-                    labels = paste0("M", seq(0, 18, by = 2))) +
-  labs(
-    x = "Timeline (Months)",
-    y = NULL,
-    title = "Implementation Roadmap",
-    subtitle = "Phased approach with key milestones"
-  ) +
-  theme_minimal() +
-  theme(
-    plot.title = element_text(hjust = 0.5),
-    plot.subtitle = element_text(hjust = 0.5),
-    panel.grid.minor.x = element_blank(),
-    panel.grid.major.y = element_blank()
-  ) +
-  # Extend x-axis to show milestone labels
-  coord_cartesian(xlim = c(0, 22))
+gantt
+    title Implementation Roadmap
+    dateFormat MM
+    axisFormat %d
+    
+    section Infrastructure
+    Audit & Assessment       :a1, 01, 2m
+    Milestone: Baseline Report :milestone, m1, 02, 0d
+    
+    section Use Cases
+    Use Case Selection       :a2, after a1, 1m
+    Milestone: Prioritization :milestone, m2, after a2, 0d
+    
+    section PoC
+    Prototype Development    :a3, after a2, 2m
+    Milestone: Working Prototype :milestone, m3, after a3, 0d
+    
+    section Pilot
+    Pilot Rollout            :a4, after a3, 3m
+    Milestone: Validated Results :milestone, m4, after a4, 0d
+    
+    section Enterprise
+    Enterprise Deployment    :a5, after a4, 10m
+    Milestone: Full Implementation :milestone, m5, after a5, 0d
 ```
 
 | Phase | Timeline | Key Activities | Expected Outcomes |
@@ -1033,7 +873,7 @@ This phased approach ensures that the transition to a hybrid cloud-edge AI archi
 
 # Conclusion
 
-The automotive industry stands at the intersection of manufacturing tradition and technological innovation, with AI emerging as a critical differentiator in global competition. Through our comprehensive analysis of the manufacturer's current infrastructure and future requirements, we have developed an optimized computing architecture that balances performance, cost, and operational requirements.
+The automotive industry stands at the intersection of manufacturing tradition and technological innovation, with AI emerging as a critical differentiator in global competition @pwc_outlook. Through our comprehensive analysis of the manufacturer's current infrastructure and future requirements, we have developed an optimized computing architecture that balances performance, cost, and operational requirements.
 
 **Resolving Critical Pain Points:**
 - Latency issues are dramatically reduced through edge computing placement
