@@ -1,6 +1,6 @@
 ---
-title: "Optimizing AI Workloads for an Automotive Manufacturer"
-subtitle: "Computing Architectures for AI - Assessment 3"
+title: "Optimizing AI Workloads for GlobalDrive, an Automotive Manufacturer"
+subtitle: "Computing Architectures for AI - Assessment 3 - Group 5"
 author:
   - name: Bogdan Bancescu
   - name: Tim Nicholas Döring
@@ -328,7 +328,7 @@ Automotive manufacturers must also consider data governance and regulatory compl
 - Audit logging of all system interactions
 - Principle of least privilege for all system components
 
-### 5.5 Deployment Architecture Overview
+## Deployment Architecture Overview
 
 The hybrid cloud-edge architecture for GlobalDrive Automotive represents a carefully designed ecosystem where each component serves a specific purpose while communicating seamlessly with other elements. Rather than viewing the architecture as a static stack, we conceptualize it as an interconnected system with bidirectional data flows and clear responsibilities.
 
@@ -644,27 +644,122 @@ Our evaluation framework focuses on four key dimensions to holistically assess t
 
 These metrics will be continuously collected throughout the PoC deployment using a combination of automated monitoring tools, manual quality assessments, and production data analysis. Results will be compiled into weekly dashboards for stakeholders and used to guide optimization efforts and future scaling decisions.
 
-## Evaluation Criteria
-
-The PoC was evaluated based on the following metrics:
-
-**Performance Metrics:**
-- Inference latency (milliseconds per frame)
-- Precision and recall for defect detection
-- False positive/negative rates by defect category
-- System throughput (frames processed per second)
-- GPU utilization and power consumption
-
-**Operational Metrics:**
-- Deployment time and complexity
-- Network bandwidth utilization
-- Storage requirements
-- System stability under continuous operation
-- Integration complexity with existing systems
-
-## Results and Analysis
+## Evaluation Results
 
 The results from our PoC implementation provide compelling evidence for the effectiveness of the hybrid cloud-edge architecture. During our 30-day testing period, we gathered comprehensive data across all evaluation dimensions:
+
+```{r}
+#| label: fig-poc-results
+#| fig-cap: "PoC Performance Results vs Target Metrics"
+#| warning: false
+#| echo: false
+#| message: false
+
+library(ggplot2)
+library(dplyr)
+
+# Create data for PoC results
+poc_results <- data.frame(
+  Metric = c("Inference Time (ms)", "Throughput (FPS)", "Model Precision (%)", 
+             "Model Recall (%)", "False Positive Rate (%)", "Defect Escape Reduction (%)"),
+  Achieved = c(27.3, 36.8, 98.7, 97.4, 1.2, 58.0),
+  Target = c(30.0, 30.0, 98.0, 97.0, 1.5, 40.0)
+)
+
+# Calculate achievement percentage for color coding
+poc_results$Achievement <- ifelse(
+  poc_results$Metric %in% c("Inference Time (ms)", "False Positive Rate (%)"),
+  poc_results$Target / poc_results$Achieved, # Lower is better
+  poc_results$Achieved / poc_results$Target  # Higher is better
+)
+
+# Create achievement labels
+poc_results$Label <- ifelse(
+  poc_results$Metric %in% c("Inference Time (ms)", "False Positive Rate (%)"),
+  paste0(round((1 - poc_results$Achieved / poc_results$Target) * 100, 1), "% better"),
+  paste0(round((poc_results$Achieved / poc_results$Target - 1) * 100, 1), "% better")
+)
+
+# For metrics where lower is better, we need to adjust
+poc_results$Label[poc_results$Metric %in% c("Inference Time (ms)", "False Positive Rate (%)")] <- 
+  ifelse(
+    poc_results$Achieved[poc_results$Metric %in% c("Inference Time (ms)", "False Positive Rate (%)")] < 
+    poc_results$Target[poc_results$Metric %in% c("Inference Time (ms)", "False Positive Rate (%)")],
+    poc_results$Label[poc_results$Metric %in% c("Inference Time (ms)", "False Positive Rate (%)")],
+    paste0(round((poc_results$Achieved[poc_results$Metric %in% c("Inference Time (ms)", "False Positive Rate (%)")] / 
+                  poc_results$Target[poc_results$Metric %in% c("Inference Time (ms)", "False Positive Rate (%)")] - 1) * 100, 1), "% worse")
+  )
+
+# Create the plot
+ggplot(poc_results, aes(x = reorder(Metric, Achievement))) +
+  geom_segment(aes(y = 0, yend = Achieved, xend = Metric), color = "grey50") +
+  geom_point(aes(y = Achieved), color = "#4287f5", size = 10, alpha = 0.7) +
+  geom_point(aes(y = Target), color = "#f5a742", shape = 18, size = 5) +
+  geom_text(aes(y = Achieved, label = Label),
+            hjust = -0.2, size = 3.5, fontface = "bold") +
+  coord_flip() +
+  labs(
+    x = NULL,
+    y = NULL,
+    title = "Performance Results",
+    subtitle = "Achieved metrics vs. targets (◆ = target value)"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5),
+    panel.grid.minor = element_blank()
+  )
+```
+
+```{r}
+#| label: fig-business-impact
+#| fig-cap: "Business Impact of Hybrid Cloud-Edge Architecture"
+#| warning: false
+#| echo: false
+#| message: false
+
+# Create data for business impact
+impact_data <- data.frame(
+  Category = c("Quality", "Operations", "Technology", "Financial"),
+  Metric = c("Defect Escape Rate", "Production Line Throughput", "Network Bandwidth", "Cloud Computing Costs"),
+  Improvement = c(-58, 22, -95.7, -73.6),
+  Direction = c("decrease", "increase", "decrease", "decrease")
+)
+
+# Set colors based on whether increase or decrease is positive
+impact_data$Color <- ifelse(
+  impact_data$Direction == "decrease",
+  "#4287f5", "#42f584"
+)
+
+# Create labels with appropriate signs
+impact_data$Label <- ifelse(
+  impact_data$Direction == "decrease",
+  paste0(abs(impact_data$Improvement), "% reduction"),
+  paste0(impact_data$Improvement, "% increase")
+)
+
+# Create the plot
+ggplot(impact_data, aes(x = Category, y = abs(Improvement), fill = Color)) +
+  geom_bar(stat = "identity", position = "dodge", width = 0.7) +
+  geom_text(aes(label = Label, y = abs(Improvement) + 5),
+            position = position_dodge(width = 0.7),
+            vjust = 0) +
+  scale_fill_identity() +
+  labs(
+    x = NULL,
+    y = "Improvement Percentage",
+    title = "Business Impact Metrics"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    axis.text.x = element_text(angle = 0),
+    panel.grid.major.x = element_blank()
+  ) +
+  facet_wrap(~Metric, scales = "free")
+```
 
 **Performance Results:**
 - Average inference time achieved: 27.3ms per frame (91.5% reduction from baseline)
@@ -696,105 +791,6 @@ The results from our PoC implementation provide compelling evidence for the effe
 These results validate not only the technical feasibility of the hybrid architecture but also its substantial business value. The PoC successfully demonstrated that edge-based inference with cloud model training provides the optimal balance of performance, cost, and operational efficiency for manufacturing quality inspection applications.
 
 Statistical analysis of the results shows that all performance improvements are statistically significant (p<0.01), and the consistency of measurements over the testing period indicates a stable and reliable solution. These findings provide a solid foundation for scaling the architecture to additional production lines and use cases.
-
-{{< pagebreak >}}
-
-# Performance Improvements and Cost Savings
-
-Implementing the proposed hybrid AI architecture offers substantial opportunities for performance optimization and operational cost reduction in automotive manufacturing. These improvements are driven by strategic placement of workloads across cloud and edge environments, the use of specialized hardware, and smarter resource utilization.
-
-## Inference Speed and Latency
-
-One of the most significant performance gains arises from moving AI inference to edge devices. Real-time applications such as visual inspection require near-instantaneous responses to detect and react to defects. Tests with devices such as the NVIDIA Jetson Xavier NX, running optimized models like YOLOv5 with TensorRT, have achieved inference latencies under 30 milliseconds per frame @jetson_xavier. This enables high-speed processing without stalling the production line.
-
-By comparison, cloud-based inference—even on optimized infrastructure—can introduce network latency ranging from 50 to 300 milliseconds, depending on upload speeds and regional server distances @azure_latency. For use cases requiring fast feedback loops, this delay is unacceptable.
-
-Our performance testing showed the following improvements:
-
-| Application | Previous Latency | Optimized Latency | Improvement |
-|-------------|-----------------|-------------------|-------------|
-| Quality inspection | 320ms | 27ms | 91.5% reduction |
-| Anomaly detection | 250ms | 40ms | 84.0% reduction |
-| Robotic control | 150ms | 15ms | 90.0% reduction |
-| Worker safety alerts | 400ms | 35ms | 91.3% reduction |
-
-These improvements translate directly to operational benefits, including faster response times to defects, improved production line throughput, and enhanced safety measures.
-
-## Improved Model Efficiency
-
-The use of hardware-specific optimizations such as model quantization and pruning can reduce model size and inference time without significantly sacrificing accuracy. Frameworks like TensorRT, ONNX Runtime, and OpenVINO allow models trained in the cloud to be tailored for edge devices, significantly improving throughput per watt.
-
-Our optimization efforts demonstrated the following efficiency gains:
-
-- Quantization of FP32 models to FP16 reduced model size by approximately 50%
-- Model pruning techniques reduced parameter count by 30% with <1% accuracy loss
-- Batch processing optimization increased throughput by 40% for applicable workloads
-- Custom kernels for Jetson platform improved specific operations by up to 60%
-
-A quantized YOLOv5s model on Jetson Xavier can process up to 150 FPS on real-time video while consuming less than 15W of power @yolov5_benchmarks. This translates to 5–10x energy efficiency compared to running the same model unoptimized on a CPU.
-
-## Cost Reductions
-
-The hybrid approach also delivers economic benefits by minimizing unnecessary cloud computation and bandwidth costs.
-
-**Cloud Compute Savings:**
-Training large AI models in the cloud is often necessary, but inference workloads can be costly if kept in the cloud long-term. By shifting inference to edge devices:
-
-- Cloud instance usage is reduced by up to 70%, depending on workload distribution @aws_cost_optimization
-- Models can run continuously on-premises without incurring hourly compute charges
-- Auto-scaling needs are reduced, simplifying cloud infrastructure management
-
-Based on the manufacturer's current cloud spending of approximately $1.2M annually for AI workloads, we project annual savings of $650,000-$840,000 through optimized workload placement.
-
-**Bandwidth Savings:**
-Raw image and sensor data can be extremely bandwidth-intensive. For instance, a high-resolution industrial camera can generate 2–5 GB of data per hour. By performing inference on-site and only transmitting structured outputs (e.g., "defect detected at timestamp T"), bandwidth requirements are dramatically reduced:
-
-- Network bandwidth usage reduced by up to 95% for vision-based applications
-- WAN connectivity needs decreased, enabling operations in locations with limited connectivity
-- Data egress charges from cloud providers minimized
-- Reduced network infrastructure requirements across manufacturing facilities
-
-For the automotive manufacturer operating across 12 global facilities, this translates to estimated annual savings of $300,000-$450,000 in networking costs alone.
-
-**Hardware ROI:**
-Although edge devices like the Jetson Xavier or Intel Movidius require upfront investment, their long-term operational cost is significantly lower than cloud alternatives for stable inference workloads:
-
-- A single Jetson device ($600-$800) can process the equivalent of a $0.50-$1.25/hour cloud instance
-- Edge devices typically operate for 3-5 years with minimal maintenance
-- No recurring charges beyond power consumption and occasional software updates
-- Decreased dependency on internet connectivity improves operational resilience
-
-Our cost-benefit analysis indicates a return on investment period of 8-14 months for edge hardware deployment, depending on workload characteristics and existing infrastructure.
-
-## Operational Efficiencies
-
-In addition to direct cost savings, improved AI performance leads to broader operational benefits throughout the manufacturing ecosystem:
-
-**Manufacturing Quality Improvements:**
-- Defect detection accuracy increased from 94.2% to 98.7%
-- Early detection of quality issues prevents downstream rework
-- Consistent inspection criteria across all manufacturing locations
-- Detailed defect data enables root cause analysis and process improvement
-
-**Production Optimization:**
-- 15-20% reduction in unplanned downtime through predictive maintenance
-- Faster production line speeds due to reduced inspection bottlenecks
-- More flexible production scheduling through AI-optimized planning
-- Improved traceability through comprehensive data collection
-
-**Resource Utilization:**
-- 25-30% reduction in energy consumption for computing infrastructure
-- Optimized inventory levels reducing carrying costs by 12-18%
-- More efficient allocation of quality assurance personnel
-- Extended equipment lifecycle through predictive maintenance
-
-**Time-to-Market Acceleration:**
-- Virtual prototyping reducing physical prototype iterations by 40%
-- Faster design validation through simulation
-- More responsive adaptation to market demand signals
-- Accelerated learning cycles through comprehensive data analysis
-
-When scaled across the enterprise with multiple plants and thousands of production hours per year, even single-digit percentage improvements in these metrics can result in millions of dollars in annual savings and significant competitive advantages.
 
 {{< pagebreak >}}
 
@@ -924,7 +920,7 @@ With successful prototypes in place, the architecture is deployed in limited pro
 - Pilot implementation report with performance metrics
 - Documented business value and ROI calculation
 - Refined architecture based on pilot learnings
-- Detailed plan for enterprise-scale deployment
+- Detailed plan for enterprise-scale deployments
 
 ## Phase 5: Enterprise-Scale Deployment (Months 8-18)
 
@@ -962,6 +958,67 @@ Based on pilot results, the architecture is scaled to additional production line
 
 ## Roadmap Summary
 
+```{r}
+#| label: fig-implementation-roadmap
+#| fig-cap: "Implementation Roadmap Timeline and Key Milestones"
+#| warning: false
+#| echo: false
+#| message: false
+
+library(ggplot2)
+library(dplyr)
+
+# Create data for Gantt chart
+phases <- data.frame(
+  Phase = c("1. Infrastructure Audit", "2. Use Case Selection", "3. PoC Development", 
+            "4. Pilot Rollout", "5. Enterprise Deployment"),
+  Start = c(1, 2, 3, 5, 8),
+  End = c(2, 3, 5, 8, 18),
+  Key_Milestone = c("Baseline Assessment", "Use Case Prioritization", 
+                   "Working Prototype", "Validated Results", "Full Implementation")
+)
+
+# Create milestones data
+milestones <- data.frame(
+  Phase = phases$Phase,
+  x = c(2, 3, 5, 8, 18),
+  y = 1:5,
+  Milestone = phases$Key_Milestone
+)
+
+# Create the Gantt chart
+ggplot() +
+  # Add the phase bars
+  geom_segment(data = phases, 
+               aes(x = Start, xend = End, y = factor(Phase, levels = rev(Phase)), yend = factor(Phase, levels = rev(Phase))),
+               size = 10, color = "#4287f5", alpha = 0.7) +
+  # Add milestone markers
+  geom_point(data = milestones, 
+             aes(x = x, y = factor(Phase, levels = rev(Phase))),
+             size = 5, color = "#f5a742") +
+  geom_text(data = milestones,
+            aes(x = x, y = factor(Phase, levels = rev(Phase)), label = Milestone),
+            hjust = -0.1, vjust = -1.5, size = 3) +
+  # Add month labels
+  scale_x_continuous(breaks = seq(0, 18, by = 2),
+                    labels = paste0("M", seq(0, 18, by = 2))) +
+  labs(
+    x = "Timeline (Months)",
+    y = NULL,
+    title = "Implementation Roadmap",
+    subtitle = "Phased approach with key milestones"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5),
+    panel.grid.minor.x = element_blank(),
+    panel.grid.major.y = element_blank()
+  ) +
+  # Extend x-axis to show milestone labels
+  coord_cartesian(xlim = c(0, 22))
+```
+
 | Phase | Timeline | Key Activities | Expected Outcomes |
 |-------|----------|---------------|-------------------|
 | 1. Audit | Months 1-2 | Infrastructure assessment, baseline metrics | Current state analysis, prioritized gaps |
@@ -978,12 +1035,10 @@ This phased approach ensures that the transition to a hybrid cloud-edge AI archi
 
 The automotive industry stands at the intersection of manufacturing tradition and technological innovation, with AI emerging as a critical differentiator in global competition. Through our comprehensive analysis of the manufacturer's current infrastructure and future requirements, we have developed an optimized computing architecture that balances performance, cost, and operational requirements.
 
-The proposed hybrid cloud-edge computing strategy addresses the fundamental challenges facing automotive AI implementations:
-
 **Resolving Critical Pain Points:**
 - Latency issues are dramatically reduced through edge computing placement
-- Cost concerns are addressed through strategic workload distribution
 - Privacy and security requirements are met through local processing of sensitive data
+- Cost concerns are addressed through strategic workload distribution
 - Scalability is enabled through standardized deployment practices
 - Energy efficiency is improved through specialized hardware utilization
 
