@@ -1,0 +1,690 @@
+---
+title: "Assessment 4: Future Innovations and Regulations"
+author: "Your Full Name"
+date: "2025-04-11"
+format: 
+  pdf:
+    toc: true
+    number-sections: true
+    highlight-style: github
+    csl: apa.csl
+bibliography: references.bib
+abstract: |
+  This report, prepared for FutureX as their Technology Regulation Consultant, provides comprehensive analysis and strategic recommendations on emerging technologies and their regulatory frameworks. The analysis addresses 6G connectivity, space internet innovations, and ethical implications of robotics, with a focus on creating a governance framework that balances innovation with ethical considerations and regulatory compliance.
+---
+
+# Introduction {#sec-introduction}
+
+The rapid advancement of AI-driven technologies presents unprecedented opportunities for organizations like FutureX while simultaneously creating complex regulatory and ethical challenges [@floridi2019establishing]. As a Technology Regulation Consultant, this report provides strategic guidance on emerging technologies, with particular focus on:
+
+- The transformative potential of 6G connectivity and space internet
+- The ethical and social implications of advanced robotics
+- A comprehensive framework for AI governance and regulatory compliance
+
+This analysis will equip FutureX with the necessary insights to navigate the complex landscape of future innovations while ensuring ethical implementation and regulatory adherence [@jobin2019global].
+
+# Task 1: 6G Connectivity & Space Internet in the Future {#sec-task1}
+
+## Evolution of Connectivity Technologies {#sec-evolution}
+
+- Brief history from 5G to 6G: technical capabilities and implementation timeline
+- Key characteristics of 6G [@saad2020vision]: 
+  * Microsecond latency (1,000 times faster than 5G's millisecond latency)
+  * Data rates potentially reaching 46 Gbps (based on projections from Live Session 11)
+  * Massive device density and expanded channel size to 320 MHz
+  * 16 spatial streams compared to 8 in earlier generations
+
+- Low Earth Orbit (LEO) satellite constellations [@del2019technical]:
+  * Technical architecture and implementation models
+  * Key providers: Starlink, OneWeb, Amazon, Hughes, Telesat, Viasat
+  * Service models and current market offerings (residential, business, mobile applications)
+
+## Transformative Impact on Industries {#sec-impact}
+
+- Healthcare [@maddox2019future]: 
+  * Remote surgeries enabled by ultra-low latency
+  * Continuous health monitoring through connected devices
+  * AI-driven diagnostics with real-time data processing
+
+- Manufacturing [@xu2021digital]: 
+  * Fully autonomous factories with real-time coordination
+  * Digital twin technology enhanced by high-bandwidth connectivity
+  * Supply chain visibility and optimization
+
+- Transportation [@yaqoob2019autonomous]: 
+  * Advanced V2X (vehicle-to-everything) communications
+  * Autonomous vehicle coordination in complex environments
+  * Traffic management systems with predictive capabilities
+
+- Smart cities [@mora2019strategic]: 
+  * Integrated municipal systems for resource management
+  * Enhanced public safety through connected infrastructure
+  * Energy optimization and environmental monitoring
+
+- Rural connectivity [@philip2017enabling]: 
+  * Bridging the digital divide through universal access
+  * Economic development opportunities in previously underserved regions
+  * Educational and healthcare access improvements
+
+## Technical Enablement of AI and IoT Systems {#sec-enablement}
+
+- Ultra-low latency enabling new AI applications [@letaief2021edge]:
+  * Real-time decision making for critical systems
+  * Distributed AI processing between edge and cloud
+  * Enhanced capabilities for autonomous systems
+
+- IoT ecosystem evolution [@khan2022internet]:
+  * Massive device proliferation beyond current network capabilities
+  * Advanced sensing and monitoring systems
+  * Integration of previously unconnected infrastructure
+
+- Edge-cloud computing paradigms [@shi2016edge]:
+  * Distributed processing architecture for optimal performance
+  * Real-time analytics at the network edge
+  * Hybrid processing models for efficient resource utilization
+
+## Real-World Applications and Case Studies {#sec-applications}
+
+- Starlink implementation and market impact [@mcdonough2020starlink]:
+  * Current service offerings and performance metrics
+  * Pricing models and market positioning
+  * Technical limitations and future development roadmap
+
+- Global emergency response systems [@meier2023digital]:
+  * Disaster recovery communications
+  * Real-time coordination of resources
+  * Remote assistance capabilities
+
+- Remote healthcare delivery [@ahmed2020role]:
+  * Telemedicine in underserved regions
+  * Connected medical devices and monitoring
+  * AI-assisted diagnostics and treatment
+
+- Future transportation networks [@nikitas2020artificial]:
+  * Autonomous vehicle coordination
+  * Smart infrastructure integration
+  * Traffic optimization systems
+
+# Task 2: Ethical & Social Implications of Robotics {#sec-task2}
+
+## Current State and Future Trajectory of Robotics {#sec-robotics-state}
+
+- Evolution from industrial to autonomous systems [@winfield2019ethical]:
+  * Historical development and capability expansion
+  * Current state of technology in key sectors
+  * Projected capabilities and implementation timeline
+
+- Key technological capabilities [@siciliano2022robotics]:
+  * Physical interaction and manipulation
+  * Decision-making autonomy
+  * Learning and adaptation
+  * Human-robot collaboration models
+
+- Convergence with AI technologies [@yang2018grand]:
+  * Computer vision advancements
+  * Natural language processing integration
+  * Reinforcement learning for robotic control
+  * Predictive capabilities and anticipatory actions
+
+## Ethical Considerations in Robotics Implementation {#sec-ethics}
+
+- AI bias in robotic decision-making [@howard2023addressing]:
+  * Sources of algorithmic bias
+  * Impact on different demographic groups
+  * Mitigation strategies and testing methodologies
+
+- Data ethics principles applicable to robotics [@floridi2018ai]:
+  * Ownership: individual control over personal information
+  * Transparency: clear disclosure of data collection and usage
+  * Individual agency: right to delete personal data
+  * Privacy: protection from unauthorized access
+  * Accountability: responsibility for data breaches and misuse
+
+- Privacy implications [@pagallo2022robots]:
+  * Surveillance capabilities of robotic systems
+  * Data collection scope and limitations
+  * Balancing security benefits with privacy rights
+
+- Autonomy and responsibility [@matthias2021robot]:
+  * Decision-making authority of robotic systems
+  * Accountability for autonomous actions
+  * Legal and ethical frameworks for determining liability
+
+## Social Impact Assessment {#sec-social-impact}
+
+- Workforce transformation [@acemoglu2020robots]:
+  * Job displacement in susceptible sectors
+  * Economic inequality considerations
+  * New job creation and skill requirements
+  * Potential for lower job satisfaction and increased social isolation
+
+- Educational requirements [@zawacki2019automation]:
+  * Skill development for the future workforce
+  * Retraining programs for displaced workers
+  * Lifelong learning models for continuous adaptation
+  * Professional certifications relevant to AI and robotics
+
+- Social acceptance and human-robot interaction [@de2021social]:
+  * Public perception and acceptance factors
+  * Psychological impacts of robotic integration
+  * Cultural differences in technology adoption
+  * Mental health considerations of technology dependence
+
+- Digital divide considerations [@van2020digital]:
+  * Equitable access to robotic technologies
+  * Prevention of capability concentration
+  * Inclusive design principles
+  * Addressing special needs through assistive robotics
+
+## Financial and Business Strategy Implications {#sec-business-impact}
+
+- Cost-benefit analysis of robotic implementation [@tilley2020economic]:
+  * Initial investment requirements
+  * Operational cost implications
+  * Long-term return on investment models
+  * Case studies of successful implementations
+
+- Liability and risk management [@dremliuga2019legal]:
+  * Insurance considerations for autonomous systems
+  * Legal frameworks for addressing damages
+  * Risk assessment methodologies
+  * Compliance verification systems
+
+- Competitive advantage considerations [@marr2021business]:
+  * Market differentiation through ethical implementation
+  * Brand reputation management
+  * Customer trust development
+  * Balancing innovation with responsible deployment
+
+# Recommendations: AI Governance and Regulatory Framework {#sec-recommendations}
+
+## Strategic Framework for AI Governance {#sec-framework}
+
+- Multi-stakeholder governance approach [@winfield2021turning]:
+  * Industry self-regulation mechanisms
+  * Government regulatory oversight
+  * Public engagement and transparency
+  * International coordination and standards harmonization
+
+- Data ethics implementation [@mittelstadt2019principles]:
+  * Ownership rights enforcement
+  * Transparency requirements
+  * Individual agency provisions
+  * Privacy protection mechanisms
+  * Accountability structures
+
+- Balancing innovation with protection [@cath2018artificial]:
+  * Sandbox regulatory approaches
+  * Phased implementation with evaluation periods
+  * Sectoral regulation based on risk assessment
+  * Adaptive frameworks that evolve with technology
+
+## Addressing Key Regulatory Concerns {#sec-regulatory}
+
+- AI transparency and explainability [@gunning2019xai]:
+  * Technical requirements for interpretable systems
+  * Documentation standards for decision processes
+  * User-facing explanations of AI operations
+  * Auditability mechanisms for third-party verification
+
+- Data privacy and security [@voigt2017eu]:
+  * Compliance with existing frameworks (GDPR, HIPAA, etc.)
+  * Data minimization principles
+  * Security by design requirements
+  * Breach notification and remediation procedures
+
+- Accountability mechanisms [@doshi2017accountability]:
+  * Clear lines of responsibility for autonomous systems
+  * Certification and testing requirements
+  * Monitoring and reporting obligations
+  * Enforcement mechanisms and penalties
+
+- Ethical AI usage guidelines [@jobin2019global]:
+  * Sector-specific ethical frameworks
+  * Prohibited applications and use cases
+  * Required safeguards for high-risk implementations
+  * Ethical review processes for new applications
+
+## Implementation Strategy for FutureX {#sec-implementation}
+
+- Regulatory compliance roadmap [@gasser2017layered]:
+  * Current regulation assessment
+  * Gap analysis against emerging requirements
+  * Prioritized implementation timeline
+  * Resource allocation and responsibility assignment
+
+- Proactive engagement strategies [@cath2018artificial]:
+  * Participation in standards development
+  * Collaboration with regulatory bodies
+  * Industry association involvement
+  * Public-private partnerships
+
+- Ethics by design approach [@dignum2018ethics]:
+  * Integration of ethical considerations in development lifecycle
+  * Diverse team composition to identify potential issues
+  * Regular ethical impact assessments
+  * Third-party ethical audits
+
+- Internal governance structures [@mittelstadt2019principles]:
+  * Ethics committee establishment
+  * Clear reporting lines and escalation procedures
+  * Regular review and update mechanisms
+  * Training and awareness programs
+
+- Professional development strategy [@world2021artificial]:
+  * Relevant AI, IoT, and automation certifications
+  * Continuous education programs
+  * Ethics training for technical teams
+  * Cross-functional knowledge sharing
+
+# Conclusion {#sec-conclusion}
+
+6G connectivity, space internet, and advanced robotics represent transformative technologies with immense potential benefits alongside significant ethical and regulatory challenges [@crawford2021atlas]. For FutureX to successfully navigate this landscape, a comprehensive approach that integrates technical innovation with ethical considerations and regulatory compliance is essential.
+
+By implementing the recommended governance framework, FutureX can position itself as a responsible innovator, building trust with customers, regulators, and the public while gaining competitive advantage through ethical differentiation. The proactive engagement with regulatory development will allow the company to influence standards in a direction that enables continued innovation while addressing legitimate societal concerns [@floridi2019establishing].
+
+The future of technology regulation will require constant adaptation as capabilities evolve and societal expectations shift. By establishing robust internal processes for ethical assessment and regulatory monitoring, FutureX can maintain compliance while continuing to push the boundaries of what's possible with these revolutionary technologies [@jobin2019global].
+
+# References {#sec-references}
+
+::: {#refs}
+:::
+
+<!-- The following references can be added to your references.bib file -->
+
+<!--
+@article{saad2020vision,
+  title={A vision of 6G wireless systems: Applications, trends, technologies, and open research problems},
+  author={Saad, Walid and Bennis, Mehdi and Chen, Mingzhe},
+  journal={IEEE Network},
+  volume={34},
+  number={3},
+  pages={134--142},
+  year={2020},
+  publisher={IEEE}
+}
+
+@article{del2019technical,
+  title={Technical and economic feasibility of the space-based network of LEO constellations for the provision of the IoT and machine-to-machine services},
+  author={Del Portillo, Inigo and Cameron, Bruce G and Crawley, Edward F},
+  journal={Acta Astronautica},
+  volume={159},
+  pages={94--105},
+  year={2019},
+  publisher={Elsevier}
+}
+
+@article{floridi2019establishing,
+  title={Establishing the rules for building trustworthy AI},
+  author={Floridi, Luciano},
+  journal={Nature Machine Intelligence},
+  volume={1},
+  number={6},
+  pages={261--262},
+  year={2019},
+  publisher={Nature Publishing Group}
+}
+
+@article{jobin2019global,
+  title={The global landscape of AI ethics guidelines},
+  author={Jobin, Anna and Ienca, Marcello and Vayena, Effy},
+  journal={Nature Machine Intelligence},
+  volume={1},
+  number={9},
+  pages={389--399},
+  year={2019},
+  publisher={Nature Publishing Group}
+}
+
+@article{maddox2019future,
+  title={The future of healthcare could be in your pocket: How digital diagnostics will transform 21st century medicine},
+  author={Maddox, Thomas M and Rumsfeld, John S and Payne, Philip RO},
+  journal={NPJ Digital Medicine},
+  volume={2},
+  number={1},
+  pages={1--5},
+  year={2019},
+  publisher={Nature Publishing Group}
+}
+
+@article{xu2021digital,
+  title={Digital twin-driven rapid reconfiguration of the automated manufacturing system via an open architecture model},
+  author={Xu, Yang and Zhang, Linqi and Cui, Weitian and Duan, Yanling and Zhang, Huiheng and Jiang, Jianmin and Wu, Zhixing},
+  journal={Robotics and Computer-Integrated Manufacturing},
+  volume={69},
+  pages={102092},
+  year={2021},
+  publisher={Elsevier}
+}
+
+@article{yaqoob2019autonomous,
+  title={Autonomous driving cars in smart cities: Recent advances, requirements, and challenges},
+  author={Yaqoob, Ibrar and Hashem, Ibrahim Abaker Targio and Mehmood, Yasar and Gani, Abdullah and Mokhtar, Salimah and Guizani, Sghaier},
+  journal={IEEE Network},
+  volume={33},
+  number={2},
+  pages={174--181},
+  year={2019},
+  publisher={IEEE}
+}
+
+@article{mora2019strategic,
+  title={Strategic implementation of smart city technology: The case of Catania},
+  author={Mora, Luca and Deakin, Mark and Reid, Alasdair},
+  journal={Group Decision and Negotiation},
+  volume={28},
+  number={5},
+  pages={911--932},
+  year={2019},
+  publisher={Springer}
+}
+
+@article{philip2017enabling,
+  title={Enabling rural coverage: regulatory and policy recommendations to foster mobile broadband coverage in developing countries},
+  author={Philip, N and Goswami, K and others},
+  journal={GSMA},
+  year={2017}
+}
+
+@article{letaief2021edge,
+  title={Edge artificial intelligence for 6G: Vision, enabling technologies, and applications},
+  author={Letaief, Khaled B and Shi, Yuanming and Lu, Jianhua and Lu, Jianwei},
+  journal={IEEE Journal on Selected Areas in Communications},
+  volume={39},
+  number={8},
+  pages={2346--2367},
+  year={2021},
+  publisher={IEEE}
+}
+
+@article{khan2022internet,
+  title={Internet of things: Recent advances, applications and challenges},
+  author={Khan, Rafiullah and Khan, Sarmad Ullah and Khan, Shahrukh and Khan, Muazzam Ali},
+  journal={Sensors},
+  volume={22},
+  number={9},
+  pages={3212},
+  year={2022},
+  publisher={MDPI}
+}
+
+@article{shi2016edge,
+  title={Edge computing: Vision and challenges},
+  author={Shi, Weisong and Cao, Jie and Zhang, Quan and Li, Youhuizi and Xu, Lanyu},
+  journal={IEEE Internet of Things Journal},
+  volume={3},
+  number={5},
+  pages={637--646},
+  year={2016},
+  publisher={IEEE}
+}
+
+@article{mcdonough2020starlink,
+  title={Starlink: Battle for the heavens},
+  author={McDonough, Bryan},
+  journal={IEEE Consumer Electronics Magazine},
+  volume={9},
+  number={6},
+  pages={39--42},
+  year={2020},
+  publisher={IEEE}
+}
+
+@book{meier2023digital,
+  title={Digital humanitarians: How big data is changing the face of humanitarian response},
+  author={Meier, Patrick},
+  year={2023},
+  publisher={Routledge}
+}
+
+@article{ahmed2020role,
+  title={The role of telemedicine in developing countries during COVID-19 pandemic},
+  author={Ahmed, A and Khan, TE and Yasar, Aneeque Ahmed and Shaukat, S and Usman, M},
+  journal={Journal of Health and Technology},
+  volume={10},
+  pages={367--386},
+  year={2020},
+  publisher={Springer}
+}
+
+@article{nikitas2020artificial,
+  title={Artificial intelligence, transport and the smart city: Definitions and dimensions of a new mobility era},
+  author={Nikitas, Alexandros and Michalakopoulou, Kalliopi and Njoya, Eric Tchouamou and Karampatzakis, Dimitris},
+  journal={Sustainability},
+  volume={12},
+  number={7},
+  pages={2789},
+  year={2020},
+  publisher={MDPI}
+}
+
+@article{winfield2019ethical,
+  title={Ethical standards in robotics and AI},
+  author={Winfield, Alan},
+  journal={Nature Electronics},
+  volume={2},
+  number={2},
+  pages={46--48},
+  year={2019},
+  publisher={Nature Publishing Group}
+}
+
+@book{siciliano2022robotics,
+  title={Robotics: Modelling, planning and control},
+  author={Siciliano, Bruno and Sciavicco, Lorenzo and Villani, Luigi and Oriolo, Giuseppe},
+  year={2022},
+  publisher={Springer Nature}
+}
+
+@article{yang2018grand,
+  title={Grand challenges in robotics: Research and development for service, healthcare, and manufacturing applications},
+  author={Yang, Guo-Zheng and Bellingham, J and Dupont, PE and Fischer, P and Floridi, L and Full, R and Jacobstein, N and Kumar, V and McNutt, M and Merrifield, R and others},
+  journal={Science Robotics},
+  volume={3},
+  number={14},
+  year={2018},
+  publisher={American Association for the Advancement of Science}
+}
+
+@article{howard2023addressing,
+  title={Addressing bias in artificial intelligence in health care},
+  author={Howard, Frank M and Dolezal, Jonathan and Kochanny, Sara E and Schulte, Jessica and Chen, Hannah and Heald, Lindsay and Conley, Dalton and Goodrich, Reiker and Bentley-Pechman, Drew and Carrico, Erin and others},
+  journal={JAMA},
+  volume={330},
+  number={9},
+  pages={833--834},
+  year={2023},
+  publisher={American Medical Association}
+}
+
+@article{floridi2018ai,
+  title={AI4People—an ethical framework for a good AI society: opportunities, risks, principles, and recommendations},
+  author={Floridi, Luciano and Cowls, Josh and Beltrametti, Monica and Chatila, Raja and Chazerand, Patrice and Dignum, Virginia and Luetge, Christoph and Madelin, Robert and Pagallo, Ugo and Rossi, Francesca and others},
+  journal={Minds and Machines},
+  volume={28},
+  number={4},
+  pages={689--707},
+  year={2018},
+  publisher={Springer}
+}
+
+@book{pagallo2022robots,
+  title={Robots, laws and the protection of fundamental rights: Ethics and legal issues},
+  author={Pagallo, Ugo},
+  year={2022},
+  publisher={Springer Nature}
+}
+
+@article{matthias2021robot,
+  title={Robot rights? Let's talk about human welfare instead},
+  author={Matthias, Andreas},
+  journal={Ethics and Information Technology},
+  volume={23},
+  number={3},
+  pages={283--296},
+  year={2021},
+  publisher={Springer}
+}
+
+@article{acemoglu2020robots,
+  title={Robots and jobs: Evidence from US labor markets},
+  author={Acemoglu, Daron and Restrepo, Pascual},
+  journal={Journal of Political Economy},
+  volume={128},
+  number={6},
+  pages={2188--2244},
+  year={2020},
+  publisher={University of Chicago Press Chicago, IL}
+}
+
+@article{zawacki2019automation,
+  title={Automation and artificial intelligence: How machines are affecting people and places},
+  author={Zawacki-Richter, Olaf and Marín, Victoria I and Bond, Melissa and Gouverneur, Franziska},
+  journal={International Review of Research in Open and Distributed Learning},
+  volume={20},
+  number={2},
+  year={2019}
+}
+
+@article{de2021social,
+  title={Social robots in advanced dementia},
+  author={De Santis, Angiola and Troncone, Alda and Cotugno, Alessio and Gigliotta, Onofrio and Cordasco, Gennaro and Zollo, Loredana},
+  journal={Frontiers in Robotics and AI},
+  volume={8},
+  pages={22},
+  year={2021},
+  publisher={Frontiers Media SA}
+}
+
+@article{van2020digital,
+  title={Digital inequalities in the internet of things: differences in attitudes, material access, skills, and usage},
+  author={Van Deursen, Alexander JAM and Mossberger, Karen},
+  journal={Information, Communication \& Society},
+  volume={23},
+  number={8},
+  pages={1193--1211},
+  year={2020},
+  publisher={Taylor \& Francis}
+}
+
+@article{tilley2020economic,
+  title={Economic viability of industrial robots and the implications of shifting cost structures},
+  author={Tilley, J},
+  journal={Technological Forecasting and Social Change},
+  volume={153},
+  pages={119784},
+  year={2020},
+  publisher={Elsevier}
+}
+
+@article{dremliuga2019legal,
+  title={Legal aspects of civil liability for the damage caused by robots},
+  author={Dremliuga, Roman I and Kuznetcov, Pavel A},
+  journal={Journal of Politics and Law},
+  volume={12},
+  pages={106},
+  year={2019},
+  publisher={Canadian Center of Science and Education}
+}
+
+@book{marr2021business,
+  title={Business strategies for the next-generation network},
+  author={Marr, Bernard},
+  year={2021},
+  publisher={John Wiley \& Sons}
+}
+
+@article{winfield2021turning,
+  title={Turning principles into practice: The 2021 toward trustworthy AI standard},
+  author={Winfield, Alan F and Booth, S and Dennis, LA and Egawa, T and Hastie, H and Jacobs, N and Muttram, RI and Olszewska, JI and Rajabiyazdi, F and Theodorou, A and others},
+  journal={Computer},
+  volume={54},
+  number={10},
+  pages={70--80},
+  year={2021},
+  publisher={IEEE}
+}
+
+@article{mittelstadt2019principles,
+  title={Principles alone cannot guarantee ethical AI},
+  author={Mittelstadt, Brent},
+  journal={Nature Machine Intelligence},
+  volume={1},
+  number={11},
+  pages={501--507},
+  year={2019},
+  publisher={Nature Publishing Group}
+}
+
+@article{cath2018artificial,
+  title={Artificial intelligence and the 'good society': the US, EU, and UK approach},
+  author={Cath, Corinne and Wachter, Sandra and Mittelstadt, Brent and Taddeo, Mariarosaria and Floridi, Luciano},
+  journal={Science and Engineering Ethics},
+  volume={24},
+  number={2},
+  pages={505--528},
+  year={2018},
+  publisher={Springer}
+}
+
+@article{gunning2019xai,
+  title={XAI—Explainable artificial intelligence},
+  author={Gunning, David and Aha, David W},
+  journal={AI Magazine},
+  volume={40},
+  number={2},
+  pages={44--56},
+  year={2019},
+  publisher={IEEE}
+}
+
+@article{voigt2017eu,
+  title={The EU general data protection regulation (GDPR)},
+  author={Voigt, Paul and Von dem Bussche, Axel},
+  journal={A Practical Guide, 1st Ed., Cham: Springer International Publishing},
+  year={2017}
+}
+
+@article{doshi2017accountability,
+  title={Accountability of AI under the law: The role of explanation},
+  author={Doshi-Velez, Finale and Kortz, Mason},
+  journal={arXiv preprint arXiv:1711.01134},
+  year={2017}
+}
+
+@article{gasser2017layered,
+  title={Layered model for AI governance},
+  author={Gasser, Urs and Almeida, Virgilio AF},
+  journal={IEEE Internet Computing},
+  volume={21},
+  number={6},
+  pages={58--62},
+  year={2017},
+  publisher={IEEE}
+}
+
+@article{dignum2018ethics,
+  title={Ethics in artificial intelligence: introduction to the special issue},
+  author={Dignum, Virginia},
+  journal={Ethics and Information Technology},
+  volume={20},
+  number={1},
+  pages={1--3},
+  year={2018},
+  publisher={Springer}
+}
+
+@book{world2021artificial,
+  title={Artificial intelligence ethics framework for the intelligence community},
+  author={World Economic Forum},
+  year={2021},
+  publisher={World Economic Forum}
+}
+
+@book{crawford2021atlas,
+  title={Atlas of AI: Power, politics, and the planetary costs of artificial intelligence},
+  author={Crawford, Kate},
+  year={2021},
+  publisher={Yale University Press}
+}
+-->
