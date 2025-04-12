@@ -188,7 +188,6 @@ The governance of AI and emerging technologies requires a multi-faceted approach
 #| fig-align: "center"
 
 library(ggplot2)
-library(ggtext)
 
 # Create data for a simple diagram
 df <- data.frame(
