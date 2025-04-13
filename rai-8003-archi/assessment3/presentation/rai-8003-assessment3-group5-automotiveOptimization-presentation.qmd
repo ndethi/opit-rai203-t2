@@ -12,15 +12,15 @@ format:
 
 ```{r setup, include=FALSE}
 # Load all required libraries
-library(ggplot2)
-library(dplyr)
-library(tidyr)
-library(ggtext)
-library(gridExtra)
-library(igraph)
-library(ggraph)
-library(DiagrammeR)
-library(ggwordcloud)
+library(ggplot2)    # Essential - used in multiple plots
+library(dplyr)      # Essential - used for data manipulation
+library(tidyr)      # Essential - used for pivot_longer
+#library(ggtext)    # Already commented out
+#library(gridExtra) # Not clearly used, comment out
+#library(igraph)    # Used in the AI applications slide - replaced
+#library(ggraph)    # Used with igraph - replaced
+#library(DiagrammeR) # Used for the PoC diagram - replaced
+#library(ggwordcloud) # Replace with basic ggplot visualization
 
 # Set default knitr options
 knitr::opts_chunk$set(
@@ -256,15 +256,9 @@ ggplot(hardware, aes(x = metric, y = score, fill = architecture)) +
 ## AI Applications in Automotive Manufacturing
 
 ```{r ai-applications}
-library(igraph)
-library(ggraph)
-
-# Create a graph structure for the AI applications
-set.seed(42)
-
-# Create nodes dataframe
-nodes <- data.frame(
-  id = 1:12,
+# Simplified visualization to replace igraph/ggraph
+# Create a simpler bubble chart instead of a network graph
+ai_apps <- data.frame(
   name = c(
     "Predictive Maintenance", "Driver Assistance", "Voice Control",
     "Quality Inspection", "Robotics", "Safety Monitoring",
@@ -277,28 +271,14 @@ nodes <- data.frame(
     rep("Enterprise", 3),
     rep("Design", 3)
   ),
-  size = c(
-    20, 18, 15,
-    25, 20, 15,
-    18, 15, 15,
-    20, 18, 15
-  )
+  importance = c(20, 18, 15, 25, 20, 15, 18, 15, 15, 20, 18, 15),
+  x = c(1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3),
+  y = c(4, 4, 4, 3, 3, 3, 2, 2, 2, 1, 1, 1)
 )
 
-# Define some connections between nodes
-edges <- data.frame(
-  from = c(1, 1, 4, 4, 7, 7, 10, 10, 3, 9),
-  to = c(4, 2, 5, 6, 8, 9, 11, 12, 6, 12)
-)
-
-# Create a graph object
-graph <- graph_from_data_frame(edges, directed = FALSE, vertices = nodes)
-
-# Plot the graph
-ggraph(graph, layout = "fr") +
-  geom_edge_link(alpha = 0.4, width = 0.8) +
-  geom_node_point(aes(size = size, color = category), alpha = 0.9) +
-  geom_node_text(aes(label = name), repel = TRUE, size = 3) +
+ggplot(ai_apps, aes(x = x, y = y, size = importance, color = category)) +
+  geom_point(alpha = 0.7) +
+  geom_text(aes(label = name), size = 3, vjust = -1.5) +
   scale_color_manual(values = c(
     "In-Vehicle" = "#4287f5",
     "Factory Floor" = "#f5a742",
@@ -308,7 +288,7 @@ ggraph(graph, layout = "fr") +
   scale_size_continuous(range = c(5, 15)) +
   labs(
     title = "AI Applications Across the Value Chain",
-    subtitle = "Connected Use Cases in Automotive Manufacturing"
+    subtitle = "Key Use Cases by Category"
   ) +
   theme_void() +
   theme(
@@ -332,7 +312,7 @@ ggraph(graph, layout = "fr") +
 - Enterprise applications optimize supply chain and operations
 - Design applications accelerate product development
 - Each application domain has different computing requirements
-- The network diagram shows interconnections between these applications
+- The bubble chart shows key use cases by category
 :::
 
 ## Proposed Hybrid Cloud-Edge Architecture
@@ -427,52 +407,23 @@ compute_data <- data.frame(
 compute_long <- compute_data %>%
   tidyr::pivot_longer(cols = c(cloud, edge), names_to = "location", values_to = "score")
 
-# Radar chart data preparation
-compute_long <- compute_long %>%
-  group_by(location) %>%
-  mutate(id = row_number()) %>%
-  ungroup()
-
-# Add first point to close the polygon
-compute_long_closed <- compute_long %>%
-  group_by(location) %>%
-  slice(c(1:n(), 1)) %>%
-  ungroup()
-
-# Calculate coordinates for radar chart
-n_metrics <- length(unique(compute_data$metric))
-compute_long_closed <- compute_long_closed %>%
-  mutate(
-    angle = 2 * pi * (id - 1) / n_metrics,
-    x = score * sin(angle),
-    y = score * cos(angle)
-  )
-
-# Plot
-ggplot(compute_long_closed, aes(x = x, y = y, group = location, color = location)) +
-  geom_path(size = 1.5) +
-  geom_point(size = 3) +
-  scale_color_manual(values = c("cloud" = "#4287f5", "edge" = "#42f584")) +
-  coord_fixed() +
-  theme_void() +
-  # Add metric labels
-  geom_text(
-    data = compute_long_closed %>% filter(location == "cloud", id <= n_metrics),
-    aes(label = metric, x = 1.2 * 10 * sin(angle), y = 1.2 * 10 * cos(angle)),
-    fontface = "bold",
-    hjust = ifelse(sin(compute_long_closed$angle[1:n_metrics]) > 0, 0, 1),
-    vjust = ifelse(cos(compute_long_closed$angle[1:n_metrics]) > 0, 0, 1)
-  ) +
+# Create a simple bar chart instead of radar chart
+ggplot(compute_long, aes(x = metric, y = score, fill = location)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_manual(values = c("cloud" = "#4287f5", "edge" = "#42f584")) +
   labs(
     title = "Cloud vs. Edge Capabilities",
     subtitle = "Performance Metrics (1-10 Scale)",
-    color = "Computing Location"
+    y = "Score (1-10)",
+    x = NULL,
+    fill = "Computing Location"
   ) +
+  theme_minimal() +
   theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
     plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
     plot.subtitle = element_text(hjust = 0.5, size = 12),
-    legend.position = "bottom",
-    legend.title = element_text(size = 10)
+    legend.position = "bottom"
   )
 ```
 
@@ -496,7 +447,7 @@ ggplot(compute_long_closed, aes(x = x, y = y, group = location, color = location
 ::: {.notes}
 - Cloud computing excels at processing power, storage, and scalability
 - Edge computing provides low latency and better energy efficiency
-- Radar chart shows the complementary nature of these paradigms
+- Bar chart shows the complementary nature of these paradigms
 - Workloads should be strategically placed based on requirements
 - Real-time applications belong at the edge to minimize latency
 - Resource-intensive training belongs in the cloud for scalability
@@ -506,46 +457,59 @@ ggplot(compute_long_closed, aes(x = x, y = y, group = location, color = location
 ## Proof of Concept Implementation
 
 ```{r poc-diagram, fig.height=6}
-# Create a graphviz diagram for the PoC
-grViz("
-  digraph poc {
-    graph [rankdir = LR, overlap = false, fontsize = 10, fontname = 'Arial']
-    
-    # Nodes
-    node [shape = box, style = filled, fontname = 'Arial', fontsize = 10]
-    
-    Camera [label = 'Industrial\\nCamera', fillcolor = lightgrey]
-    Jetson [label = 'NVIDIA Jetson\\nXavier NX', fillcolor = '#42f584']
-    CloudTraining [label = 'AWS SageMaker\\nModel Training', fillcolor = '#4287f5']
-    CloudStorage [label = 'AWS S3\\nDefect Storage', fillcolor = '#4287f5']
-    CloudAnalytics [label = 'AWS QuickSight\\nAnalytics', fillcolor = '#4287f5']
-    Alert [label = 'Alert\\nSystem', fillcolor = lightgrey]
-    
-    # Edges
-    edge [color = gray50]
-    Camera -> Jetson [label = ' Image Feed']
-    Jetson -> Alert [label = ' Defect\\n Detection']
-    Jetson -> CloudStorage [label = ' Defect\\n Metadata']
-    CloudStorage -> CloudAnalytics [label = ' Analytics']
-    CloudTraining -> Jetson [label = ' Model\\n Updates']
-    CloudStorage -> CloudTraining [label = ' Training\\n Data']
-    
-    # Subgraphs
-    subgraph cluster_edge {
-      label = 'Edge Environment'
-      style = dashed
-      color = '#42f584'
-      Camera Jetson Alert
-    }
-    
-    subgraph cluster_cloud {
-      label = 'Cloud Environment'
-      style = dashed
-      color = '#4287f5'
-      CloudTraining CloudStorage CloudAnalytics
-    }
-  }
-")
+# Simplified diagram to replace DiagrammeR
+# Create manual node positions for the diagram
+nodes <- data.frame(
+  name = c("Camera", "Jetson", "Alert", "CloudTraining", "CloudStorage", "CloudAnalytics"),
+  label = c("Industrial\nCamera", "NVIDIA Jetson\nXavier NX", "Alert\nSystem", 
+            "AWS SageMaker\nModel Training", "AWS S3\nDefect Storage", "AWS QuickSight\nAnalytics"),
+  x = c(1, 2, 3, 5, 5, 5),
+  y = c(2, 2, 2, 3, 2, 1),
+  type = c("Edge", "Edge", "Edge", "Cloud", "Cloud", "Cloud")
+)
+
+# Define edges/connections
+edges <- data.frame(
+  from = c("Camera", "Jetson", "Jetson", "CloudStorage", "CloudTraining", "CloudStorage"),
+  to = c("Jetson", "Alert", "CloudStorage", "CloudAnalytics", "Jetson", "CloudTraining"),
+  label = c("Image Feed", "Defect\nDetection", "Defect\nMetadata", 
+            "Analytics", "Model\nUpdates", "Training\nData"),
+  x = c(1.5, 2.5, 3.5, 5, 3.5, 5),
+  y = c(2.2, 2.2, 2.5, 1.5, 2.8, 2.5)
+)
+
+# Plot
+ggplot() +
+  # Add edges as arrows
+  geom_segment(data = edges, 
+               aes(x = nodes$x[match(from, nodes$name)], 
+                   y = nodes$y[match(from, nodes$name)],
+                   xend = nodes$x[match(to, nodes$name)], 
+                   yend = nodes$y[match(to, nodes$name)]),
+               arrow = arrow(length = unit(0.2, "cm")),
+               color = "darkgrey", size = 1) +
+  # Add edge labels
+  geom_text(data = edges, aes(x = x, y = y, label = label), size = 3) +
+  # Add node shapes  
+  geom_point(data = nodes, aes(x = x, y = y, color = type), size = 18) +
+  # Add node labels
+  geom_text(data = nodes, aes(x = x, y = y, label = label), size = 3, fontface = "bold") +
+  # Add rectangle outlines for groups
+  annotate("rect", xmin = 0.5, xmax = 3.5, ymin = 0.5, ymax = 3.5, 
+           color = "#42f584", fill = NA, linetype = "dashed") +
+  annotate("rect", xmin = 4.5, xmax = 5.5, ymin = 0.5, ymax = 3.5, 
+           color = "#4287f5", fill = NA, linetype = "dashed") +
+  # Add group labels
+  annotate("text", x = 2, y = 3.2, label = "Edge Environment", 
+           color = "#42f584", fontface = "bold") +
+  annotate("text", x = 5, y = 3.2, label = "Cloud Environment", 
+           color = "#4287f5", fontface = "bold") +
+  # Styling
+  scale_color_manual(values = c("Edge" = "#42f584", "Cloud" = "#4287f5")) +
+  theme_void() +
+  theme(legend.position = "none") +
+  labs(title = "Quality Inspection PoC Architecture") +
+  coord_fixed()
 ```
 
 **Quality Inspection Use Case**:
@@ -1103,9 +1067,7 @@ team_contact@email.com
 **We welcome your questions and feedback on our proposed approach.**
 
 ```{r wordcloud, message=FALSE, warning=FALSE}
-library(ggwordcloud)
-
-# Create a word cloud-like visualization for key terms
+# Replace wordcloud with a simple horizontal bar chart of key terms
 key_terms <- data.frame(
   term = c("Hybrid Architecture", "Edge Computing", "Cloud Training", 
            "GPUs", "TPUs", "Real-time Inference", 
@@ -1114,13 +1076,20 @@ key_terms <- data.frame(
   freq = c(20, 18, 15, 12, 10, 17, 16, 14, 13, 11, 19, 9)
 )
 
-set.seed(42)
-ggplot(key_terms, aes(label = term, size = freq, color = freq)) +
-  geom_text_wordcloud(rm_outside = TRUE) +
-  scale_size_area(max_size = 12) +
-  scale_color_gradient(low = "#4287f5", high = "#f542cb") +
+# Create a horizontal bar chart
+ggplot(key_terms, aes(x = reorder(term, freq), y = freq, fill = freq)) +
+  geom_bar(stat = "identity", width = 0.7) +
+  coord_flip() +
+  scale_fill_gradient(low = "#4287f5", high = "#f542cb", guide = "none") +
+  labs(
+    title = "Key Concepts in Our Solution",
+    x = NULL,
+    y = NULL
+  ) +
   theme_minimal() +
   theme(
+    axis.text.y = element_text(size = 12, face = "bold"),
+    axis.text.x = element_blank(),
     plot.title = element_text(size = 14, face = "bold", hjust = 0.5)
   )
 ```
